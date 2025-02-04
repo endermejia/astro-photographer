@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /assets/img/
 Disallow: /cdn-cgi/l/email-protection
 
-Sitemap: https://mh-photography.com/sitemap-index.xml
+Sitemap: https://nhoa-noir.es/sitemap-index.xml

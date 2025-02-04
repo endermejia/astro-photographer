@@ -3,24 +3,17 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Navigation from '../components/Navigation.astro';
 import Photos from '../components/Photos.astro';
-import Videos from '../components/Videos.astro';
-import Weddings from '../components/Weddings.astro';
 import About from '../components/About.astro';
 import Footer from '../components/Footer.astro';
 import Contact from '../components/Contact.astro';
 
-export function getStaticPaths () {
- return [
-    {params: {lang: 'de'}},
-    {params: {lang: 'en'}},
-    {params: {lang: 'es'}},
-    {params: {lang: 'fr'}},
-    {params: {lang: undefined}},
-  ];
+export function getStaticPaths() {
+	return [
+		{ params: { lang: 'es' } },
+		{ params: { lang: 'en' } },
+		{ params: { lang: undefined } }
+	];
 }
-
-const { lang } = Astro.params;
-
 ---
 
 <Layout>
@@ -28,10 +21,11 @@ const { lang } = Astro.params;
 	<Navigation />
 </Layout>
 <main id="main">
-	<About />
 	<Photos />
-  <Videos />
-  <Weddings />
+	<About />
 	<Contact />
 </main>
-<footer id="footer"><Footer /> <Navigation /></footer>
+<footer id="footer">
+	<Footer />
+	<Navigation />
+</footer>

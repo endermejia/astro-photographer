@@ -8,44 +8,33 @@ import { getLangFromUrl, getRouteFromStaticPath, useTranslations, useTranslatedP
 
 export function getStaticPaths() {
 	return [
-		{ params: { album: 'albums/business' } },
-		{ params: { album: 'albums/families' } },
-		{ params: { album: 'albums/people' } },
-		{ params: { album: 'albums/travel' } },
-		{ params: { album: 'albums/weddings' } },
-		{ params: { album: 'de/alben/business' } },
-		{ params: { album: 'de/alben/familien' } },
-		{ params: { album: 'de/alben/menschen' } },
-		{ params: { album: 'de/alben/reisen' } },
-		{ params: { album: 'de/alben/hochzeiten' } },
-		{ params: { album: 'es/albumes/negocios' } },
-		{ params: { album: 'es/albumes/familias' } },
-		{ params: { album: 'es/albumes/personas' } },
-		{ params: { album: 'es/albumes/viajes' } },
-		{ params: { album: 'es/albumes/bodas' } },		
-		{ params: { album: 'fr/albums/business' } },
-		{ params: { album: 'fr/albums/familles' } },
-		{ params: { album: 'fr/albums/people' } },
-		{ params: { album: 'fr/albums/voyages' } },
-		{ params: { album: 'fr/albums/mariages' } }
+		{ params: { album: 'en/albums/climbing' } },
+		{ params: { album: 'en/albums/people' } },
+		{ params: { album: 'en/albums/events' } },
+		{ params: { album: 'en/albums/business' } },
+		{ params: { album: 'en/albums/travel' } },
+		{ params: { album: 'albumes/escalada' } },
+		{ params: { album: 'albumes/personas' } },
+		{ params: { album: 'albumes/eventos' } },
+		{ params: { album: 'albumes/negocios' } },
+		{ params: { album: 'albumes/viajes' } }
 	];
 }
 
 const albums = {
-		albumsbusiness: 'business',
-		albumsfamilies: 'families',
-		albumspeople: 'people',
-		albumstravel: 'travel',
-		albumsweddings: 'weddings'
-	};
+	albumsclimbing: 'climbing',
+	albumspeople: 'people',
+	albumsevents: 'events',
+	albumsbusiness: 'business',
+	albumstravel: 'travel'
+};
 
 const { album } = Astro.params;
 const route = getRouteFromStaticPath(Astro.url, album);
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const albumName = albums[route];
+const albumName: 'climbing' | 'people' | 'events' | 'business' | 'travel' = albums[route];
 ---
-
 
 <Layout title={t(`photos.${albumName}`)}>
 	<Navigation path="/" />
@@ -54,6 +43,9 @@ const albumName = albums[route];
 <main id="main" class="album">
 	<Album album={albumName} />
 </main>
-<footer id="footer"><Footer /> <Navigation /></footer>
+<footer id="footer">
+	<Footer />
+	<Navigation />
+</footer>
 
 <script src="../scripts/album.js"></script>

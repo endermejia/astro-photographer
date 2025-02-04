@@ -4,20 +4,18 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://mh-photography.com',
+	site: 'https://nhoa-noir.es',
 	integrations: [
 		sitemap({
 			i18n: {
-				defaultLocale: 'en', // All urls that don't contain `es` or `fr` after `https://stargazers.club/` will be treated as default locale, i.e. `en`
+				defaultLocale: 'es',
 				locales: {
-					de: 'de',
-					en: 'en', // The `defaultLocale` value must present in `locales` keys
-					es: 'es',
-					fr: 'fr'
+					en: 'en',
+					es: 'es'
 				}
 			},
 			filter: (url) => {
-				return !url.startsWith('https://mh-photography.com/en/');
+				return !url.startsWith('https://nhoa-noir.es/es/');
 			}
 		})
 	]

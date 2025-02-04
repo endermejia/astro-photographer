@@ -4,69 +4,66 @@ import { getLangFromUrl, getRouteFromUrl, useTranslations, useTranslatedPath } f
 interface Props {
 	path?: string;
 }
-
-const { path } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 const route = getRouteFromUrl(Astro.url);
 ---
 
-
 <section id="photos">
 	<h2 class="screen-reader-text">{t('photos.title')}</h2>
-	<a href={translatePath(`/${route ? route : 'albums/weddings'}`, lang)} class="primary">
-		<h3>{t('photos.weddings')}</h3>
+	<a href={translatePath(`/${route ? route : 'albums/climbing'}`, lang)} class="primary">
+		<h3>{t('photos.climbing')}</h3>
 		<picture>
 			<source
-				srcset="/assets/img/albums/weddings-400.avif 400w, /assets/img/albums/weddings-1920.avif"
+				srcset="/assets/img/albums/climbing-400.avif 400w, /assets/img/albums/climbing-1920.avif"
 				type="image/avif"
 			/>
 			<source
-				srcset="/assets/img/albums/weddings-400.webp 400w, /assets/img/albums/weddings-1920.webp"
+				srcset="/assets/img/albums/climbing-400.webp 400w, /assets/img/albums/climbing-1920.webp"
 				type="image/webp"
 			/>
 			<source
-				srcset="/assets/img/albums/weddings-400.jpg 400w, /assets/img/albums/weddings-1920.jpg"
+				srcset="/assets/img/albums/climbing-400.jpg 400w, /assets/img/albums/climbing-1920.jpg"
 				type="image/jpg"
 			/>
-			<img src="/assets/img/albums/weddings-400.jpg" width="6240" height="4160" loading="lazy" alt="" />
+			<img src="/assets/img/albums/climbing-400.jpg" width="6240" height="4160" loading="lazy" alt="" />
 		</picture>
 	</a>
 	<a href={translatePath(`/${route ? route : 'albums/people'}`, lang)} class="primary">
 		<h3>{t('photos.people')}</h3>
 		<picture>
 			<source
-				srcset="/assets/img/albums/people-and-lifestyle-400.avif 400w, /assets/img/albums/people-and-lifestyle-1920.avif"
+				srcset="/assets/img/albums/people-400.avif 400w, /assets/img/albums/people-1920.avif"
 				type="image/avif"
 			/>
 			<source
-				srcset="/assets/img/albums/people-and-lifestyle-400.webp 400w, /assets/img/albums/people-and-lifestyle-1920.webp"
+				srcset="/assets/img/albums/people-400.webp 400w, /assets/img/albums/people-1920.webp"
 				type="image/webp"
 			/>
 			<source
-				srcset="/assets/img/albums/people-and-lifestyle-400.jpg 400w, /assets/img/albums/people-and-lifestyle-1920.jpg"
+				srcset="/assets/img/albums/people-400.jpg 400w, /assets/img/albums/people-1920.jpg"
 				type="image/jpg"
 			/>
-			<img src="/assets/img/albums/people-and-lifestyle-400.jpg" width="4850" height="3233" loading="lazy" alt="" />
+			<img src="/assets/img/albums/people-400.jpg" width="4850" height="3233" loading="lazy" alt="" />
 		</picture>
 	</a>
-	<a href={translatePath(`/${route ? route : 'albums/families'}`, lang)}>
-		<h3>{t('photos.families')}</h3>
+	<a href={translatePath(`/${route ? route : 'albums/events'}`, lang)}>
+		<h3>{t('photos.events')}</h3>
 		<picture>
 			<source
-				srcset="/assets/img/albums/families-and-kids-400.avif 400w, /assets/img/albums/families-and-kids-1920.avif"
+				srcset="/assets/img/albums/events-400.avif 400w, /assets/img/albums/events-1920.avif"
 				type="image/avif"
 			/>
 			<source
-				srcset="/assets/img/albums/families-and-kids-400.webp 400w, /assets/img/albums/families-and-kids-1920.webp"
+				srcset="/assets/img/albums/events-400.webp 400w, /assets/img/albums/events-1920.webp"
 				type="image/webp"
 			/>
 			<source
-				srcset="/assets/img/albums/families-and-kids-400.jpg 400w, /assets/img/albums/families-and-kids-1920.jpg"
+				srcset="/assets/img/albums/events-400.jpg 400w, /assets/img/albums/events-1920.jpg"
 				type="image/jpg"
 			/>
-			<img src="/assets/img/albums/families-and-kids-400.jpg" width="5249" height="3499" loading="lazy" alt="" />
+			<img src="/assets/img/albums/events-400.jpg" width="5249" height="3499" loading="lazy" alt="" />
 		</picture>
 	</a>
 	<a href={translatePath(`/${route ? route : 'albums/business'}`, lang)}>

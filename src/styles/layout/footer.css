@@ -25,7 +25,25 @@
 	}
 	& > .logo {
 		grid-area: logo;
-		inline-size: 10rem;
+
+		& > .logo-container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			margin-block: var(--spacing-l);
+
+			& > .logo-title {
+				font-family: var(--font-family-header-title);
+				font-size: var(--font-size-header-xl);
+				font-weight: var(--font-weight-normal);
+				border-block-end: 1px solid;
+			}
+			& > .logo-subtitle {
+				font-family: var(--font-family-header-subtitle);
+				font-size: var(--font-size-header-s);
+			}
+		}
 	}
 	& > .version {
 		grid-area: version;
@@ -41,6 +59,7 @@
 	}
 	& > nav {
 		grid-area: navigation;
+		z-index: unset;
 	}
 	& > .lang-selector {
 		grid-area: lang;
@@ -55,8 +74,9 @@
 		place-items: end center;
 
 		& > .logo {
-			inline-size: 20em;
-			margin-block-end: -2rem; /* Align the logo with the text */
+			& > .logo-container {
+				margin-block: var(--spacing-m);
+			}
 		}
 		& > :is(nav, .version) {
 			justify-self: end;

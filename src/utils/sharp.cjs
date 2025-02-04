@@ -52,8 +52,8 @@ function* getFiles(dir) {
 					.withMetadata({
 						exif: {
 							IFD0: {
-								XPAuthor: 'Manuel Hamel',
-								Copyright: 'Manuel Hamel Photography'
+								XPAuthor: 'Nhoa Noir',
+								Copyright: 'Nhoa Noir | Photography'
 							}
 						}
 					})

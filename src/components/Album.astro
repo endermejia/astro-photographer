@@ -1,7 +1,6 @@
 ---
 import { photos } from '../utils/photos.mjs';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
-import {ui} from '../i18n/ui';
 
 interface Props {
 	album: string;
@@ -39,7 +38,6 @@ const t = useTranslations(lang);
 	>
 </dialog>
 
-<!-- <h1>{`${t('header.' + album)}`}</h1> -->
 <h1>{t(`photos.${album}`)}</h1>
 {
 	pics?.map((pic) => (

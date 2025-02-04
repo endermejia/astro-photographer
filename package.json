@@ -1,22 +1,16 @@
 {
-	"name": "mh-photography.com",
+	"name": "nhoa-noir.es",
 	"type": "module",
-	"version": "2.7.5",
-	"license": "LICENSE",
+	"version": "1.0.0",
 	"private": true,
-	"description": "MH Photography",
+	"description": "Nhoa Noir | Photography",
 	"keywords": [
 		"website",
 		"photography",
 		"personal-website",
 		"portfolio-website"
 	],
-	"issues": "https://github.com/MH-Photo/website/issues",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/MH-Photo/website.git"
-	},
-	"homepage": "https://mh-photography.com",
+	"homepage": "https://nhoa-noir.es",
 	"engines": {
 		"node": ">=16.0.0",
 		"npm": ">=8.0.0"
@@ -77,16 +71,13 @@
 		"lint:style:fix": "prettier --write --ignore-unknown .",
 		"hint": "wait-on -t 300000 http://localhost:4321/ && hint http://localhost:4321/",
 		"test": "concurrently 'npm:test:*'",
-		"test:hint": "concurrently \"npm:start:prod\" \"npm:hint\" --kill-others  --s first",
-		"release": "semantic-release",
-		"prepare": "husky",
-		"git:pre-commit": "lint-staged",
-		"git:pre-push": "npm run build && npm run test"
+		"test:hint": "concurrently \"npm:start:prod\" \"npm:hint\" --kill-others  --s first"
 	},
 	"dependencies": {
 		"@astrojs/sitemap": "^3.2.1",
-		"@fontsource/caveat": "^5.1.1",
-		"@fontsource/gfs-didot": "^5.1.1",
+		"@fontsource/cinzel": "^5.1.1",
+		"@fontsource/playfair-display": "^5.1.1",
+		"@fontsource/raleway": "^5.1.1",
 		"@fontsource/titillium-web": "^5.1.1",
 		"astro": "^5.2.1"
 	}

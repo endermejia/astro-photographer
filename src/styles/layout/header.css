@@ -22,8 +22,24 @@
 		background: var(--color-bg-onpicture);
 		color: var(--color-onpicture);
 
-		& > svg {
-			inline-size: min(80vw, 40rem);
+		& > .logo-container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			margin-block-start: var(--spacing-m);
+			margin-block-end: var(--spacing-s);
+
+			& > .logo-title {
+				font-family: var(--font-family-header-title);
+				font-size: var(--font-size-header-xxl);
+				font-weight: var(--font-weight-normal);
+				border-block-end: 1px solid;
+			}
+			& > .logo-subtitle {
+				font-family: var(--font-family-header-subtitle);
+				font-size: var(--font-size-header-m);
+			}
 		}
 	}
 	& > .title {
