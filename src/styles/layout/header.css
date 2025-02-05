@@ -102,9 +102,20 @@
 			block-size: 100%;
 			inline-size: 100%;
 			object-fit: cover;
-			object-position: top;
 		}
 	}
+}
+
+.object-top {
+	object-position: top;
+}
+
+.object-center {
+	object-position: center;
+}
+
+.object-bottom {
+	object-position: bottom;
 }
 
 #pause-hero-carousel:checked {
