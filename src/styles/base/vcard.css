@@ -30,6 +30,8 @@
 	}
 	& > .email {
 		grid-area: email;
+		overflow: hidden;
+		word-wrap: break-word;
 	}
 	& > .url {
 		grid-area: url;
