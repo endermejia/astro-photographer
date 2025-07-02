@@ -92,7 +92,7 @@
 
 :is(#previous-photo, #next-photo) {
 	inline-size: calc(var(--buttons-size) * 2);
-	opacity: 0.1;
+	opacity: 0.5;
 	inset-block: 0;
 
 	&:is(:hover, :focus) {
