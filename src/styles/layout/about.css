@@ -50,6 +50,10 @@
 	& .subtitle {
 		grid-area: subtitle;
 		align-self: end;
+
+		& small {
+			font-size: var(--font-size-m);
+		}
 	}
 	& .button {
 		grid-area: button;
