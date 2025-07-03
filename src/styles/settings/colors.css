@@ -28,7 +28,7 @@
 	--color-black: oklch(0% 0 0);
 
 	/**
-	 * Light mode
+	 * Light mode (default)
 	 */
 	--color-accent: var(--color-accent-700);
 	--color-bg: var(--color-accent-50);
@@ -48,6 +48,52 @@
 	--color-shadow: oklch(15% 0.01 46 / 0.3);
 	--color-picture-border: var(--color-white);
 	--color-text-on-picture-border: var(--color-black);
+
+	/**
+	 * Dark mode
+	 */
+	@media (prefers-color-scheme: dark) {
+		--color-accent: var(--color-accent-300);
+		--color-bg: var(--color-accent-900);
+		--color-bg-secondary: var(--color-accent-800);
+		--color-text: var(--color-accent-100);
+		--color-text-secondary: var(--color-accent-200);
+		--color-button-bg: var(--color-accent-300);
+		--color-button-bg--hover: var(--color-accent-400);
+		--color-button-bg--active: var(--color-accent-200);
+		--color-button-text: var(--color-accent-900);
+		--color-button-text--hover: var(--color-accent-900);
+		--color-button-text--active: var(--color-accent-900);
+		--color-onpicture: var(--color-grey-50);
+		--color-bg-onpicture: oklch(15% 0.01 46 / 0.4);
+		--color-overlay: oklch(15% 0.01 46 / 0.7);
+		--color-overlay-fallback: oklch(15% 0.01 46 / 0.9);
+		--color-shadow: oklch(0% 0 0 / 0.5);
+		--color-picture-border: var(--color-accent-800);
+		--color-text-on-picture-border: var(--color-accent-100);
+	}
+
+	/* Class-based theme switching */
+	&.dark-theme {
+		--color-accent: var(--color-accent-300);
+		--color-bg: var(--color-accent-900);
+		--color-bg-secondary: var(--color-accent-800);
+		--color-text: var(--color-accent-100);
+		--color-text-secondary: var(--color-accent-200);
+		--color-button-bg: var(--color-accent-300);
+		--color-button-bg--hover: var(--color-accent-400);
+		--color-button-bg--active: var(--color-accent-200);
+		--color-button-text: var(--color-accent-900);
+		--color-button-text--hover: var(--color-accent-900);
+		--color-button-text--active: var(--color-accent-900);
+		--color-onpicture: var(--color-grey-50);
+		--color-bg-onpicture: oklch(15% 0.01 46 / 0.4);
+		--color-overlay: oklch(15% 0.01 46 / 0.7);
+		--color-overlay-fallback: oklch(15% 0.01 46 / 0.9);
+		--color-shadow: oklch(0% 0 0 / 0.5);
+		--color-picture-border: var(--color-accent-800);
+		--color-text-on-picture-border: var(--color-accent-100);
+	}
 
 	/**
 	 * Elements

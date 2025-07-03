@@ -25,6 +25,21 @@ const pageTitle = title ? `${title} | ${mainTitle}` : mainTitle;
 		<meta name="msapplication-TileColor" content="#4d4a42" />
 		<link rel="manifest" href="/manifest.webmanifest" />
 
+		<!-- Prevent flash of unstyled content -->
+		<script is:inline>
+			(function() {
+				// Check for saved theme preference or use the system preference
+				const savedTheme = localStorage.getItem('theme');
+				const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+				if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme.matches)) {
+					document.documentElement.classList.add('dark-theme');
+				} else {
+					document.documentElement.classList.remove('dark-theme');
+				}
+			})();
+		</script>
+
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
 		<meta name="author" content="Nhoa Noir" />
@@ -62,6 +77,8 @@ const pageTitle = title ? `${title} | ${mainTitle}` : mainTitle;
 		<meta property="og:image:width" content="1280" />
 		<meta property="og:image:height" content="640" />
 
+		<!-- Theme toggle script -->
+		<script is:inline src="/scripts/theme-toggle.js"></script>
 	</head>
 	<body id="home">
 		<slot />

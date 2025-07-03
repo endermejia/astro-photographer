@@ -24,7 +24,7 @@ a.hamburger {
 
 nav {
 	display: flex;
-	z-index: 10; /* MAke sure it's on top of everything else */
+	z-index: 10; /* Make sure it's on top of everything else */
 	justify-content: center;
 
 	& > .hamburger {
@@ -47,6 +47,25 @@ nav {
 		&:is(:hover, :focus) {
 			color: var(--color-accent);
 		}
+	}
+	& .theme-toggle {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0;
+		transition: background-color 0.3s ease;
+		border: none;
+		border-radius: 50%;
+		background: transparent;
+		color: currentcolor;
+		cursor: pointer;
+	}
+	& .theme-toggle:hover {
+		background-color: var(--color-accent-200);
+	}
+	& .theme-toggle svg {
+		block-size: 24px;
+		inline-size: 24px;
 	}
 }
 
