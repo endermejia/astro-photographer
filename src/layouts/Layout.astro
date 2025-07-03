@@ -33,9 +33,11 @@ const pageTitle = title ? `${title} | ${mainTitle}` : mainTitle;
 				const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
 
 				if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme.matches)) {
+					document.documentElement.classList.remove('light-theme');
 					document.documentElement.classList.add('dark-theme');
 				} else {
 					document.documentElement.classList.remove('dark-theme');
+					document.documentElement.classList.add('light-theme');
 				}
 			})();
 		</script>

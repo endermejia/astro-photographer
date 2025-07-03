@@ -73,7 +73,28 @@
 		--color-text-on-picture-border: var(--color-accent-100);
 	}
 
-	/* Class-based theme switching */
+	/* Class-based theme switching - these override system preferences */
+	&.light-theme {
+		--color-accent: var(--color-accent-700);
+		--color-bg: var(--color-accent-50);
+		--color-bg-secondary: var(--color-accent-100);
+		--color-text: var(--color-accent-900);
+		--color-text-secondary: var(--color-accent-800);
+		--color-button-bg: var(--color-accent-700);
+		--color-button-bg--hover: var(--color-accent-600);
+		--color-button-bg--active: var(--color-accent-800);
+		--color-button-text: var(--color-accent-50);
+		--color-button-text--hover: var(--color-accent-50);
+		--color-button-text--active: var(--color-accent-50);
+		--color-onpicture: var(--color-grey-50);
+		--color-bg-onpicture: oklch(15% 0.01 46 / 0.2);
+		--color-overlay: oklch(95% 0.01 46 / 0.7);
+		--color-overlay-fallback: oklch(95% 0.01 46 / 0.9);
+		--color-shadow: oklch(15% 0.01 46 / 0.3);
+		--color-picture-border: var(--color-white);
+		--color-text-on-picture-border: var(--color-black);
+	}
+
 	&.dark-theme {
 		--color-accent: var(--color-accent-300);
 		--color-bg: var(--color-accent-900);

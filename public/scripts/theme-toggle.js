@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Function to set the theme
   const setTheme = (isDark) => {
     if (isDark) {
+      document.documentElement.classList.remove('light-theme');
       document.documentElement.classList.add('dark-theme');
       localStorage.setItem('theme', 'dark');
       if (themeToggle) {
@@ -15,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     } else {
       document.documentElement.classList.remove('dark-theme');
+      document.documentElement.classList.add('light-theme');
       localStorage.setItem('theme', 'light');
       if (themeToggle) {
         themeToggle.setAttribute('aria-label', 'Switch to dark theme');
