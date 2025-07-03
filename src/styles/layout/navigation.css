@@ -143,8 +143,14 @@ body > nav {
 				border: unset;
 				text-align: center;
 			}
+
+			& .theme-toggle {
+				pointer-events: all;
+				margin: 0 auto; /* Center the theme-toggle button */
+			}
 		}
 		&:focus-within {
+			pointer-events: all;
 			& > a.hamburger {
 				pointer-events: none;
 			}
