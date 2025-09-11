@@ -52,7 +52,7 @@ const setNavigation = function (currentUrl) {
 	const nextBtn = document.getElementById('next-photo');
 	const path = new URL(currentUrl).pathname;
 
-	const element = document.querySelector(`[href="${path}"`);
+	const element = document.querySelector(`[href="${path}"]`);
 	const allPhotos = Array.from(document.querySelectorAll('main a:not([id])'));
 
 	// Implement circular navigation
@@ -211,6 +211,12 @@ const init = function () {
 
 	// Add touch event listeners for drag navigation
 	dialog.addEventListener('touchstart', (event) => {
+		// Do not start dragging when touching navigation buttons
+		const target = event.target;
+		if (target && target.closest && target.closest('#previous-photo, #next-photo')) {
+			isDragging = false;
+			return;
+		}
 		dragStartX = event.touches[0].clientX;
 		isDragging = true;
 	});
@@ -222,7 +228,13 @@ const init = function () {
 		}
 	});
 
-	dialog.addEventListener('touchend', () => {
+	dialog.addEventListener('touchend', (event) => {
+		// If the touch ends on navigation buttons, do not treat it as a drag
+		const target = event.target;
+		if (target && target.closest && target.closest('#previous-photo, #next-photo')) {
+			isDragging = false;
+			return;
+		}
 		if (isDragging) {
 			handleDragEnd(previousBtn, nextBtn);
 			isDragging = false;
@@ -231,6 +243,12 @@ const init = function () {
 
 	// Add mouse event listeners for drag navigation
 	dialog.addEventListener('mousedown', (event) => {
+		// Do not start dragging when clicking navigation buttons
+		const target = event.target;
+		if (target && target.closest && target.closest('#previous-photo, #next-photo')) {
+			isDragging = false;
+			return;
+		}
 		dragStartX = event.clientX;
 		isDragging = true;
 	});
@@ -242,7 +260,13 @@ const init = function () {
 		}
 	});
 
-	dialog.addEventListener('mouseup', () => {
+	dialog.addEventListener('mouseup', (event) => {
+		// If the mouseup occurs on navigation buttons, do not treat it as a drag
+		const target = event.target;
+		if (target && target.closest && target.closest('#previous-photo, #next-photo')) {
+			isDragging = false;
+			return;
+		}
 		if (isDragging) {
 			handleDragEnd(previousBtn, nextBtn);
 			isDragging = false;
