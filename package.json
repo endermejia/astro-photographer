@@ -1,5 +1,5 @@
 {
-	"name": "nhoa-noir.netlify.app",
+	"name": "nhoa-noir.com",
 	"type": "module",
 	"version": "1.0.0",
 	"private": true,
@@ -10,7 +10,7 @@
 		"personal-website",
 		"portfolio-website"
 	],
-	"homepage": "https://nhoa-noir.netlify.app",
+	"homepage": "https://nhoa-noir.com",
 	"engines": {
 		"node": ">=16.0.0",
 		"npm": ">=8.0.0"

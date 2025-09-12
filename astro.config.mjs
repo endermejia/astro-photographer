@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://nhoa-noir.netlify.app',
+	site: 'https://nhoa-noir.com',
 	integrations: [
 		sitemap({
 			i18n: {
@@ -15,7 +15,7 @@ export default defineConfig({
 				}
 			},
 			filter: (url) => {
-				return !url.startsWith('https://nhoa-noir.netlify.app/es/');
+				return !url.startsWith('https://nhoa-noir.com/es/');
 			}
 		})
 	]
