@@ -12,6 +12,10 @@ const t = useTranslations(lang);
 const currentYear = new Date().getFullYear();
 const mainTitle = 'Nhoa Noir | Photography';
 const pageTitle = title ? `${title} | ${mainTitle}` : mainTitle;
+
+// SEO basics
+const siteUrl = 'https://nhoanoir.com';
+const canonicalUrl = lang === 'es' ? `${siteUrl}/` : `${siteUrl}/en/`;
 ---
 
 <html lang={lang}>
@@ -58,6 +62,12 @@ const pageTitle = title ? `${title} | ${mainTitle}` : mainTitle;
 
 		<meta name="robots" content="index, follow" />
 
+		<!-- Canonical & hreflang -->
+		<link rel="canonical" href={canonicalUrl} />
+		<link rel="alternate" href="https://nhoanoir.com/" hreflang="es" />
+		<link rel="alternate" href="https://nhoanoir.com/en/" hreflang="en" />
+		<link rel="alternate" href="https://nhoanoir.com/" hreflang="x-default" />
+
 		<!-- Performance -->
 		<link rel="dns-prefetch" href="//static.cloudflareinsights.com" />
 
@@ -78,6 +88,38 @@ const pageTitle = title ? `${title} | ${mainTitle}` : mainTitle;
 		<meta property="og:image" content="https://nhoanoir.com/assets/social.jpg" />
 		<meta property="og:image:width" content="1280" />
 		<meta property="og:image:height" content="640" />
+
+		<!-- Structured Data -->
+		<script type="application/ld+json">
+		{
+		  "@context": "https://schema.org",
+		  "@type": ["LocalBusiness", "ProfessionalService"],
+		  "@id": "https://nhoanoir.com#business",
+		  "name": "Nhoa Noir | Photography",
+		  "url": "https://nhoanoir.com",
+		  "image": "https://nhoanoir.com/assets/social.jpg",
+		  "email": "mailto:ainhoasanchezyepes@gmail.com",
+		  "sameAs": [
+		    "https://www.instagram.com/nhoanoir",
+		    "https://www.linkedin.com/in/ainhoasanchezyepes"
+		  ],
+		  "address": {
+		    "@type": "PostalAddress",
+		    "addressLocality": "Castalla",
+		    "addressRegion": "Alicante",
+		    "addressCountry": "ES"
+		  },
+		  "areaServed": [
+		    { "@type": "City", "name": "Castalla" },
+		    { "@type": "City", "name": "Tibi" },
+		    { "@type": "City", "name": "Ibi" },
+		    { "@type": "City", "name": "Onil" },
+		    { "@type": "City", "name": "Alcoy" }
+		  ],
+		  "availableLanguage": ["es", "en"],
+		  "priceRange": "€€"
+		}
+		</script>
 
 		<!-- Theme toggle script -->
 		<script is:inline src="/scripts/theme-toggle.js"></script>

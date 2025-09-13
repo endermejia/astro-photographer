@@ -25,7 +25,7 @@ export const routes = {
 
 export const ui = {
 	es: {
-		'meta.keywords': `nhoa noir, ainhoa sanchez, ainhoa sanchez yepes, nhoa noir fotografía, fotógrafa, fotógrafa profesional, fotógrafo en Castalla, Castalla, fotógrafo de bodas, fotógrafo de bodas en Castalla, fotógrafo profesional de bodas, fotografía de bodas, paquetes fotográficos de boda, fotografía de bodas de lujo, fotografía de bodas de alta gama, fotógrafo de personas, fotógrafo de personas en Castalla, fotografía de personas, fotógrafo de familia, fotógrafo de familia en Castalla, fotografía de familia, fotógrafo de niños, fotografía de niños, fotografía de bebés, fotografía de recién nacidos, fotógrafo de eventos, fotógrafo de eventos, fotógrafo de empresas, fotografía de estudio, fotografía artística, fotografía de estilo de vida, retratos, retratos de modelos, agencia de modelos, publicaciones,`,
+		'meta.keywords': `nhoa noir, ainhoa sanchez, ainhoa sanchez yepes, nhoa noir fotografía, fotógrafa, fotógrafa profesional, fotógrafo en Castalla, Castalla, fotógrafo en Tibi, Tibi, fotógrafo en Ibi, Ibi, fotógrafo en Onil, Onil, fotógrafo en Alcoy, Alcoy, fotógrafo de bodas, fotógrafo de bodas en Castalla, fotógrafo profesional de bodas, fotografía de bodas, paquetes fotográficos de boda, fotografía de bodas de lujo, fotografía de bodas de alta gama, fotógrafo de personas, fotógrafo de personas en Castalla, fotografía de personas, fotógrafo de familia, fotógrafo de familia en Castalla, fotografía de familia, fotógrafo de niños, fotografía de niños, fotografía de bebés, fotografía de recién nacidos, fotógrafo de eventos, fotografía de eventos, fotógrafo de empresas, fotografía de estudio, fotografía artística, fotografía de estilo de vida, retratos, retratos de modelos, agencia de modelos, publicaciones,`,
 		'nav.menu': `Menú`,
 		'nav.home': `Inicio`,
 		'nav.about': `Sobre mí`,
@@ -48,7 +48,7 @@ export const ui = {
 		'photos.travel': 'Viajes'
 	},
 	en: {
-		'meta.keywords': `nhoa noir, nhoa noir photography, photography, photographer, professional photographer, photographer in Castalla, Castalla, wedding photographer, wedding photographer in Castalla, professional wedding photographer, wedding photography, wedding photography packages, luxury wedding photography, high end wedding photography, people photographer, people photographer in Barcelona, people photography, family photographer, family photographer in Castalla, family photography, kids photographer, kids photography, baby photography, newborn photography, events photographer, events photographer, business photographer, studio photography, artistic photography, lifestyle photography, videography, portraits, publications, `,
+		'meta.keywords': `nhoa noir, nhoa noir photography, photography, photographer, professional photographer, photographer in Castalla, Castalla, photographer in Tibi, Tibi, photographer in Ibi, Ibi, photographer in Onil, Onil, photographer in Alcoy, Alcoy, wedding photographer, wedding photographer in Castalla, professional wedding photographer, wedding photography, wedding photography packages, luxury wedding photography, high end wedding photography, people photographer, people photography, family photographer, family photography, kids photographer, kids photography, baby photography, newborn photography, events photographer, business photographer, studio photography, artistic photography, lifestyle photography, portraits, publications, `,
 		'nav.menu': `Menu`,
 		'nav.home': `Home`,
 		'nav.about': `About me`,
