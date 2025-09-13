@@ -1,5 +1,5 @@
 {
-	"name": "nhoa-noir.com",
+	"name": "nhoanoir.com",
 	"type": "module",
 	"version": "1.0.0",
 	"private": true,
@@ -10,7 +10,7 @@
 		"personal-website",
 		"portfolio-website"
 	],
-	"homepage": "https://nhoa-noir.com",
+	"homepage": "https://nhoanoir.com",
 	"engines": {
 		"node": ">=16.0.0",
 		"npm": ">=8.0.0"

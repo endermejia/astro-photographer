@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /assets/img/
 Disallow: /cdn-cgi/l/email-protection
 
-Sitemap: https://nhoa-noir.com/sitemap-index.xml
+Sitemap: https://nhoanoir.com/sitemap-index.xml
