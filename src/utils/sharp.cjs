@@ -53,7 +53,7 @@ function* getFiles(dir) {
 						exif: {
 							IFD0: {
 								XPAuthor: 'Nhoa Noir',
-								Copyright: 'Nhoa Noir | Photography'
+								Copyright: 'Nhoa Noir | Fotografía'
 							}
 						}
 					})

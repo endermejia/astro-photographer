@@ -1,4 +1,4 @@
-# Nhoa Noir | Photography
+# Nhoa Noir | Fotografía
 
 A multilingual photography portfolio website built with Astro, showcasing the work of photographer Nhoa Noir.
 

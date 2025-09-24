@@ -10,7 +10,7 @@ const { title } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const currentYear = new Date().getFullYear();
-const mainTitle = 'Nhoa Noir | Photography';
+const mainTitle = 'Nhoa Noir | Fotografía';
 const pageTitle = title ? `${title} | ${mainTitle}` : mainTitle;
 
 // SEO basics
@@ -58,7 +58,7 @@ const canonicalUrl = lang === 'es' ? `${siteUrl}/` : `${siteUrl}/en/`;
 			content={`${t('header.title')} | ${t('header.subtitle')}`}
 		/>
 
-		<meta name="copyright" content={`© ${currentYear} Nhoa Noir | Photography`} />
+		<meta name="copyright" content={`© ${currentYear} Nhoa Noir | Fotografía`} />
 
 		<meta name="robots" content="index, follow" />
 
@@ -77,7 +77,7 @@ const canonicalUrl = lang === 'es' ? `${siteUrl}/` : `${siteUrl}/en/`;
 		<link rel="icon" type="image/png" href="/assets/icons/favicon.png" />
 
 		<!--Open Graph-->
-		<meta property="og:title" content="Nhoa Noir | Photography" />
+		<meta property="og:title" content="Nhoa Noir | Fotografía" />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="https://nhoanoir.com" />
 		<meta
@@ -95,7 +95,7 @@ const canonicalUrl = lang === 'es' ? `${siteUrl}/` : `${siteUrl}/en/`;
 		  "@context": "https://schema.org",
 		  "@type": ["LocalBusiness", "ProfessionalService"],
 		  "@id": "https://nhoanoir.com#business",
-		  "name": "Nhoa Noir | Photography",
+		  "name": "Nhoa Noir | Fotografía",
 		  "url": "https://nhoanoir.com",
 		  "image": "https://nhoanoir.com/assets/social.jpg",
 		  "email": "mailto:ainhoasanchezyepes@gmail.com",

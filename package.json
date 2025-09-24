@@ -3,12 +3,11 @@
 	"type": "module",
 	"version": "1.0.0",
 	"private": true,
-	"description": "Nhoa Noir | Photography",
+	"description": "Nhoa Noir | Fotografía",
 	"keywords": [
 		"website",
-		"photography",
-		"personal-website",
-		"portfolio-website"
+		"fotografía",
+		"photography"
 	],
 	"homepage": "https://nhoanoir.com",
 	"engines": {
