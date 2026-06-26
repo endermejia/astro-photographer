@@ -4,16 +4,17 @@
 
 .album {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(100px, min(350px, calc(33vw - 2 * var(--spacing-m)))));
+	grid-template-columns: repeat(3, 1fr);
 	/* stylelint-disable-next-line declaration-property-value-no-unknown */
 	grid-template-rows: masonry;
 	justify-content: center;
 	padding-block: var(--spacing-xl);
-	padding-inline: var(--spacing-m);
+	padding-inline: 0;
 	gap: var(--spacing-s);
 
 	& h1 {
 		grid-column: 1 / -1;
+		padding-inline: var(--spacing-m);
 		text-align: center;
 	}
 	& > a {
@@ -69,8 +70,12 @@
 		}
 	}
 	& img {
-		max-block-size: calc(100vh - 4em);
+		block-size: auto;
+		max-block-size: calc(100vh - 2rem);
+		inline-size: auto;
+		max-inline-size: calc(100vw - 2rem);
 		animation: appear 0.2s ease-out both;
+		object-fit: contain;
 
 		@media (prefers-reduced-motion: no-preference) {
 			animation: fadein 0.2s ease-out both;

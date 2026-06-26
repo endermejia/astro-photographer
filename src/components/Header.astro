@@ -23,29 +23,157 @@ const t = useTranslations(lang);
 		></label
 	>
 	<div class="carousel" style="--images: 4;">
-		<picture class="hero" style="--nth-child:1;">
-			<source srcset="/assets/img/hero/a-1920.avif" type="image/avif" />
-			<source srcset="/assets/img/hero/a-1920.webp" type="image/webp" />
-			<source srcset="/assets/img/hero/a-1920.jpg" type="image/jpg" />
-			<img src="/assets/img/hero/a-400.jpg" class="object-center" width="400" height="293" fetchpriority="high" alt="" />
-		</picture>
-		<picture class="hero" style="--nth-child:2;">
-			<source srcset="/assets/img/hero/b-1920.avif" type="image/avif" />
-			<source srcset="/assets/img/hero/b-1920.webp" type="image/webp" />
-			<source srcset="/assets/img/hero/b-1920.jpg" type="image/jpg" />
-			<img src="/assets/img/hero/b-400.jpg" class="object-top" width="400" height="435" fetchpriority="low" alt="" />
-		</picture>
-		<picture class="hero" style="--nth-child:3;">
-			<source srcset="/assets/img/hero/c-1920.avif" type="image/avif" />
-			<source srcset="/assets/img/hero/c-1920.webp" type="image/webp" />
-			<source srcset="/assets/img/hero/c-1920.jpg" type="image/jpg" />
-			<img src="/assets/img/hero/c-400.jpg" class="object-top" width="400" height="266" fetchpriority="low" alt="" />
-		</picture>
-		<picture class="hero" style="--nth-child:4;">
-			<source srcset="/assets/img/hero/d-1920.avif" type="image/avif" />
-			<source srcset="/assets/img/hero/d-1920.webp" type="image/webp" />
-			<source srcset="/assets/img/hero/d-1920.jpg" type="image/jpg" />
-			<img src="/assets/img/hero/d-400.jpg" class="object-center" width="400" height="601" fetchpriority="low" alt="" />
-		</picture>
+		<div class="carousel-track">
+			<picture class="hero" style="--nth-child:1;">
+				<source srcset="/assets/img/hero/a-1920.avif" type="image/avif" />
+				<source srcset="/assets/img/hero/a-1920.webp" type="image/webp" />
+				<source srcset="/assets/img/hero/a-1920.jpg" type="image/jpg" />
+				<img src="/assets/img/hero/a-400.jpg" class="object-center" width="400" height="293" fetchpriority="high" alt="" />
+			</picture>
+			<picture class="hero" style="--nth-child:2;">
+				<source srcset="/assets/img/hero/b-1920.avif" type="image/avif" />
+				<source srcset="/assets/img/hero/b-1920.webp" type="image/webp" />
+				<source srcset="/assets/img/hero/b-1920.jpg" type="image/jpg" />
+				<img src="/assets/img/hero/b-400.jpg" class="object-top" width="400" height="435" fetchpriority="low" alt="" />
+			</picture>
+			<picture class="hero" style="--nth-child:3;">
+				<source srcset="/assets/img/hero/c-1920.avif" type="image/avif" />
+				<source srcset="/assets/img/hero/c-1920.webp" type="image/webp" />
+				<source srcset="/assets/img/hero/c-1920.jpg" type="image/jpg" />
+				<img src="/assets/img/hero/c-400.jpg" class="object-top" width="400" height="266" fetchpriority="low" alt="" />
+			</picture>
+			<picture class="hero" style="--nth-child:4;">
+				<source srcset="/assets/img/hero/d-1920.avif" type="image/avif" />
+				<source srcset="/assets/img/hero/d-1920.webp" type="image/webp" />
+				<source srcset="/assets/img/hero/d-1920.jpg" type="image/jpg" />
+				<img src="/assets/img/hero/d-400.jpg" class="object-center" width="400" height="601" fetchpriority="low" alt="" />
+			</picture>
+		</div>
 	</div>
 </header>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const track = document.querySelector('.carousel-track') as HTMLElement;
+		const slides = document.querySelectorAll('.carousel-track .hero');
+		const pauseCheckbox = document.getElementById('pause-hero-carousel') as HTMLInputElement;
+
+		if (!track || slides.length === 0) return;
+
+		let currentIndex = 0;
+		const slideCount = slides.length;
+		let slideInterval: any;
+		const intervalTime = 5000;
+
+		let startX = 0;
+		let currentX = 0;
+		let isDragging = false;
+		let startTranslate = 0;
+
+		const getSlideWidth = () => track.clientWidth;
+
+		const updateSlidePosition = (transition = true) => {
+			const width = getSlideWidth();
+			track.style.transition = transition ? 'transform 0.5s ease-in-out' : 'none';
+			track.style.transform = `translateX(${-currentIndex * width}px)`;
+		};
+
+		const nextSlide = () => {
+			currentIndex = (currentIndex + 1) % slideCount;
+			updateSlidePosition();
+		};
+
+		const startSlideshow = () => {
+			stopSlideshow();
+			slideInterval = setInterval(nextSlide, intervalTime);
+		};
+
+		const stopSlideshow = () => {
+			if (slideInterval) {
+				clearInterval(slideInterval);
+			}
+		};
+
+		const handlePauseChange = () => {
+			if (pauseCheckbox.checked) {
+				stopSlideshow();
+			} else {
+				startSlideshow();
+			}
+		};
+
+		if (pauseCheckbox) {
+			pauseCheckbox.addEventListener('change', handlePauseChange);
+			if (!pauseCheckbox.checked) {
+				startSlideshow();
+			}
+		} else {
+			startSlideshow();
+		}
+
+		window.addEventListener('resize', () => {
+			updateSlidePosition(false);
+		});
+
+		const dragStart = (e: MouseEvent | TouchEvent) => {
+			isDragging = true;
+			const isTouchEvent = 'touches' in e;
+			startX = isTouchEvent ? e.touches[0].clientX : e.clientX;
+			currentX = startX;
+			startTranslate = -currentIndex * getSlideWidth();
+
+			stopSlideshow();
+			if (pauseCheckbox && !pauseCheckbox.checked) {
+				pauseCheckbox.checked = true;
+				pauseCheckbox.dispatchEvent(new Event('change'));
+			}
+
+			track.style.transition = 'none';
+
+			if (!isTouchEvent) {
+				e.preventDefault();
+				window.addEventListener('mousemove', dragMove);
+				window.addEventListener('mouseup', dragEnd);
+			}
+		};
+
+		const dragMove = (e: MouseEvent | TouchEvent) => {
+			if (!isDragging) return;
+			const isTouchEvent = 'touches' in e;
+			currentX = isTouchEvent ? e.touches[0].clientX : e.clientX;
+			const deltaX = currentX - startX;
+			const translate = startTranslate + deltaX;
+			track.style.transform = `translateX(${translate}px)`;
+		};
+
+		const dragEnd = (e: MouseEvent | TouchEvent) => {
+			if (!isDragging) return;
+			isDragging = false;
+
+			const isTouchEvent = 'touches' in e;
+			if (!isTouchEvent) {
+				window.removeEventListener('mousemove', dragMove);
+				window.removeEventListener('mouseup', dragEnd);
+			}
+
+			const deltaX = currentX - startX;
+			const threshold = getSlideWidth() * 0.15;
+
+			if (Math.abs(deltaX) > threshold) {
+				if (deltaX > 0) {
+					currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+				} else {
+					currentIndex = (currentIndex + 1) % slideCount;
+				}
+			}
+
+			updateSlidePosition(true);
+		};
+
+		track.addEventListener('mousedown', dragStart);
+		
+		track.addEventListener('touchstart', dragStart, { passive: true });
+		track.addEventListener('touchmove', dragMove, { passive: true });
+		track.addEventListener('touchend', dragEnd);
+	});
+</script>

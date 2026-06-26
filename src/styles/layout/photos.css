@@ -7,22 +7,22 @@
 	flex-wrap: wrap;
 	align-content: center;
 	min-block-size: 100vb;
-	padding-block: var(--spacing-xl);
-	padding-inline: var(--spacing-m);
-	gap: var(--spacing-m);
+	padding-block: 0;
+	padding-inline: 0;
+	gap: 0;
 
 	& > a {
 		display: grid;
 		grid-template: 'picture';
 		flex-grow: 1;
-		max-block-size: calc(50vb - var(--spacing-xl));
-		inline-size: 30%;
+		max-block-size: 50vb;
+		inline-size: 33.333%;
 		min-inline-size: min(300px, 100lvb);
 		text-align: center;
 		text-decoration: none;
 
 		&.primary {
-			inline-size: calc(50% - var(--spacing-m));
+			inline-size: 50%;
 		}
 		& > h3 {
 			z-index: 1;
