@@ -4,8 +4,8 @@
 
 import { fileURLToPath } from 'url';
 import fs from 'fs';
+import { imageSize } from 'image-size';
 import path from 'path';
-import sizeOf from 'image-size';
 
 // in production, the script is run from the dist folder
 const projectRoot = '../../';
@@ -52,7 +52,9 @@ const getImageData = (album, image) => {
 
 	// image-size doesn't support avif yet: https://github.com/image-size/image-size/issues/125
 	// Use jpg instead of avif for for the dimensions
-	const dimensions = sizeOf(path.join(__dirname, projectRoot, `/${album}/${image.replace(/\.avif/, '.jpg')}`));
+	const dimensions = imageSize(
+		fs.readFileSync(path.join(__dirname, projectRoot, `/${album}/${image.replace(/\.avif/, '.jpg')}`))
+	);
 	img.width = dimensions.width;
 	img.height = dimensions.height;
 	img.orientation = dimensions.width > dimensions.height ? 'landscape' : 'portrait';
@@ -65,9 +67,7 @@ const getImageData = (album, image) => {
  * @param {string} input The path of the photo albums
  * @returns {JSON} the JSON representations of the photo albums
  */
-export const photos = (input) => {
-	input = input || 'assets/img/albums';
-
+export const photos = (input = 'assets/img/albums') => {
 	const photos = {};
 
 	// Get a list of albums
