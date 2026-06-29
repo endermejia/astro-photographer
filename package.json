@@ -61,8 +61,8 @@
 	"scripts": {
 		"start": "astro dev",
 		"start:prod": "astro preview",
-		"build": "bun run build:img && astro build",
-		"build:img": "bun src/utils/sharp.cjs",
+		"build": "astro build",
+		"build:img": "node src/utils/sharp.cjs",
 		"lint": "concurrently 'npm:lint:*(!fix)'",
 		"lint:fix": "concurrently -m 1 'npm:lint:*:fix'",
 		"lint:js": "eslint \"src/**/*.{js,mjs,cjs,ts}\" --no-error-on-unmatched-pattern",
