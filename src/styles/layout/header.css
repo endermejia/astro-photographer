@@ -61,26 +61,12 @@
 		text-wrap: balance;
 	}
 	& > .carousel {
-		display: block;
+		display: flex;
 		position: relative;
 		z-index: -1;
 		grid-area: image / 1;
 		align-self: stretch;
 		overflow: hidden;
-		cursor: grab;
-		user-select: none;
-		touch-action: pan-y;
-
-		&:active {
-			cursor: grabbing;
-		}
-	}
-	& .carousel-track {
-		display: flex;
-		block-size: 100%;
-		inline-size: 100%;
-		will-change: transform;
-		touch-action: pan-y;
 	}
 	& .pause {
 		position: absolute;
@@ -98,16 +84,23 @@
 		}
 	}
 	& .hero {
-		position: relative;
+		--display: 5s;
+		--delay: calc((var(--nth-child) - 1) * var(--display));
+		position: absolute;
 		flex: 0 0 100%;
-		block-size: 100%;
-		inline-size: 100%;
+		inset: 0;
 
+		@media (prefers-reduced-motion: no-preference) {
+			animation: carousel calc(var(--images) * var(--display)) ease var(--delay) infinite;
+		}
+
+		&:not(:first-child) {
+			opacity: 0;
+		}
 		& > img {
 			block-size: 100%;
 			inline-size: 100%;
 			object-fit: cover;
-			pointer-events: none;
 		}
 	}
 }
@@ -130,5 +123,31 @@
 			stroke: none;
 			fill: currentcolor;
 		}
+	}
+	& ~ .carousel > .hero {
+		animation-play-state: paused;
+	}
+}
+
+@keyframes carousel {
+	0% {
+		/* transform: translateX(100%);
+		opacity: 0; */
+	}
+	10% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+	25% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+	35% {
+		transform: translateX(-100%);
+		opacity: 0;
+	}
+	100% {
+		transform: translateX(-100%);
+		opacity: 0;
 	}
 }

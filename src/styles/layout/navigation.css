@@ -119,8 +119,7 @@ body > nav {
 		inset: 0;
 
 		& > a.hamburger {
-			display: flex;
-			justify-content: flex-end;
+			display: block;
 			background: var(--color-overlay-fallback);
 			pointer-events: all;
 
