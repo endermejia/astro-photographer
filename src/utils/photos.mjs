@@ -2,19 +2,12 @@
  * tools/photos.js
  */
 
-import { fileURLToPath } from 'url';
 import fs from 'fs';
 import { imageSize } from 'image-size';
 import path from 'path';
 
-// in production, the script is run from the dist folder
-const projectRoot = '../../';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
 const getAlbums = (input) => {
-	const albumsPath = path.join(__dirname, projectRoot, input);
+	const albumsPath = path.join(process.cwd(), input);
 
 	return fs
 		.readdirSync(albumsPath, { withFileTypes: true })
@@ -27,7 +20,7 @@ const getAlbums = (input) => {
 };
 
 const getImages = (input) => {
-	const albumPath = path.join(__dirname, projectRoot, input);
+	const albumPath = path.join(process.cwd(), input);
 
 	return fs
 		.readdirSync(albumPath, {
@@ -53,7 +46,7 @@ const getImageData = (album, image) => {
 	// image-size doesn't support avif yet: https://github.com/image-size/image-size/issues/125
 	// Use jpg instead of avif for for the dimensions
 	const dimensions = imageSize(
-		fs.readFileSync(path.join(__dirname, projectRoot, `/${album}/${image.replace(/\.avif/, '.jpg')}`))
+		fs.readFileSync(path.join(process.cwd(), album, image.replace(/\.avif/, '.jpg')))
 	);
 	img.width = dimensions.width;
 	img.height = dimensions.height;
