@@ -58,8 +58,8 @@
 		}
 	}
 	& > nav {
-		z-index: unset;
 		grid-area: navigation;
+		z-index: unset;
 	}
 	& > .lang-selector {
 		grid-area: lang;

@@ -6,9 +6,9 @@ let dialog;
 let dragStartX = 0;
 let dragEndX = 0;
 let isDragging = false;
-const minDragDistance = 50; // Minimum distance to consider a drag
+let minDragDistance = 50; // Minimum distance to consider a drag
 let currentTranslateX = 0;
-const maxTranslate = 100; // Maximum pixels to translate during drag
+let maxTranslate = 100; // Maximum pixels to translate during drag
 
 const setPicture = function (url) {
 	const picture = dialog?.getElementsByTagName('picture')[0];
@@ -28,11 +28,10 @@ const setPicture = function (url) {
 
 	const jpg = document.createElement('source');
 	jpg.srcset = url;
-	jpg.type = 'image/jpeg';
+	jpg.type = 'image/webp';
 
 	const img = document.createElement('img');
 	img.src = url;
-	img.alt = '';
 
 	picture.appendChild(avif);
 	picture.appendChild(webp);
@@ -77,15 +76,11 @@ const closeDialog = function () {
 	dialog.close();
 };
 
-const updateImageTranslation = function () {
-	if (!isDragging) {
-		return;
-	}
+const updateImageTranslation = function() {
+	if (!isDragging) return;
 
 	const picture = dialog?.getElementsByTagName('picture')[0];
-	if (!picture) {
-		return;
-	}
+	if (!picture) return;
 
 	// Calculate translation based on drag distance, but limit to maxTranslate
 	const dragDistance = dragEndX - dragStartX;
@@ -96,11 +91,9 @@ const updateImageTranslation = function () {
 	picture.style.transform = `translateX(${currentTranslateX}px)`;
 };
 
-const resetImageTranslation = function (bounceDirection = 0) {
+const resetImageTranslation = function(bounceDirection = 0) {
 	const picture = dialog?.getElementsByTagName('picture')[0];
-	if (!picture) {
-		return;
-	}
+	if (!picture) return;
 
 	// If bounceDirection is provided, add a small bounce effect
 	if (bounceDirection !== 0) {

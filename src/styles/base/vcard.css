@@ -31,7 +31,7 @@
 	& > .email {
 		grid-area: email;
 		overflow: hidden;
-		overflow-wrap: break-word;
+		word-wrap: break-word;
 	}
 	& > .url {
 		grid-area: url;

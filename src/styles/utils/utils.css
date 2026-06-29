@@ -8,7 +8,6 @@
 	block-size: 1px;
 	inline-size: 1px;
 	overflow: hidden;
-	/* stylelint-disable-next-line property-no-deprecated */
 	clip: rect(1px, 1px, 1px, 1px);
 	white-space: nowrap;
 }

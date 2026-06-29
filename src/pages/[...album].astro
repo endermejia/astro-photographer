@@ -38,11 +38,13 @@ const albumName: 'climbing' | 'people' | 'events' | 'business' | 'travel' = albu
 
 <Layout title={t(`photos.${albumName}`)}>
 	<Navigation path="/" />
-	<main id="main" class="album">
-		<Album album={albumName} />
-	</main>
-	<footer id="footer">
-		<Footer />
-	</footer>
-	<script src="../scripts/album.js"></script>
 </Layout>
+
+<main id="main" class="album">
+	<Album album={albumName} />
+</main>
+<footer id="footer">
+	<Footer />
+</footer>
+
+<script src="../scripts/album.js"></script>

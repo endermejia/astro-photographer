@@ -5,7 +5,6 @@
 .album {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(100px, min(350px, calc(33vw - 2 * var(--spacing-m)))));
-	/* stylelint-disable-next-line declaration-property-value-no-unknown */
 	grid-template-rows: masonry;
 	justify-content: center;
 	padding-block: var(--spacing-xl);
