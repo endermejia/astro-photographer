@@ -94,7 +94,6 @@
 		--color-picture-border: var(--color-white);
 		--color-text-on-picture-border: var(--color-black);
 	}
-
 	&.dark-theme {
 		--color-accent: var(--color-accent-300);
 		--color-bg: var(--color-accent-900);

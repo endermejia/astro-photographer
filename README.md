@@ -32,17 +32,20 @@ A multilingual photography portfolio website built with Astro, showcasing the wo
 ### Installation
 
 1. Clone the repository
+
    ```bash
    git clone https://github.com/yourusername/astro-photographer.git
    cd astro-photographer
    ```
 
 2. Install dependencies
+
    ```bash
    npm install
    ```
 
 3. Start the development server
+
    ```bash
    npm start
    ```
@@ -85,6 +88,7 @@ A multilingual photography portfolio website built with Astro, showcasing the wo
 ## 🌐 Internationalization
 
 The website supports multiple languages:
+
 - Spanish (default): `/es/`
 - English: `/en/`
 

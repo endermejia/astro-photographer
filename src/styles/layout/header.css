@@ -27,8 +27,7 @@
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
-			margin-block-start: var(--spacing-m);
-			margin-block-end: var(--spacing-s);
+			margin-block: var(--spacing-m) var(--spacing-s);
 
 			& > .logo-title {
 				font-family: var(--font-family-header-title);
