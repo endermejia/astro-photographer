@@ -21,18 +21,24 @@ a.hamburger {
 	transition:
 		transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
 		opacity 0.3s;
+	border: 1px solid var(--color-accent-800);
 	border-radius: 50%;
 	opacity: 0;
-	background: var(--color-overlay-fallback);
+	background: var(--color-bg);
 	box-shadow: 0 4px 10px rgb(0 0 0 / 0.2);
-	color: currentcolor;
+	color: var(--color-text);
 	pointer-events: none;
 	inset-inline-end: 1rem;
 	inset-block-end: 1rem;
 
-	@supports (backdrop-filter: blur(30px) saturate(125%)) {
-		backdrop-filter: blur(30px) saturate(125%);
-		background: var(--color-overlay);
+	html.dark-theme & {
+		border-color: var(--color-accent-200);
+	}
+
+	@media (prefers-color-scheme: dark) {
+		html:not(.light-theme) & {
+			border-color: var(--color-accent-200);
+		}
 	}
 
 	@media (width >= 800px) {
@@ -70,7 +76,7 @@ nav {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		padding: 0;
+		padding: 0.5rem;
 		transition: background-color 0.3s ease;
 		border: none;
 		border-radius: 50%;
@@ -78,8 +84,13 @@ nav {
 		color: currentcolor;
 		cursor: pointer;
 	}
-	& .theme-toggle:hover {
+	& .theme-toggle:hover,
+	& .theme-toggle:focus-visible {
+		outline: none;
 		background-color: var(--color-accent-200);
+	}
+	& .theme-toggle:focus:not(:focus-visible) {
+		background-color: transparent;
 	}
 	& .theme-toggle svg {
 		block-size: 24px;
@@ -146,22 +157,26 @@ body > nav {
 			transition:
 				transform 0.3s ease,
 				opacity 0.3s;
+			border: 1px solid var(--color-accent-800);
 			border-radius: 50%;
-			background: var(--color-overlay-fallback);
+			background: var(--color-bg);
 			box-shadow: 0 4px 10px rgb(0 0 0 / 0.2);
-			color: currentcolor;
+			color: var(--color-text);
 			pointer-events: all;
 			inset-inline-end: 1rem;
 			inset-block-end: 1rem;
 
-			@supports (backdrop-filter: blur(30px) saturate(125%)) {
-				/* Fluent acrylic effect: see https://medium.com/microsoft-design/diy-a-web-version-the-fluent-design-systems-acrylic-material-fe2eac2a40bb */
-				backdrop-filter: blur(30px) saturate(125%);
-				background: var(--color-overlay);
-			}
-
 			&:active {
 				transform: scale(0.9);
+			}
+			html.dark-theme & {
+				border-color: var(--color-accent-200);
+			}
+
+			@media (prefers-color-scheme: dark) {
+				html:not(.light-theme) & {
+					border-color: var(--color-accent-200);
+				}
 			}
 		}
 		& > ul {
@@ -204,6 +219,7 @@ body > nav {
 				opacity: 0;
 				pointer-events: none;
 			}
+
 			& > ul {
 				transform: scale(1);
 				border-radius: 0;

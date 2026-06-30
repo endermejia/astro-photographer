@@ -77,10 +77,14 @@ const closeDialog = function () {
 };
 
 const updateImageTranslation = function () {
-	if (!isDragging) { return; }
+	if (!isDragging) {
+		return;
+	}
 
 	const picture = dialog?.getElementsByTagName('picture')[0];
-	if (!picture) { return; }
+	if (!picture) {
+		return;
+	}
 
 	// Calculate translation based on drag distance, but limit to maxTranslate
 	const dragDistance = dragEndX - dragStartX;
@@ -93,7 +97,9 @@ const updateImageTranslation = function () {
 
 const resetImageTranslation = function (bounceDirection = 0) {
 	const picture = dialog?.getElementsByTagName('picture')[0];
-	if (!picture) { return; }
+	if (!picture) {
+		return;
+	}
 
 	// If bounceDirection is provided, add a small bounce effect
 	if (bounceDirection !== 0) {

@@ -66,7 +66,18 @@
 		z-index: -1;
 		grid-area: image / 1;
 		align-self: stretch;
-		overflow: hidden;
+		overflow: auto hidden;
+		scroll-snap-type: x mandatory;
+		scrollbar-width: none; /* Firefox */
+		-ms-overflow-style: none; /* Internet Explorer 10+ */
+		cursor: grab;
+
+		&::-webkit-scrollbar {
+			display: none; /* Safari and Chrome */
+		}
+		&.active {
+			cursor: grabbing;
+		}
 	}
 	& .pause {
 		position: absolute;
@@ -84,23 +95,15 @@
 		}
 	}
 	& .hero {
-		--display: 5s;
-		--delay: calc((var(--nth-child) - 1) * var(--display));
-		position: absolute;
+		position: relative;
 		flex: 0 0 100%;
-		inset: 0;
+		scroll-snap-align: start;
 
-		@media (prefers-reduced-motion: no-preference) {
-			animation: carousel calc(var(--images) * var(--display)) ease var(--delay) infinite;
-		}
-
-		&:not(:first-child) {
-			opacity: 0;
-		}
 		& > img {
 			block-size: 100%;
 			inline-size: 100%;
 			object-fit: cover;
+			pointer-events: none; /* Prevent image drag interfering with carousel drag */
 		}
 	}
 }
@@ -123,31 +126,5 @@
 			stroke: none;
 			fill: currentcolor;
 		}
-	}
-	& ~ .carousel > .hero {
-		animation-play-state: paused;
-	}
-}
-
-@keyframes carousel {
-	0% {
-		/* transform: translateX(100%);
-		opacity: 0; */
-	}
-	10% {
-		transform: translateX(0);
-		opacity: 1;
-	}
-	25% {
-		transform: translateX(0);
-		opacity: 1;
-	}
-	35% {
-		transform: translateX(-100%);
-		opacity: 0;
-	}
-	100% {
-		transform: translateX(-100%);
-		opacity: 0;
 	}
 }
