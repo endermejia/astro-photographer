@@ -31,7 +31,7 @@ a.hamburger {
 	inset-inline-end: 1rem;
 	inset-block-end: 1rem;
 
-	@media (width >= 800px) {
+	@media (min-width: 800px) {
 		display: none;
 	}
 }
@@ -137,7 +137,7 @@ body > nav {
 		outline: none;
 	}
 
-	@media (width < 800px) {
+	@media (max-width: 799px) {
 		flex-direction: column;
 		justify-content: start;
 		font-size: var(--font-size-l);

@@ -21,6 +21,7 @@
 		justify-content: center;
 		margin: 0;
 		padding-block: var(--spacing-xs) var(--spacing-s);
+		padding-inline: var(--spacing-m);
 		background: var(--color-bg-onpicture);
 		color: var(--color-onpicture);
 
@@ -36,6 +37,9 @@
 				font-size: var(--font-size-header-xxl);
 				font-weight: var(--font-weight-normal);
 				border-block-end: 2px solid var(--color-accent);
+				text-align: center;
+				text-align: -webkit-center;
+				line-height: 1.1;
 			}
 			& > .logo-subtitle {
 				font-family: var(--font-family-header-subtitle);
@@ -46,6 +50,8 @@
 	& > .title {
 		grid-area: title;
 		margin-block-start: var(--spacing-m);
+		inline-size: 100%;
+		padding-inline: var(--spacing-m);
 		color: var(--color-accent);
 		font-family: var(--font-family-header);
 		font-size: var(--font-size-header-xl);

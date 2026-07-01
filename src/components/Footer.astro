@@ -32,8 +32,8 @@ const currentYear = new Date().getFullYear();
 	</a>
 	<a
 		target="_blank"
-		title="Nhoa Noir Fotografía en LinkedIn"
-		aria-label="Nhoa Noir Fotografía en LinkedIn"
+		title="Ainhoa Sánchez Fotografía en LinkedIn"
+		aria-label="Ainhoa Sánchez Fotografía en LinkedIn"
 		rel="external noopener"
 		href="https://www.linkedin.com/in/ainhoasanchezyepes"
 	>
@@ -49,8 +49,8 @@ const currentYear = new Date().getFullYear();
 <LanguageSelector />
 
 <div class="logo">
-	<a href={translatePath('/')} class="logo-container" style="text-decoration: none; color: inherit;">
-		<div class="logo-title">NHOA NOIR</div>
+	<a href={lang === 'es' ? '/' : `/${lang}/`} class="logo-container" style="text-decoration: none; color: inherit;">
+		<div class="logo-title">AINHOA SÁNCHEZ</div>
 		<div class="logo-subtitle">FOTOGRAFÍA</div>
 	</a>
 </div>
@@ -60,4 +60,4 @@ const currentYear = new Date().getFullYear();
 		>Gabri Mejía</a
 	>
 </div>
-<div class="copyright">© {currentYear} Nhoa Noir | Fotografía</div>
+<div class="copyright">© {currentYear} Ainhoa Sánchez | Fotografía</div>

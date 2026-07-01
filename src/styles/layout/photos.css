@@ -11,7 +11,7 @@
 	padding-inline: var(--spacing-xs);
 	gap: var(--spacing-xs);
 
-	@media (width >= 800px) {
+	@media (min-width: 800px) {
 		padding-inline: var(--spacing-m);
 		gap: var(--spacing-m);
 	}

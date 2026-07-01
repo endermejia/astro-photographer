@@ -4,16 +4,23 @@
 
 .album {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(100px, min(350px, calc(33vw - 2 * var(--spacing-m)))));
+	grid-template-columns: repeat(2, 1fr);
 	grid-template-rows: masonry;
 	justify-content: center;
 	padding-block: var(--spacing-xl);
-	padding-inline: var(--spacing-xs);
-	gap: var(--spacing-xs);
+	padding-inline: 4px;
+	gap: 4px;
 
-	@media (width >= 800px) {
-		padding-inline: var(--spacing-m);
+	@media (min-width: 600px) {
+		grid-template-columns: repeat(3, 1fr);
+		padding-inline: var(--spacing-s);
 		gap: var(--spacing-s);
+	}
+
+	@media (min-width: 1000px) {
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		padding-inline: var(--spacing-m);
+		gap: var(--spacing-m);
 	}
 
 	& h1 {
@@ -125,7 +132,7 @@
 	}
 }
 
-:is(#previous-photo, #next-photo) {
+#photo-dialog > :is(#previous-photo, #next-photo) {
 	inline-size: calc(var(--buttons-size) * 2);
 	opacity: 0.5;
 	inset-block: 0;
@@ -144,7 +151,7 @@
 		display: none;
 	}
 
-	@media (width < 800px) {
+	@media (max-width: 799px) {
 		display: none;
 	}
 }
