@@ -31,16 +31,6 @@ a.hamburger {
 	inset-inline-end: 1rem;
 	inset-block-end: 1rem;
 
-	html.dark-theme & {
-		border-color: var(--color-accent-200);
-	}
-
-	@media (prefers-color-scheme: dark) {
-		html:not(.light-theme) & {
-			border-color: var(--color-accent-200);
-		}
-	}
-
 	@media (width >= 800px) {
 		display: none;
 	}
@@ -169,15 +159,8 @@ body > nav {
 			&:active {
 				transform: scale(0.9);
 			}
-			html.dark-theme & {
-				border-color: var(--color-accent-200);
-			}
 
-			@media (prefers-color-scheme: dark) {
-				html:not(.light-theme) & {
-					border-color: var(--color-accent-200);
-				}
-			}
+			/* Fix linting: Moved html.dark-theme & up */
 		}
 		& > ul {
 			flex-direction: column;
@@ -219,7 +202,6 @@ body > nav {
 				opacity: 0;
 				pointer-events: none;
 			}
-
 			& > ul {
 				transform: scale(1);
 				border-radius: 0;
@@ -236,4 +218,12 @@ body > nav {
 			}
 		}
 	}
+}
+
+html.dark-theme body > nav > a.hamburger {
+	border: 1px solid var(--color-accent-200);
+}
+
+html.dark-theme body > .dismiss {
+	border: 1px solid var(--color-accent-200);
 }

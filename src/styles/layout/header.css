@@ -61,44 +61,12 @@
 		text-wrap: balance;
 	}
 	& > .carousel {
-		display: flex;
 		position: relative;
 		z-index: -1;
 		grid-area: image / 1;
 		align-self: stretch;
-		overflow: auto hidden;
-		scroll-snap-type: x mandatory;
-		scrollbar-width: none; /* Firefox */
-		-ms-overflow-style: none; /* Internet Explorer 10+ */
-		cursor: grab;
-
-		&::-webkit-scrollbar {
-			display: none; /* Safari and Chrome */
-		}
-		&.active {
-			cursor: grabbing;
-		}
-	}
-	& .pause {
-		position: absolute;
-		inset-inline-end: max(1vi, 1rem);
-		inset-block-start: calc(var(--font-size-m) * 1.3 + 2rem + var(--spacing-l));
-		z-index: 1;
-		cursor: pointer;
-
-		& > svg {
-			stroke: currentcolor;
-			fill: none;
-		}
-		&:hover {
-			color: var(--color-accent);
-		}
 	}
 	& .hero {
-		position: relative;
-		flex: 0 0 100%;
-		scroll-snap-align: start;
-
 		& > img {
 			block-size: 100%;
 			inline-size: 100%;
@@ -118,13 +86,4 @@
 
 .object-bottom {
 	object-position: bottom;
-}
-
-#pause-hero-carousel:checked {
-	& ~ .pause {
-		& > svg {
-			stroke: none;
-			fill: currentcolor;
-		}
-	}
 }

@@ -1,5 +1,6 @@
 ---
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import 'keen-slider/keen-slider.min.css';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -14,34 +15,27 @@ const t = useTranslations(lang);
 	</div>
 	<h1 class="title">{t('header.title')}</h1>
 	<div class="subtitle">{t('header.subtitle')}</div>
-	<input id="pause-hero-carousel" type="checkbox" name="carousel" title="play / pause" class="screen-reader-text" />
-	<label class="pause" for="pause-hero-carousel" title="play / pause" aria-label="play / pause"
-		><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-			><path
-				d="M5.746 3a1.75 1.75 0 0 0-1.75 1.75v14.5c0 .966.784 1.75 1.75 1.75h3.5a1.75 1.75 0 0 0 1.75-1.75V4.75A1.75 1.75 0 0 0 9.246 3h-3.5ZM14.746 3a1.75 1.75 0 0 0-1.75 1.75v14.5c0 .966.784 1.75 1.75 1.75h3.5a1.75 1.75 0 0 0 1.75-1.75V4.75A1.75 1.75 0 0 0 18.246 3h-3.5Z"
-			></path></svg
-		></label
-	>
-	<div class="carousel" style="--images: 4;">
-		<picture class="hero" style="--nth-child:1;">
+
+	<div class="carousel keen-slider">
+		<picture class="hero keen-slider__slide">
 			<source srcset="/assets/img/hero/a-1920.avif" type="image/avif" />
 			<source srcset="/assets/img/hero/a-1920.webp" type="image/webp" />
 			<source srcset="/assets/img/hero/a-1920.jpg" type="image/jpg" />
 			<img src="/assets/img/hero/a-400.jpg" class="object-center" width="400" height="293" fetchpriority="high" alt="" />
 		</picture>
-		<picture class="hero" style="--nth-child:2;">
+		<picture class="hero keen-slider__slide">
 			<source srcset="/assets/img/hero/b-1920.avif" type="image/avif" />
 			<source srcset="/assets/img/hero/b-1920.webp" type="image/webp" />
 			<source srcset="/assets/img/hero/b-1920.jpg" type="image/jpg" />
 			<img src="/assets/img/hero/b-400.jpg" class="object-top" width="400" height="435" fetchpriority="low" alt="" />
 		</picture>
-		<picture class="hero" style="--nth-child:3;">
+		<picture class="hero keen-slider__slide">
 			<source srcset="/assets/img/hero/c-1920.avif" type="image/avif" />
 			<source srcset="/assets/img/hero/c-1920.webp" type="image/webp" />
 			<source srcset="/assets/img/hero/c-1920.jpg" type="image/jpg" />
 			<img src="/assets/img/hero/c-400.jpg" class="object-top" width="400" height="266" fetchpriority="low" alt="" />
 		</picture>
-		<picture class="hero" style="--nth-child:4;">
+		<picture class="hero keen-slider__slide">
 			<source srcset="/assets/img/hero/d-1920.avif" type="image/avif" />
 			<source srcset="/assets/img/hero/d-1920.webp" type="image/webp" />
 			<source srcset="/assets/img/hero/d-1920.jpg" type="image/jpg" />
@@ -51,91 +45,27 @@ const t = useTranslations(lang);
 </header>
 
 <script>
+	import KeenSlider from 'keen-slider';
+
 	document.addEventListener('DOMContentLoaded', () => {
-		const carousel = document.querySelector('.carousel') as HTMLElement;
-		const pauseCheckbox = document.getElementById('pause-hero-carousel') as HTMLInputElement;
+		const sliderElement = document.querySelector('.carousel') as HTMLElement;
+		if (!sliderElement) return;
 
-		if (!carousel || !pauseCheckbox) return;
+		const animation = { duration: 15000, easing: (t: number) => t };
 
-		let isDown = false;
-		let startX: number;
-		let scrollLeft: number;
-
-		carousel.addEventListener('mousedown', (e) => {
-			isDown = true;
-			carousel.classList.add('active');
-			startX = e.pageX - carousel.offsetLeft;
-			scrollLeft = carousel.scrollLeft;
-
-			// Pause animation on drag
-			if (!pauseCheckbox.checked) {
-				pauseCheckbox.checked = true;
-				const event = new Event('change');
-				pauseCheckbox.dispatchEvent(event);
-			}
+		let slider = new KeenSlider(sliderElement, {
+			loop: true,
+			renderMode: 'performance',
+			drag: true,
+			created(s) {
+				s.moveToIdx(5, true, animation);
+			},
+			updated(s) {
+				s.moveToIdx(s.track.details.abs + 5, true, animation);
+			},
+			animationEnded(s) {
+				s.moveToIdx(s.track.details.abs + 5, true, animation);
+			},
 		});
-
-		carousel.addEventListener('mouseleave', () => {
-			isDown = false;
-			carousel.classList.remove('active');
-		});
-
-		carousel.addEventListener('mouseup', () => {
-			isDown = false;
-			carousel.classList.remove('active');
-		});
-
-		carousel.addEventListener('mousemove', (e) => {
-			if (!isDown) return;
-			e.preventDefault();
-			const x = e.pageX - carousel.offsetLeft;
-			const walk = (x - startX) * 2; // scroll-fast
-			carousel.scrollLeft = scrollLeft - walk;
-		});
-
-		// Auto play
-		let autoPlayInterval: number | null = null;
-
-		const startAutoPlay = () => {
-			if (autoPlayInterval) clearInterval(autoPlayInterval);
-			autoPlayInterval = window.setInterval(() => {
-				if (!pauseCheckbox.checked) {
-					// Advance one image
-					let nextScroll = carousel.scrollLeft + carousel.clientWidth;
-					if (nextScroll >= carousel.scrollWidth) {
-						nextScroll = 0;
-					}
-					carousel.scrollTo({ left: nextScroll, behavior: 'smooth' });
-				}
-			}, 5000);
-		};
-
-		const stopAutoPlay = () => {
-			if (autoPlayInterval) {
-				clearInterval(autoPlayInterval);
-				autoPlayInterval = null;
-			}
-		};
-
-		// Play/Pause button logic
-		pauseCheckbox.addEventListener('change', () => {
-			if (pauseCheckbox.checked) {
-				stopAutoPlay();
-			} else {
-				startAutoPlay();
-			}
-		});
-
-		// Start autoplay initially
-		startAutoPlay();
-
-		// Touch events for better mobile control if needed (native scroll-snap covers most of it)
-		carousel.addEventListener('touchstart', () => {
-			if (!pauseCheckbox.checked) {
-				pauseCheckbox.checked = true;
-				const event = new Event('change');
-				pauseCheckbox.dispatchEvent(event);
-			}
-		}, { passive: true });
 	});
 </script>

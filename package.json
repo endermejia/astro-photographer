@@ -78,6 +78,7 @@
 		"@fontsource/playfair-display": "^5.1.1",
 		"@fontsource/raleway": "^5.1.1",
 		"@fontsource/titillium-web": "^5.1.1",
-		"astro": "^5.2.1"
+		"astro": "^5.2.1",
+		"keen-slider": "^6.8.6"
 	}
 }
