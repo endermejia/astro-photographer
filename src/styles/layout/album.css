@@ -88,7 +88,7 @@
 			block-size: auto;
 			inline-size: var(--buttons-size);
 		}
-		&:is(:hover, :focus) {
+		&:is(:hover, :focus-visible) {
 			opacity: 1;
 		}
 	}
@@ -126,8 +126,12 @@
 	inset-inline-end: var(--spacing-l);
 	inset-block-start: var(--spacing-m);
 	aspect-ratio: 1;
+	outline: none;
 
-	&:is(:hover, :focus) {
+	&:focus {
+		outline: none;
+	}
+	&:is(:hover, :focus-visible) {
 		background: var(--color-overlay-fallback);
 	}
 }
