@@ -1,6 +1,7 @@
 ---
 import { photos } from '../utils/photos.mjs';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import 'keen-slider/keen-slider.min.css';
 
 interface Props {
 	album: string;
@@ -14,7 +15,6 @@ const t = useTranslations(lang);
 ---
 
 <dialog id="photo-dialog">
-	<picture> </picture>
 	<button id="close-dialog" type="reset" title="Press Esc to close" aria-label="Close"
 		><svg xmlns="http://www.w3.org/2000/svg" id="mdi-close" viewBox="0 0 24 24"
 			><path
@@ -22,6 +22,22 @@ const t = useTranslations(lang);
 				fill="currentcolor"></path></svg
 		></button
 	>
+
+	<div id="dialog-slider" class="keen-slider">
+		{
+			pics?.map((pic) => (
+				<div class="keen-slider__slide">
+					<picture>
+						<source srcset={`${pic.path}${pic.name}-1920.avif`} type="image/avif" />
+						<source srcset={`${pic.path}${pic.name}-1920.webp`} type="image/webp" />
+						<source srcset={`${pic.path}${pic.name}-1920.jpg`} type="image/jpg" />
+						<img src={`${pic.path}${pic.name}-1920.jpg`} loading="lazy" alt={pic.name} />
+					</picture>
+				</div>
+			))
+		}
+	</div>
+
 	<a id="previous-photo" title="Previous photo" aria-label="Previous photo"
 		><svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
 			><path
@@ -40,8 +56,8 @@ const t = useTranslations(lang);
 
 <h1>{t(`photos.${album}`)}</h1>
 {
-	pics?.map((pic) => (
-		<a class={pic.orientation} href={`${pic.path}${pic.name}-1920.jpg`} aria-label={pic.name}>
+	pics?.map((pic, index) => (
+		<a class={pic.orientation} href={`${pic.path}${pic.name}-1920.jpg`} data-index={index} aria-label={pic.name}>
 			<picture>
 				<source srcset={`${pic.path}${pic.name}-100.avif 100w, ${pic.path}${pic.name}-400.avif`} type="image/avif" />
 				<source srcset={`${pic.path}${pic.name}-100.webp 100w, ${pic.path}${pic.name}-400.webp`} type="image/webp" />

@@ -51,20 +51,37 @@ const t = useTranslations(lang);
 		const sliderElement = document.querySelector('.carousel') as HTMLElement;
 		if (!sliderElement) return;
 
-		const animation = { duration: 15000, easing: (t: number) => t };
+		let autoplayInterval: ReturnType<typeof setInterval>;
+
+		const startAutoplay = (sliderInstance: any) => {
+			stopAutoplay();
+			autoplayInterval = setInterval(() => {
+				sliderInstance.next();
+			}, 3000);
+		};
+
+		const stopAutoplay = () => {
+			if (autoplayInterval) clearInterval(autoplayInterval);
+		};
 
 		let slider = new KeenSlider(sliderElement, {
 			loop: true,
 			renderMode: 'performance',
 			drag: true,
 			created(s) {
-				s.moveToIdx(5, true, animation);
+				startAutoplay(s);
 			},
-			updated(s) {
-				s.moveToIdx(s.track.details.abs + 5, true, animation);
+			dragStarted() {
+				stopAutoplay();
+			},
+			dragEnded(s) {
+				startAutoplay(s);
 			},
 			animationEnded(s) {
-				s.moveToIdx(s.track.details.abs + 5, true, animation);
+				startAutoplay(s);
+			},
+			updated(s) {
+				startAutoplay(s);
 			},
 		});
 	});

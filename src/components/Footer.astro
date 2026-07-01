@@ -1,6 +1,9 @@
 ---
 import LanguageSelector from './LanguageSelector.astro';
+import { getLangFromUrl, useTranslatedPath } from '../i18n/utils';
 
+const lang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(lang);
 const currentYear = new Date().getFullYear();
 ---
 
@@ -46,10 +49,10 @@ const currentYear = new Date().getFullYear();
 <LanguageSelector />
 
 <div class="logo">
-	<div class="logo-container">
+	<a href={translatePath('/')} class="logo-container" style="text-decoration: none; color: inherit;">
 		<div class="logo-title">NHOA NOIR</div>
 		<div class="logo-subtitle">FOTOGRAFÍA</div>
-	</div>
+	</a>
 </div>
 <div class="version">
 	created by

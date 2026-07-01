@@ -8,8 +8,13 @@
 	align-content: center;
 	min-block-size: 100vb;
 	padding-block: var(--spacing-xl);
-	padding-inline: var(--spacing-m);
-	gap: var(--spacing-m);
+	padding-inline: var(--spacing-xs);
+	gap: var(--spacing-xs);
+
+	@media (width >= 800px) {
+		padding-inline: var(--spacing-m);
+		gap: var(--spacing-m);
+	}
 
 	& > a {
 		display: grid;

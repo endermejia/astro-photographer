@@ -8,8 +8,13 @@
 	grid-template-rows: masonry;
 	justify-content: center;
 	padding-block: var(--spacing-xl);
-	padding-inline: var(--spacing-m);
-	gap: var(--spacing-s);
+	padding-inline: var(--spacing-xs);
+	gap: var(--spacing-xs);
+
+	@media (width >= 800px) {
+		padding-inline: var(--spacing-m);
+		gap: var(--spacing-s);
+	}
 
 	& h1 {
 		grid-column: 1 / -1;
@@ -47,10 +52,22 @@
 
 #photo-dialog {
 	--buttons-size: 2rem;
+	block-size: 100vh;
+	max-block-size: 100vh;
+	inline-size: 100vw;
+	max-inline-size: 100vw;
+	padding: 0;
+	overflow: hidden;
+	border: none;
+	background: transparent;
 
+	&::backdrop {
+		background: rgb(0 0 0 / 0.9);
+	}
 	& > :is(a, button) {
 		display: flex;
 		position: fixed;
+		z-index: 10;
 		align-items: center;
 		justify-content: center;
 		transition:
@@ -58,6 +75,7 @@
 			opacity 0.3s ease;
 		border: none;
 		background: none;
+		color: white;
 
 		& svg {
 			block-size: auto;
@@ -67,9 +85,26 @@
 			opacity: 1;
 		}
 	}
+	& #dialog-slider {
+		display: flex;
+		align-items: center;
+		block-size: 100%;
+		inline-size: 100%;
+	}
+	/* stylelint-disable-next-line selector-class-pattern */
+	& .keen-slider__slide {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		block-size: 100%;
+		padding: 2rem;
+	}
 	& img {
 		max-block-size: calc(100vh - 4em);
+		max-inline-size: 100%;
 		animation: appear 0.2s ease-out both;
+		pointer-events: none; /* Prevent native image drag interfering with slider */
+		object-fit: contain;
 
 		@media (prefers-reduced-motion: no-preference) {
 			animation: fadein 0.2s ease-out both;
