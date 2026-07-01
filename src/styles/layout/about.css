@@ -10,7 +10,7 @@
 	min-block-size: 100vb;
 	padding-block: var(--spacing-xl) var(--spacing-l);
 	padding-inline: var(--spacing-m);
-	gap: var(--spacing-m);
+	gap: var(--spacing-l);
 
 	& > .image {
 		display: grid;
@@ -42,13 +42,12 @@
 	& > .about-content {
 		display: flex;
 		flex-direction: column;
-		gap: var(--spacing-s);
+		gap: var(--spacing-m);
 		align-items: center;
 		text-align: center;
 
 		& h2 {
-			margin-block-start: var(--spacing-s);
-			margin-block-end: 0;
+			margin: 0;
 		}
 		& p {
 			margin: 0;
@@ -56,46 +55,53 @@
 			text-align-last: center;
 		}
 		& .subtitle {
-			margin-block-start: var(--spacing-s);
+			margin: 0;
 			font-weight: var(--font-weight-light);
+			text-wrap: auto;
 
 			& small {
 				font-size: var(--font-size-m);
+				text-wrap: auto;
 			}
 		}
 		& .button {
-			margin-block-start: var(--spacing-s);
+			margin: 0;
 			align-self: center;
 		}
 	}
 
 	@media (min-width: 800px) {
 		display: grid;
-		grid-template-columns: minmax(min-content, 1fr) minmax(auto, var(--max-line-length));
+		grid-template-columns: 1.1fr 1.2fr;
 		align-items: center;
 		gap: var(--spacing-xl);
-		max-inline-size: 1100px;
+		max-inline-size: 1200px;
 		margin-inline: auto;
+		min-block-size: 80vb;
 
 		& > .image {
 			margin-inline: var(--spacing-m);
-			justify-self: end;
+			justify-self: center;
 
 			& img {
-				max-block-size: 60svb;
-				min-inline-size: 28vi;
-				max-inline-size: min(40vi, 90%);
+				max-block-size: 65svb;
+				min-inline-size: 32vi;
+				max-inline-size: 100%;
 			}
 		}
 
 		& > .about-content {
 			align-items: start;
 			text-align: left;
-			justify-self: start;
+			justify-self: center;
+			max-inline-size: 55ch;
 
 			& p {
 				text-align: justify;
 				text-align-last: left;
+			}
+			& .subtitle {
+				text-align: left;
 			}
 			& .button {
 				align-self: start;

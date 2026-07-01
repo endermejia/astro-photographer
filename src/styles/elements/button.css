@@ -9,6 +9,9 @@ button {
 }
 
 .button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
 	padding-block: var(--spacing-s);
 	padding-inline: var(--spacing-l);
 	transition: all 0.3s ease;
