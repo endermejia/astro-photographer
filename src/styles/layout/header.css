@@ -15,6 +15,8 @@
 
 	& > .logo {
 		display: flex;
+		position: relative;
+		z-index: 1;
 		grid-area: logo;
 		justify-content: center;
 		margin: 0;
@@ -62,7 +64,7 @@
 	}
 	& > .carousel {
 		position: relative;
-		z-index: -1;
+		z-index: 0;
 		grid-area: image / 1;
 		align-self: stretch;
 	}

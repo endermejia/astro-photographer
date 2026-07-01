@@ -51,37 +51,44 @@ const t = useTranslations(lang);
 		const sliderElement = document.querySelector('.carousel') as HTMLElement;
 		if (!sliderElement) return;
 
-		let autoplayInterval: ReturnType<typeof setInterval>;
+		let timeout: ReturnType<typeof setTimeout>;
+		let mouseOver = false;
 
-		const startAutoplay = (sliderInstance: any) => {
-			stopAutoplay();
-			autoplayInterval = setInterval(() => {
-				sliderInstance.next();
-			}, 3000);
-		};
+		function clearNextTimeout() {
+			clearTimeout(timeout);
+		}
 
-		const stopAutoplay = () => {
-			if (autoplayInterval) clearInterval(autoplayInterval);
-		};
+		function nextTimeout(s: any) {
+			clearNextTimeout();
+			if (mouseOver) return;
+			timeout = setTimeout(() => {
+				s.next();
+			}, 5000);
+		}
 
 		let slider = new KeenSlider(sliderElement, {
 			loop: true,
 			renderMode: 'performance',
 			drag: true,
 			created(s) {
-				startAutoplay(s);
+				sliderElement.addEventListener('mouseover', () => {
+					mouseOver = true;
+					clearNextTimeout();
+				});
+				sliderElement.addEventListener('mouseout', () => {
+					mouseOver = false;
+					nextTimeout(s);
+				});
+				nextTimeout(s);
 			},
 			dragStarted() {
-				stopAutoplay();
-			},
-			dragEnded(s) {
-				startAutoplay(s);
+				clearNextTimeout();
 			},
 			animationEnded(s) {
-				startAutoplay(s);
+				nextTimeout(s);
 			},
 			updated(s) {
-				startAutoplay(s);
+				nextTimeout(s);
 			},
 		});
 	});
