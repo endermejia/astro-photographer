@@ -36,5 +36,9 @@
 		font-family: var(--font-family-header);
 		font-weight: var(--font-weight-normal);
 		color: var(--color-accent);
+
+		& .fn-sub {
+			color: var(--color-text);
+		}
 	}
 }

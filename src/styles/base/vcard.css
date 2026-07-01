@@ -27,14 +27,39 @@
 	}
 	& > .phone-1 {
 		grid-area: phone-1;
+		color: var(--color-text);
+		text-decoration: none;
+
+		&:visited {
+			color: var(--color-text);
+		}
+		&:is(:hover, :focus) {
+			color: var(--color-accent);
+		}
 	}
 	& > .email {
 		grid-area: email;
 		overflow: hidden;
 		word-wrap: break-word;
+		color: var(--color-text);
+
+		&:visited {
+			color: var(--color-text);
+		}
+		&:is(:hover, :focus) {
+			color: var(--color-accent);
+		}
 	}
 	& > .url {
 		grid-area: url;
+		color: var(--color-text);
+
+		&:visited {
+			color: var(--color-text);
+		}
+		&:is(:hover, :focus) {
+			color: var(--color-accent);
+		}
 	}
 	& > .phone-1-link {
 		grid-area: phone-1-link;
