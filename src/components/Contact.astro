@@ -1,3 +1,14 @@
+---
+import { getLangFromUrl } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+
+const waMessage = lang === 'es'
+	? "Hola Ainhoa, me gustaría ponerme en contacto contigo para hacerte una consulta o hablar sobre una sesión."
+	: "Hi Ainhoa, I'd like to get in touch with you for a query or to discuss a photoshoot.";
+const waLink = "https://wa.me/34687875777?text=" + encodeURIComponent(waMessage);
+---
+
 <section id="contact">
 	<header>
 		<h2 class="screen-reader-text">Contact</h2>
@@ -29,7 +40,7 @@
 			class="tel phone-1"
 			target="_blank"
 			rel="external noopener"
-			href="https://wa.me/34687875777"
+			href={waLink}
 		>+34 687 87 57 77</a>
 		<a
 			class="phone-1-link"
@@ -37,7 +48,7 @@
 			title="Contact Ainhoa on WhatsApp (Spain)"
 			aria-label="Contact Ainhoa on WhatsApp (Spain)"
 			rel="external noopener"
-			href="https://wa.me/34687875777"
+			href={waLink}
 		>
 			<svg
 				aria-hidden="true"
