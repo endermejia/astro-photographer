@@ -3,20 +3,17 @@
  */
 
 #about {
-	display: grid;
-	grid-template: 'picture' 'title' 'p1' 'p2' 'p3' 'subtitle' 'button';
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 	min-block-size: 100vb;
 	padding-block: var(--spacing-xl) var(--spacing-l);
 	padding-inline: var(--spacing-m);
-	gap: var(--spacing-m) var(--spacing-l);
+	gap: var(--spacing-m);
 
-	& > h2 {
-		grid-area: title;
-		justify-self: center;
-	}
 	& > .image {
 		display: grid;
-		grid-area: picture;
 		grid-template-columns: min-content;
 		place-self: center center;
 		transform: rotate(-5deg);
@@ -41,43 +38,68 @@
 			text-wrap: balance;
 		}
 	}
-	& > p {
-		margin-block: 0;
-	}
-	& > p:not(.subtitle) {
-		text-align: justify;
-	}
-	& .subtitle {
-		grid-area: subtitle;
-		align-self: end;
 
-		& small {
-			font-size: var(--font-size-m);
+	& > .about-content {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacing-s);
+		align-items: center;
+		text-align: center;
+
+		& h2 {
+			margin-block-start: var(--spacing-s);
+			margin-block-end: 0;
 		}
-	}
-	& .button {
-		grid-area: button;
-		place-self: start center;
+		& p {
+			margin: 0;
+			text-align: justify;
+			text-align-last: center;
+		}
+		& .subtitle {
+			margin-block-start: var(--spacing-s);
+			font-weight: var(--font-weight-light);
+
+			& small {
+				font-size: var(--font-size-m);
+			}
+		}
+		& .button {
+			margin-block-start: var(--spacing-s);
+			align-self: center;
+		}
 	}
 
 	@media (width >= 800px) {
-		grid-template:
-			'picture title' 'picture p1' 'picture p2' 'picture p3' 'picture subtitle' 'picture button' / minmax(
-				min-content,
-				1fr
-			)
-			minmax(auto, var(--max-line-length)) 1fr;
+		display: grid;
+		grid-template-columns: minmax(min-content, 1fr) minmax(auto, var(--max-line-length));
+		align-items: center;
+		gap: var(--spacing-xl);
+		max-inline-size: 1100px;
+		margin-inline: auto;
 
 		& > .image {
 			margin-inline: var(--spacing-m);
+			justify-self: end;
+
+			& img {
+				max-block-size: 60svb;
+				min-inline-size: 28vi;
+				max-inline-size: min(40vi, 90%);
+			}
 		}
-		& > .image img {
-			max-block-size: 50svb;
-			min-inline-size: 25vi;
-			max-inline-size: min(50vi, 90%);
-		}
-		& > p {
-			grid-column: 2;
+
+		& > .about-content {
+			align-items: start;
+			text-align: left;
+			justify-self: start;
+
+			& p {
+				text-align: justify;
+				text-align-last: left;
+			}
+			& .button {
+				align-self: start;
+			}
 		}
 	}
 }

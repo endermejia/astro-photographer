@@ -1,17 +1,17 @@
 :root {
 	color-scheme: light dark;
 
-	/* Primary */
-	--color-accent-50: oklch(95% 0.01 73);
-	--color-accent-100: oklch(90% 0.01 73);
-	--color-accent-200: oklch(85% 0.01 73);
-	--color-accent-300: oklch(75% 0.01 73);
-	--color-accent-400: oklch(65% 0.01 73);
-	--color-accent-500: oklch(50% 0.01 29);
-	--color-accent-600: oklch(40% 0.01 29);
-	--color-accent-700: oklch(30% 0.01 29);
-	--color-accent-800: oklch(20% 0.01 29);
-	--color-accent-900: oklch(10% 0.01 29);
+	/* Primary (Terracotta Scale) */
+	--color-accent-50: oklch(96% 0.015 45);
+	--color-accent-100: oklch(92% 0.035 45);
+	--color-accent-200: oklch(86% 0.06 45);
+	--color-accent-300: oklch(78% 0.12 45);
+	--color-accent-400: oklch(68% 0.16 45);
+	--color-accent-500: oklch(55% 0.17 40);
+	--color-accent-600: oklch(45% 0.14 40);
+	--color-accent-700: oklch(35% 0.11 40);
+	--color-accent-800: oklch(25% 0.08 40);
+	--color-accent-900: oklch(15% 0.05 40);
 
 	/* Grey */
 	--color-grey-50: oklch(95% 0 0);
@@ -30,22 +30,22 @@
 	/**
 	 * Light mode (default)
 	 */
-	--color-accent: var(--color-accent-700);
+	--color-accent: var(--color-accent-500);
 	--color-bg: var(--color-accent-50);
 	--color-bg-secondary: var(--color-accent-100);
 	--color-text: var(--color-accent-900);
 	--color-text-secondary: var(--color-accent-800);
-	--color-button-bg: var(--color-accent-700);
-	--color-button-bg--hover: var(--color-accent-600);
-	--color-button-bg--active: var(--color-accent-800);
+	--color-button-bg: var(--color-accent-500);
+	--color-button-bg--hover: var(--color-accent-400);
+	--color-button-bg--active: var(--color-accent-600);
 	--color-button-text: var(--color-accent-50);
 	--color-button-text--hover: var(--color-accent-50);
 	--color-button-text--active: var(--color-accent-50);
 	--color-onpicture: var(--color-grey-50);
-	--color-bg-onpicture: oklch(15% 0.01 46 / 0.2);
-	--color-overlay: oklch(95% 0.01 46 / 0.7);
-	--color-overlay-fallback: oklch(95% 0.01 46 / 0.9);
-	--color-shadow: oklch(15% 0.01 46 / 0.3);
+	--color-bg-onpicture: oklch(15% 0.04 40 / 0.2);
+	--color-overlay: oklch(95% 0.02 45 / 0.7);
+	--color-overlay-fallback: oklch(95% 0.02 45 / 0.9);
+	--color-shadow: oklch(15% 0.04 40 / 0.3);
 	--color-picture-border: var(--color-white);
 	--color-text-on-picture-border: var(--color-black);
 
@@ -65,9 +65,9 @@
 		--color-button-text--hover: var(--color-accent-900);
 		--color-button-text--active: var(--color-accent-900);
 		--color-onpicture: var(--color-grey-50);
-		--color-bg-onpicture: oklch(15% 0.01 46 / 0.4);
-		--color-overlay: oklch(15% 0.01 46 / 0.7);
-		--color-overlay-fallback: oklch(15% 0.01 46 / 0.9);
+		--color-bg-onpicture: oklch(15% 0.04 40 / 0.4);
+		--color-overlay: oklch(15% 0.04 40 / 0.7);
+		--color-overlay-fallback: oklch(15% 0.04 40 / 0.9);
 		--color-shadow: oklch(0% 0 0 / 0.5);
 		--color-picture-border: var(--color-accent-800);
 		--color-text-on-picture-border: var(--color-accent-100);
@@ -75,22 +75,22 @@
 
 	/* Class-based theme switching - these override system preferences */
 	&.light-theme {
-		--color-accent: var(--color-accent-700);
+		--color-accent: var(--color-accent-500);
 		--color-bg: var(--color-accent-50);
 		--color-bg-secondary: var(--color-accent-100);
 		--color-text: var(--color-accent-900);
 		--color-text-secondary: var(--color-accent-800);
-		--color-button-bg: var(--color-accent-700);
-		--color-button-bg--hover: var(--color-accent-600);
-		--color-button-bg--active: var(--color-accent-800);
+		--color-button-bg: var(--color-accent-500);
+		--color-button-bg--hover: var(--color-accent-400);
+		--color-button-bg--active: var(--color-accent-600);
 		--color-button-text: var(--color-accent-50);
 		--color-button-text--hover: var(--color-accent-50);
 		--color-button-text--active: var(--color-accent-50);
 		--color-onpicture: var(--color-grey-50);
-		--color-bg-onpicture: oklch(15% 0.01 46 / 0.2);
-		--color-overlay: oklch(95% 0.01 46 / 0.7);
-		--color-overlay-fallback: oklch(95% 0.01 46 / 0.9);
-		--color-shadow: oklch(15% 0.01 46 / 0.3);
+		--color-bg-onpicture: oklch(15% 0.04 40 / 0.2);
+		--color-overlay: oklch(95% 0.02 45 / 0.7);
+		--color-overlay-fallback: oklch(95% 0.02 45 / 0.9);
+		--color-shadow: oklch(15% 0.04 40 / 0.3);
 		--color-picture-border: var(--color-white);
 		--color-text-on-picture-border: var(--color-black);
 	}
@@ -107,9 +107,9 @@
 		--color-button-text--hover: var(--color-accent-900);
 		--color-button-text--active: var(--color-accent-900);
 		--color-onpicture: var(--color-grey-50);
-		--color-bg-onpicture: oklch(15% 0.01 46 / 0.4);
-		--color-overlay: oklch(15% 0.01 46 / 0.7);
-		--color-overlay-fallback: oklch(15% 0.01 46 / 0.9);
+		--color-bg-onpicture: oklch(15% 0.04 40 / 0.4);
+		--color-overlay: oklch(15% 0.04 40 / 0.7);
+		--color-overlay-fallback: oklch(15% 0.04 40 / 0.9);
 		--color-shadow: oklch(0% 0 0 / 0.5);
 		--color-picture-border: var(--color-accent-800);
 		--color-text-on-picture-border: var(--color-accent-100);
@@ -118,9 +118,9 @@
 	/**
 	 * Elements
 	 */
-	--link-color: currentcolor;
-	--link-color--hover: currentcolor;
-	--link-color--active: currentcolor;
+	--link-color: var(--color-accent);
+	--link-color--hover: var(--color-accent-400);
+	--link-color--active: var(--color-accent-600);
 
 	/**
 	 * Filters
@@ -129,6 +129,6 @@
 }
 
 ::backdrop {
-	--color-overlay: oklch(95% 0.01 46 / 0.7);
-	--color-overlay-fallback: oklch(95% 0.01 46 / 0.9);
+	--color-overlay: oklch(95% 0.02 45 / 0.7);
+	--color-overlay-fallback: oklch(95% 0.02 45 / 0.9);
 }

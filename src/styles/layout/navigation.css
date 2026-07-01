@@ -59,6 +59,9 @@ nav {
 		white-space: nowrap;
 		border-block-end: 1px solid transparent;
 
+		&:visited {
+			color: currentcolor;
+		}
 		&:is(:hover, :focus) {
 			color: var(--color-accent);
 		}
@@ -107,14 +110,17 @@ body > nav {
 			background: var(--color-overlay);
 		}
 	}
-	& a.active {
+	& a.active,
+	& a.active:visited {
+		color: var(--color-accent);
 		border-image-source: linear-gradient(
 			to right,
 			transparent -25%,
-			currentcolor 25%,
-			currentcolor 75%,
+			var(--color-accent) 25%,
+			var(--color-accent) 75%,
 			transparent 125%
 		);
+		border-image-slice: 1;
 	}
 	& a:is(:hover, :focus) {
 		color: var(--color-accent);

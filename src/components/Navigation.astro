@@ -48,3 +48,67 @@ const translatePath = useTranslatedPath(lang);
 			fill="currentcolor" />
 	</svg>
 </a>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const sections = document.querySelectorAll('header#header, section#photos, section#about, section#contact');
+		const navLinks = document.querySelectorAll('nav ul li a:not(.theme-toggle)');
+
+		if (sections.length === 0 || navLinks.length === 0) return;
+
+		const options = {
+			root: null,
+			rootMargin: '-30% 0px -40% 0px', // Triggers when section occupies middle region of viewport
+			threshold: 0
+		};
+
+		let currentActiveId = '';
+
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					const id = entry.target.id;
+					if (id) {
+						setActiveSection(id);
+					}
+				}
+			});
+		}, options);
+
+		sections.forEach((section) => {
+			observer.observe(section);
+		});
+
+		function setActiveSection(id: string) {
+			if (currentActiveId === id) return;
+			currentActiveId = id;
+
+			navLinks.forEach((link) => {
+				const href = link.getAttribute('href');
+				const targetId = id === 'header' ? 'home' : id;
+				if (href && href.endsWith(`#${targetId}`)) {
+					link.classList.add('active');
+				} else {
+					link.classList.remove('active');
+				}
+			});
+
+			// Update history state to change URL hash without scrolling the page
+			const targetHash = id === 'header' ? '#home' : `#${id}`;
+			if (window.location.hash !== targetHash) {
+				const newUrl = `${window.location.pathname}${targetHash}`;
+				window.history.replaceState(null, '', newUrl);
+			}
+		}
+
+		// Initial check on load
+		const currentHash = window.location.hash;
+		if (currentHash) {
+			const sectionId = currentHash === '#home' ? 'header' : currentHash.substring(1);
+			const targetSection = document.getElementById(sectionId);
+			if (targetSection) {
+				setActiveSection(sectionId === 'header' ? 'header' : sectionId);
+			}
+		}
+	});
+</script>

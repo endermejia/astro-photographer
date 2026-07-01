@@ -35,7 +35,7 @@
 				font-family: var(--font-family-header-title);
 				font-size: var(--font-size-header-xxl);
 				font-weight: var(--font-weight-normal);
-				border-block-end: 1px solid;
+				border-block-end: 2px solid var(--color-accent);
 			}
 			& > .logo-subtitle {
 				font-family: var(--font-family-header-subtitle);
@@ -46,7 +46,7 @@
 	& > .title {
 		grid-area: title;
 		margin-block-start: var(--spacing-m);
-		color: var(--color-text);
+		color: var(--color-accent);
 		font-family: var(--font-family-header);
 		font-size: var(--font-size-header-xl);
 		font-weight: var(--font-weight-normal);
