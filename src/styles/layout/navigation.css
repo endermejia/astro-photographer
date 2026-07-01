@@ -46,6 +46,7 @@ nav {
 	}
 	& > ul {
 		display: flex;
+		align-items: center;
 		padding: unset;
 		list-style: none;
 		gap: 2em;
