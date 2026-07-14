@@ -3,47 +3,53 @@
  */
 
 .album {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	grid-template-rows: masonry;
-	justify-content: center;
 	padding-block: var(--spacing-xl);
-	padding-inline: 4px;
-	gap: 4px;
+	padding-inline: 0;
+	background-color: var(--color-bg);
+
+	& h1 {
+		padding-inline: var(--spacing-m);
+		text-align: center;
+	}
+}
+
+.album-grid {
+	display: flex;
+	--gap: var(--spacing-xs);
+	padding-inline: var(--spacing-xs);
+	gap: var(--gap);
 
 	@media (width >= 600px) {
-		grid-template-columns: repeat(3, 1fr);
+		--gap: var(--spacing-s);
 		padding-inline: var(--spacing-s);
-		gap: var(--spacing-s);
 	}
 
 	@media (width >= 1000px) {
-		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		--gap: var(--spacing-m);
 		padding-inline: var(--spacing-m);
-		gap: var(--spacing-m);
 	}
+}
 
-	& h1 {
-		grid-column: 1 / -1;
-		text-align: center;
-	}
-	& > a {
+.album-column {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	min-inline-size: 0;
+	container-type: inline-size;
+	gap: var(--gap);
+
+	& > :is(.portrait, .landscape) {
+		display: block;
 		overflow: hidden;
-		background-color: var(--color-bg-secondary);
+		background-color: var(--color-bg);
 
-		&.portrait {
-			grid-row: span 2;
-		}
 		& img {
+			block-size: 100%;
+			inline-size: 100%;
+			transition: all 0.5s ease;
 			object-fit: cover;
 			object-position: top;
-			transition: all 0.5s ease;
 			filter: var(--img-hover);
-
-			@supports (not (grid-template-rows: masonry)) {
-				block-size: 100%;
-				inline-size: 100%;
-			}
 		}
 		&:is(:focus-visible, :hover) {
 			& img {
@@ -54,6 +60,12 @@
 				}
 			}
 		}
+	}
+	& > .landscape {
+		aspect-ratio: 3 / 2;
+	}
+	& > .portrait {
+		block-size: calc(133.333cqw + var(--gap));
 	}
 }
 

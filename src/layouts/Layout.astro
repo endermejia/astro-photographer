@@ -16,6 +16,36 @@ const pageTitle = title ? `${title} | ${mainTitle}` : mainTitle;
 // SEO basics
 const siteUrl = 'https://nhoanoir.com';
 const canonicalUrl = lang === 'es' ? `${siteUrl}/` : `${siteUrl}/en/`;
+
+// Structured Data (JSON-LD)
+const schema = {
+	'@context': 'https://schema.org',
+	'@type': ['LocalBusiness', 'ProfessionalService'],
+	'@id': 'https://nhoanoir.com#business',
+	name: 'Nhoa Sánchez | Fotografía',
+	url: 'https://nhoanoir.com',
+	image: 'https://nhoanoir.com/assets/social.jpg',
+	email: 'mailto:ainhoasanchezyepes@gmail.com',
+	sameAs: [
+		'https://www.instagram.com/nhoanoir',
+		'https://www.linkedin.com/in/ainhoasanchezyepes'
+	],
+	address: {
+		'@type': 'PostalAddress',
+		addressLocality: 'Castalla',
+		addressRegion: 'Alicante',
+		addressCountry: 'ES'
+	},
+	areaServed: [
+		{ '@type': 'City', name: 'Castalla' },
+		{ '@type': 'City', name: 'Tibi' },
+		{ '@type': 'City', name: 'Ibi' },
+		{ '@type': 'City', name: 'Onil' },
+		{ '@type': 'City', name: 'Alcoy' }
+	],
+	availableLanguage: ['es', 'en'],
+	priceRange: '€€'
+};
 ---
 
 <html lang={lang}>
@@ -90,36 +120,7 @@ const canonicalUrl = lang === 'es' ? `${siteUrl}/` : `${siteUrl}/en/`;
 		<meta property="og:image:height" content="640" />
 
 		<!-- Structured Data -->
-		<script type="application/ld+json">
-		{
-		  "@context": "https://schema.org",
-		  "@type": ["LocalBusiness", "ProfessionalService"],
-		  "@id": "https://nhoanoir.com#business",
-		  "name": "Nhoa Sánchez | Fotografía",
-		  "url": "https://nhoanoir.com",
-		  "image": "https://nhoanoir.com/assets/social.jpg",
-		  "email": "mailto:ainhoasanchezyepes@gmail.com",
-		  "sameAs": [
-		    "https://www.instagram.com/nhoanoir",
-		    "https://www.linkedin.com/in/ainhoasanchezyepes"
-		  ],
-		  "address": {
-		    "@type": "PostalAddress",
-		    "addressLocality": "Castalla",
-		    "addressRegion": "Alicante",
-		    "addressCountry": "ES"
-		  },
-		  "areaServed": [
-		    { "@type": "City", "name": "Castalla" },
-		    { "@type": "City", "name": "Tibi" },
-		    { "@type": "City", "name": "Ibi" },
-		    { "@type": "City", "name": "Onil" },
-		    { "@type": "City", "name": "Alcoy" }
-		  ],
-		  "availableLanguage": ["es", "en"],
-		  "priceRange": "€€"
-		}
-		</script>
+		<script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
 	</head>
 	<body id="home">

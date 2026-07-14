@@ -13,22 +13,18 @@
 		block-size: 100%;
 		inline-size: 100%;
 	}
-
 	& .carousel {
 		block-size: 100%;
 		inline-size: 100%;
 	}
-
 	& .keen-slider {
 		block-size: 100% !important;
 		inline-size: 100% !important;
 	}
-
 	& .keen-slider__slide {
 		block-size: 100% !important;
 		inline-size: 100% !important;
 	}
-
 	& .hero {
 		block-size: 100%;
 		inline-size: 100%;
@@ -40,22 +36,21 @@
 			pointer-events: none;
 		}
 	}
-
 	& > .logo {
 		display: flex;
 		position: absolute;
 		z-index: 2;
 		justify-content: center;
 		inline-size: 100%;
-		inset-block-start: 65%;
 		padding-block: var(--spacing-l);
 		padding-inline: var(--spacing-m);
 		animation: appear 0.8s ease 0.2s both;
 		background: oklch(15% 0.04 40 / 0.6);
-		backdrop-filter: blur(20px) saturate(1.4);
 		color: var(--color-grey-50);
-		user-select: none;
 		pointer-events: none;
+		user-select: none;
+		inset-block-start: 65%;
+		backdrop-filter: blur(20px) saturate(1.4);
 
 		& > .logo-container {
 			display: flex;
@@ -65,20 +60,21 @@
 			gap: var(--spacing-xs);
 
 			& > .logo-title {
+				padding-block-end: var(--spacing-xs);
 				font-family: var(--font-family-header-title);
 				font-size: var(--font-size-header-xxl);
 				font-weight: var(--font-weight-normal);
 				line-height: 1.1;
 				text-align: center;
+				all: unset;
 				border-block-end: 2px solid var(--color-accent);
-				padding-block-end: var(--spacing-xs);
 			}
 			& > .logo-subtitle {
+				color: var(--color-grey-200);
 				font-family: var(--font-family-header-subtitle);
 				font-size: var(--font-size-header-m);
 				letter-spacing: 0.3em;
 				text-transform: uppercase;
-				color: var(--color-grey-200);
 			}
 		}
 	}
@@ -86,24 +82,26 @@
 	/* Scroll-down indicator */
 	& > .scroll-indicator {
 		display: flex;
+		position: absolute;
 		z-index: 3;
 		align-items: center;
 		justify-content: center;
-		position: absolute;
 		block-size: 48px;
 		inline-size: 48px;
-		inset-block-end: var(--spacing-m);
-		inset-inline-start: 50%;
-		translate: -50% 0;
 		padding: var(--spacing-xs);
-		transition: opacity 0.3s ease, color 0.3s ease;
+		transition:
+			opacity 0.3s ease,
+			color 0.3s ease;
 		animation:
 			appear 0.8s ease 1s both,
 			bounce-arrow 2s ease-in-out 1.8s infinite;
 		border-radius: 50%;
 		background: oklch(15% 0.04 40 / 0.6);
-		backdrop-filter: blur(12px);
 		color: var(--color-grey-50);
+		inset-block-end: var(--spacing-m);
+		inset-inline-start: 50%;
+		translate: -50% 0;
+		backdrop-filter: blur(12px);
 
 		&:hover {
 			opacity: 0.8;

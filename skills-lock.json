@@ -1,35 +1,35 @@
 {
-  "version": 1,
-  "skills": {
-    "emil-design-eng": {
-      "source": "emilkowalski/skills",
-      "sourceType": "github",
-      "skillPath": "skills/emil-design-eng/SKILL.md",
-      "computedHash": "ac3fc5b4e206488ffc408a2806f829bb2e5eaf518fded09be34790685c2b3a0d"
-    },
-    "frontend-design": {
-      "source": "anthropics/skills",
-      "sourceType": "github",
-      "skillPath": "skills/frontend-design/SKILL.md",
-      "computedHash": "93f53fd1c0352d3d7ec17b8f73d7351bf76f4821e55d123c9d2abc2c53ba48e4"
-    },
-    "huashu-design": {
-      "source": "alchaincyf/huashu-design",
-      "sourceType": "github",
-      "skillPath": "SKILL.md",
-      "computedHash": "73bff3eabe7fe30abbc7b3d7399a35b1b2b0a41bb9bd4bed8a8bc7f68b0e4cd3"
-    },
-    "ui-ux-pro-max": {
-      "source": "nextlevelbuilder/ui-ux-pro-max-skill",
-      "sourceType": "github",
-      "skillPath": ".claude/skills/ui-ux-pro-max/SKILL.md",
-      "computedHash": "648a7334f3dd6cc826e35d12c48318534caf75a2176d78ef1abd8e4a3cd15334"
-    },
-    "web-design-guidelines": {
-      "source": "vercel-labs/agent-skills",
-      "sourceType": "github",
-      "skillPath": "skills/web-design-guidelines/SKILL.md",
-      "computedHash": "f3bc47f890f42a44db1007ab390709ec368e4b8c089baee6b0007182236ac474"
-    }
-  }
+	"version": 1,
+	"skills": {
+		"emil-design-eng": {
+			"source": "emilkowalski/skills",
+			"sourceType": "github",
+			"skillPath": "skills/emil-design-eng/SKILL.md",
+			"computedHash": "ac3fc5b4e206488ffc408a2806f829bb2e5eaf518fded09be34790685c2b3a0d"
+		},
+		"frontend-design": {
+			"source": "anthropics/skills",
+			"sourceType": "github",
+			"skillPath": "skills/frontend-design/SKILL.md",
+			"computedHash": "93f53fd1c0352d3d7ec17b8f73d7351bf76f4821e55d123c9d2abc2c53ba48e4"
+		},
+		"huashu-design": {
+			"source": "alchaincyf/huashu-design",
+			"sourceType": "github",
+			"skillPath": "SKILL.md",
+			"computedHash": "73bff3eabe7fe30abbc7b3d7399a35b1b2b0a41bb9bd4bed8a8bc7f68b0e4cd3"
+		},
+		"ui-ux-pro-max": {
+			"source": "nextlevelbuilder/ui-ux-pro-max-skill",
+			"sourceType": "github",
+			"skillPath": ".claude/skills/ui-ux-pro-max/SKILL.md",
+			"computedHash": "648a7334f3dd6cc826e35d12c48318534caf75a2176d78ef1abd8e4a3cd15334"
+		},
+		"web-design-guidelines": {
+			"source": "vercel-labs/agent-skills",
+			"sourceType": "github",
+			"skillPath": "skills/web-design-guidelines/SKILL.md",
+			"computedHash": "f3bc47f890f42a44db1007ab390709ec368e4b8c089baee6b0007182236ac474"
+		}
+	}
 }

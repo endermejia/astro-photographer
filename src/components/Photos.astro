@@ -18,7 +18,7 @@ const waLink = "https://wa.me/34687875777?text=" + encodeURIComponent(waMessage)
 <section id="photos">
 	<div class="hero-subtitle">{t('header.subtitle')}</div>
 	<h2 class="screen-reader-text">{t('photos.title')}</h2>
-	<a href={translatePath(`/${route ? route : 'albums/climbing'}`, lang)} class="primary">
+	<a href={translatePath(`/${route ? route : 'albums/climbing'}`, lang)} class="primary climbing">
 		<h3>{t('photos.climbing')}</h3>
 		<picture>
 			<source
@@ -36,7 +36,7 @@ const waLink = "https://wa.me/34687875777?text=" + encodeURIComponent(waMessage)
 			<img src="/assets/img/albums/climbing-400.jpg" width="6240" height="4160" loading="lazy" alt="" />
 		</picture>
 	</a>
-	<a href={translatePath(`/${route ? route : 'albums/people'}`, lang)} class="primary">
+	<a href={translatePath(`/${route ? route : 'albums/people'}`, lang)} class="primary people">
 		<h3>{t('photos.people')}</h3>
 		<picture>
 			<source
@@ -54,7 +54,7 @@ const waLink = "https://wa.me/34687875777?text=" + encodeURIComponent(waMessage)
 			<img src="/assets/img/albums/people-400.jpg" width="4850" height="3233" loading="lazy" alt="" />
 		</picture>
 	</a>
-	<a href={translatePath(`/${route ? route : 'albums/events'}`, lang)} class="primary">
+	<a href={translatePath(`/${route ? route : 'albums/events'}`, lang)} class="primary events">
 		<h3>{t('photos.events')}</h3>
 		<picture>
 			<source
@@ -72,7 +72,7 @@ const waLink = "https://wa.me/34687875777?text=" + encodeURIComponent(waMessage)
 			<img src="/assets/img/albums/events-400.jpg" width="5249" height="3499" loading="lazy" alt="" />
 		</picture>
 	</a>
-	<a href={translatePath(`/${route ? route : 'albums/business'}`, lang)} class="primary">
+	<a href={translatePath(`/${route ? route : 'albums/business'}`, lang)} class="primary business">
 		<h3>{t('photos.business')}</h3>
 		<picture>
 			<source
@@ -90,7 +90,7 @@ const waLink = "https://wa.me/34687875777?text=" + encodeURIComponent(waMessage)
 			<img src="/assets/img/albums/business-400.jpg" width="5534" height="3689" loading="lazy" alt="" />
 		</picture>
 	</a>
-	<a href={translatePath(`/${route ? route : 'albums/travel'}`, lang)} class="primary">
+	<a href={translatePath(`/${route ? route : 'albums/travel'}`, lang)} class="primary travel">
 		<h3>{t('photos.travel')}</h3>
 		<picture>
 			<source srcset="/assets/img/albums/travel-400.avif 400w, /assets/img/albums/travel-1920.avif" type="image/avif" />

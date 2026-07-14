@@ -40,9 +40,9 @@ nav {
 	display: flex;
 	position: fixed;
 	z-index: 10;
-	inset-block-start: 0;
-	inline-size: 100%;
 	justify-content: center;
+	inline-size: 100%;
+	inset-block-start: 0;
 
 	& > .hamburger {
 		display: none;
@@ -54,9 +54,9 @@ nav {
 		justify-content: center;
 		margin: unset;
 		padding-block: 1em;
+		background: var(--color-overlay-fallback);
 		list-style: none;
 		gap: 2em;
-		background: var(--color-overlay-fallback);
 
 		@supports (backdrop-filter: blur(30px) saturate(125%)) {
 			backdrop-filter: blur(30px) saturate(125%);

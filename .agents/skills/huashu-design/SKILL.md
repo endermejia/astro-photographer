@@ -25,17 +25,17 @@ description: 花叔Design——用HTML做高保真原型、幻灯片、动画、
 
 收到任务先扫一遍这张表，确定走哪条线再开工（多信号同时命中按行序叠加）：
 
-| 任务信号 | 入口 |
-|---------|------|
-| 提到具体品牌/产品名 | 核心原则#0 事实验证 → §1.a 资产协议 → 标准流程 |
-| 没给风格参考（最常见） | Fallback 顾问模式 Phase 1-5 → 回标准流程 Step 2 |
-| 幻灯片/PPT | 标准流程 + Step 1 deck 交付链 + 「技术红线」架构选型 |
-| 动画/导出 MP4/GIF | 标准流程 + Step 9；动手前必读 `references/animation-pitfalls.md` |
-| 带解说长视频（≥1分钟） | Step 9.5 → `references/voiceover-pipeline.md` |
+| 任务信号                                            | 入口                                                                   |
+| --------------------------------------------------- | ---------------------------------------------------------------------- |
+| 提到具体品牌/产品名                                 | 核心原则#0 事实验证 → §1.a 资产协议 → 标准流程                         |
+| 没给风格参考（最常见）                              | Fallback 顾问模式 Phase 1-5 → 回标准流程 Step 2                        |
+| 幻灯片/PPT                                          | 标准流程 + Step 1 deck 交付链 + 「技术红线」架构选型                   |
+| 动画/导出 MP4/GIF                                   | 标准流程 + Step 9；动手前必读 `references/animation-pitfalls.md`       |
+| 带解说长视频（≥1分钟）                              | Step 9.5 → `references/voiceover-pipeline.md`                          |
 | launch film/品牌宣传片（「Apple级」「超级碗品质」） | 先写万字 director's notes → `references/launch-film-director-notes.md` |
-| App/iOS 原型 | 「App / iOS 原型专属守则」（覆盖通用规则） |
-| 评审/打分 | Step 10 → `references/critique-guide.md` |
-| 弱 runtime（无 subagent/非 Claude） | 上述任一条 + 「弱 runtime 降级模式」 |
+| App/iOS 原型                                        | 「App / iOS 原型专属守则」（覆盖通用规则）                             |
+| 评审/打分                                           | Step 10 → `references/critique-guide.md`                               |
+| 弱 runtime（无 subagent/非 Claude）                 | 上述任一条 + 「弱 runtime 降级模式」                                   |
 
 例：「做个咖啡主题的 PPT」= 第 2 行 + 第 3 行——Fallback 出三版（咖啡是主题不是品牌，不找 logo），deck 骨架统一用概览墙模板。
 
@@ -44,12 +44,14 @@ description: 花叔Design——用HTML做高保真原型、幻灯片、动画、
 > **任何涉及具体产品/技术/事件/人物的存在性、发布状态、版本号、规格参数的事实性断言，第一步必须 `WebSearch` 验证，禁止凭训练语料做断言。**
 
 **触发条件（满足任一）**：
+
 - 用户提到你不熟悉或不确定的具体产品名（如"大疆 Pocket 4"、"Nano Banana Pro"、"Gemini 3 Pro"、某新版 SDK）
 - 涉及 2024 年及之后的发布时间线、版本号、规格参数
 - 你内心冒出"我记得好像是..."、"应该还没发布"、"大概在..."、"可能不存在"的句式
 - 用户请求给某个具体产品/公司做设计物料
 
 **硬流程（开工前执行，优先于 clarifying questions）**：
+
 1. `WebSearch` 产品名 + 最新时间词（"2026 latest"、"launch date"、"release"、"specs"）
 2. 读 1-3 条权威结果，确认：**存在性 / 发布状态 / 最新版本号 / 关键规格**
 3. 把事实写进项目的 `product-facts.md`（见工作流 Step 2），不靠记忆
@@ -60,6 +62,7 @@ description: 花叔Design——用HTML做高保真原型、幻灯片、动画、
 **这条原则优先级高于"问 clarifying questions"**——问问题的前提是你对事实已有正确理解。事实错了，问什么都是歪的。
 
 **禁止句式（看到自己要说这些时，立即停下去搜）**：
+
 - ❌ "我记得 X 还没发布"
 - ❌ "X 目前是 vN 版本"（未经搜索的断言）
 - ❌ "X 这个产品可能不存在"
@@ -88,6 +91,7 @@ description: 花叔Design——用HTML做高保真原型、幻灯片、动画、
 **核心理念：资产 > 规范**——logo / 产品图 / UI 截图比品牌色值更重要（花叔：「除了品牌色，显然该用上 logo 和产品图，否则我们在表达什么呢？」）。
 
 **5 步硬流程**（每步有 fallback，绝不静默跳过；完整操作见 reference）：
+
 1. **问**：一次问全资产清单（logo / 产品图 / UI 截图 / 色板 / 字体 / 禁区）
 2. **搜官方渠道**：按资产类型去官网 / press kit / 官方社媒 / Wikimedia
 3. **下载资产**：按类型三条兜底路径下载 logo / 产品图 / UI
@@ -101,6 +105,7 @@ description: 花叔Design——用HTML做高保真原型、幻灯片、动画、
 ### 2. Junior Designer模式：先展示假设，再执行
 
 你是manager的junior designer。**不要一头扎进去闷头做大招**。HTML文件的开头先写下你的assumptions + reasoning + placeholders，**尽早show给用户**。然后：
+
 - 用户确认方向后，再写React组件填placeholder
 - 再show一次，让用户看进度
 - 最后迭代细节
@@ -112,6 +117,7 @@ description: 花叔Design——用HTML做高保真原型、幻灯片、动画、
 用户要你设计，不要给一个完美方案——给3+个变体，跨不同维度（视觉/交互/色彩/布局/动画），**从by-the-book到novel逐级递进**。让用户mix and match。
 
 实现方式：
+
 - 纯视觉对比 → 用`design_canvas.jsx`并排展示
 - 交互流程/多选项 → 做完整原型，把选项做成Tweaks
 
@@ -122,6 +128,7 @@ description: 花叔Design——用HTML做高保真原型、幻灯片、动画、
 ### 5. 系统优先，不要填充
 
 **Don't add filler content**。每个元素都必须earn its place。空白是设计问题，用构图解决，不是靠编造内容填满。**One thousand no's for every yes**。尤其警惕：
+
 - 「data slop」——没用的数字、图标、stats装饰
 - 「iconography slop」——每个标题都配icon
 - 「gradient slop」——所有背景都渐变
@@ -134,6 +141,7 @@ description: 花叔Design——用HTML做高保真原型、幻灯片、动画、
 紫渐变、emoji 图标、圆角卡片+左 border accent、SVG 画人脸——这些东西之所以是 slop，不是因为它们本身丑，而是因为**它们是 AI 默认模式下的产物，不携带任何品牌信息**。
 
 **规避 slop 的逻辑链**：
+
 1. 用户请你做设计，是要**他的品牌被认出来**
 2. AI 默认产出 = 训练语料的平均 = 所有品牌混合 = **没有任何品牌被认出来**
 3. 所以 AI 默认产出 = 帮用户把品牌稀释成"又一个 AI 做的页面"
@@ -143,15 +151,15 @@ description: 花叔Design——用HTML做高保真原型、幻灯片、动画、
 
 #### 6.2 核心要规避的（带"为什么"）
 
-| 元素 | 为什么是 slop | 什么情况可以用 |
-|------|-------------|---------------|
-| 激进紫色渐变 | AI 训练语料里"科技感"的万能公式，出现在 SaaS/AI/web3 每一个落地页 | 品牌本身用紫渐变（如 Linear 某些场景）、或任务就是讽刺/展示这类 slop |
-| Emoji 作图标 | 训练语料里每个 bullet 都配 emoji，是"不够专业就用 emoji 凑"的病 | 品牌本身用（如 Notion），或产品受众是儿童/轻松场景 |
-| 圆角卡片 + 左彩色 border accent | 2020-2024 Material/Tailwind 时期的烂大街组合，已成视觉噪音 | 用户明确要求、或这个组合在品牌 spec 里被保留 |
-| SVG 画 imagery（人脸/场景/物品）| AI 画的 SVG 人物永远五官错位，比例诡异 | **几乎没有**——有图就用真图（Wikimedia/Unsplash/AI 生成），没图就留诚实 placeholder |
-| **CSS 剪影/SVG 手画代替真实产品图** | 生成的就是「通用科技动画」——黑底+橙 accent+圆角长条，任何实体产品都长一样，品牌识别度归零（DJI Pocket 4 实测 2026-04-20）| **几乎没有**——先走核心资产协议找真实产品图；真没有时用 nano-banana-pro 以官方参考图为基底生成；实在不行标诚实 placeholder 告诉用户"产品图待补" |
-| Inter/Roboto/Arial/system fonts 作 display | 太常见，读者看不出这是"有设计的产品"还是"demo 页" | 品牌 spec 明确用这些字体（Stripe 用 Sohne/Inter 变体，但是经过微调的） |
-| **GitHub-dark 偷懒解**：均匀深蓝底 `#0D1117` + 通用青/紫霓虹 glow | 这**一种特定组合**是 SaaS/AI 落地页的烂大街复制——注意不是「所有暗色都禁」 | 开发者工具产品且品牌本身走这方向 |
+| 元素                                                              | 为什么是 slop                                                                                                             | 什么情况可以用                                                                                                                                 |
+| ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| 激进紫色渐变                                                      | AI 训练语料里"科技感"的万能公式，出现在 SaaS/AI/web3 每一个落地页                                                         | 品牌本身用紫渐变（如 Linear 某些场景）、或任务就是讽刺/展示这类 slop                                                                           |
+| Emoji 作图标                                                      | 训练语料里每个 bullet 都配 emoji，是"不够专业就用 emoji 凑"的病                                                           | 品牌本身用（如 Notion），或产品受众是儿童/轻松场景                                                                                             |
+| 圆角卡片 + 左彩色 border accent                                   | 2020-2024 Material/Tailwind 时期的烂大街组合，已成视觉噪音                                                                | 用户明确要求、或这个组合在品牌 spec 里被保留                                                                                                   |
+| SVG 画 imagery（人脸/场景/物品）                                  | AI 画的 SVG 人物永远五官错位，比例诡异                                                                                    | **几乎没有**——有图就用真图（Wikimedia/Unsplash/AI 生成），没图就留诚实 placeholder                                                             |
+| **CSS 剪影/SVG 手画代替真实产品图**                               | 生成的就是「通用科技动画」——黑底+橙 accent+圆角长条，任何实体产品都长一样，品牌识别度归零（DJI Pocket 4 实测 2026-04-20） | **几乎没有**——先走核心资产协议找真实产品图；真没有时用 nano-banana-pro 以官方参考图为基底生成；实在不行标诚实 placeholder 告诉用户"产品图待补" |
+| Inter/Roboto/Arial/system fonts 作 display                        | 太常见，读者看不出这是"有设计的产品"还是"demo 页"                                                                         | 品牌 spec 明确用这些字体（Stripe 用 Sohne/Inter 变体，但是经过微调的）                                                                         |
+| **GitHub-dark 偷懒解**：均匀深蓝底 `#0D1117` + 通用青/紫霓虹 glow | 这**一种特定组合**是 SaaS/AI 落地页的烂大街复制——注意不是「所有暗色都禁」                                                 | 开发者工具产品且品牌本身走这方向                                                                                                               |
 
 **判断边界**：「品牌本身用」是唯一能合法破例的理由。品牌 spec 里明写了用紫渐变，那就用——此时它不再是 slop，是品牌签名。
 
@@ -176,17 +184,20 @@ description: 花叔Design——用HTML做高保真原型、幻灯片、动画、
 ## 设计方向顾问（Fallback 模式）
 
 > ⚖️ **根本立场（先读，统领本节）**：skill 的职责是**帮用户规避最差的设计**——守住反 slop 下限，**不是规定「好设计长什么样」**。真正的好设计**从用户的需求和提供的内容里长出来**，不在内置风格库里。所以：
+>
 > - 用户给了内容/品牌/参考 → 设计就从那里展开，**别套库**。
 > - 用户什么都没有 → 下面三套逻辑只是帮他**起步、打破惯性**的脚手架，不是终点。
 > - `design-styles.md` 的 40 种是「没思路时翻的弹药」，**不是必须从这里选的清单**。过多的硬性风格要求是负担、是无聊——别被风格库绑架，内容永远优先。
 
 **什么时候触发**：
+
 - 用户需求模糊（"做个好看的"、"帮我设计"、"这个怎么样"、"做个XX"没有具体参考）
 - 用户明确要"推荐风格"、"给几个方向"、"选个哲学"、"想看不同风格"
 - 项目和品牌没有任何 design context（既没有 design system，又找不到参考）
 - 用户主动说"我也不知道要什么风格"
 
 **什么时候 skip**：
+
 - 用户已经给了明确的风格参考（Figma / 截图 / 品牌规范）→ 直接走「核心哲学 #1」主干流程
 - 用户已经说清楚要什么（"做个 Apple Silicon 风格的发布会动画"）→ 直接进 Junior Designer 流程
 - 小修小补、明确的工具调用（"帮我把这段 HTML 变成 PDF"）→ skip
@@ -198,6 +209,7 @@ description: 花叔Design——用HTML做高保真原型、幻灯片、动画、
 **Phase 1 · 对话澄清需求 + 主动索要参考（不要跳过、不要直接开做）**
 先用**对话**了解（一次最多 3 个问题）：目标受众 / 核心信息 / 情感基调 / 输出格式。
 **同时必须主动索要参考材料**——这是最容易被跳过、却最该问的一步，一次问全：
+
 - 这个项目/产品**叫什么名字**？
 - 有没有 **logo、品牌色、VI、字体规范**？有就发我。
 - 有没有**你喜欢的参考**——某个网站 URL、一张截图、某个产品「就要那种感觉」？
@@ -218,17 +230,18 @@ description: 花叔Design——用HTML做高保真原型、幻灯片、动画、
 **Phase 3.5 · 🔴 CHECKPOINT 图片素材前置（spawn 三套逻辑前必做，硬要求）**
 
 开工前先答一个问题：**这个设计，图片是不是内容必需的？**
+
 - 内容型（介绍鹦鹉 / 咖啡 / 历史 / 人物 / 产品 / 地点…）→ 图片几乎必需
 - 工具 / 数据 / 文档 / 纯观点型 → 可能不需要，判断后跳过取图
 - 拿不准是「内容必需」还是「装饰」→ **按内容必需处理**（宁可取真图）。⚠️「default 无生图」只指**装饰图默认不调生图模型**，不等于「内容图也不许有图」——内容必需的真图该取就取
 
 **图片必需 → 先制定获取策略、取齐真图，再 spawn 三套逻辑**（三个 subagent 共用同一批真图，只换设计），绝不边设计边用色块糊弄：
 
-| 内容类型 | 首选真图来源（公共领域 / 免版权优先） |
-|---|---|
-| 博物 / 历史 / 艺术 / 动植物 / 古典 | Wikimedia Commons、Met / Art Institute Open Access、Biodiversity Heritage Library（古典博物插画，如 Edward Lear / John Gould 鹦鹉图录） |
-| 通用生活 / 场景 / 产品摄影 | Unsplash、Pexels（免版权） |
-| 用户自己的产品 / 品牌 | 走 §1.a 核心资产协议取官方图 |
+| 内容类型                                                       | 首选真图来源（公共领域 / 免版权优先）                                                                                                                            |
+| -------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 博物 / 历史 / 艺术 / 动植物 / 古典                             | Wikimedia Commons、Met / Art Institute Open Access、Biodiversity Heritage Library（古典博物插画，如 Edward Lear / John Gould 鹦鹉图录）                          |
+| 通用生活 / 场景 / 产品摄影                                     | Unsplash、Pexels（免版权）                                                                                                                                       |
+| 用户自己的产品 / 品牌                                          | 走 §1.a 核心资产协议取官方图                                                                                                                                     |
 | **设计中要点名 / 并列展示的具体产品·品牌（含第三方对比对象）** | **走 §1.a 取每个产品的官方 logo**（svgl API → simpleicons → Google favicon，见 `references/brand-asset-protocol.md` Step 3.1）。对比 / 榜单 / 评测 deck 必走这行 |
 
 🔴 **具名产品 logo 子门（spawn 三套逻辑前必过，硬要求）**：把设计里会出现的产品 / 品牌名**逐个列成清单**，确认每个都已取到官方 logo 并内嵌，再 spawn。**交付形态是「双击就能开」的单文件 HTML 时，logo/图片必须 base64 内嵌**——相对路径的交付物挪个目录就全员裂图（盲测实锤：`../assets/google.svg` 六个按钮全裂直接输掉评审）；仅多文件+启动说明的项目允许本地路径。**清单里有一个没取到 logo = 🛑 STOP 补齐**（实在取不到才退诚实 placeholder 并明说「X 的 logo 待补」）。三个 subagent 共用这批 logo。⚠️ 这是对比 / 榜单 / 评测 deck 最常见的翻车点——「只抽了品牌色就开做」就是漏了这道门（2026-06-06 五大 Coding Agent PPT 实测翻车，见 brand-asset-protocol 反例）。
@@ -262,6 +275,7 @@ description: 花叔Design——用HTML做高保真原型、幻灯片、动画、
 深呼吸一口，认真想：**假如预算没有上限，世界上最适合为「这个用户、这个产品」做设计的工作室 / 设计师是谁？**（如 Pentagram / Collins / IDEO / Jony Ive / 原研哉 / Stripe 设计团队…按产品调性选）subagent 启用该设计师/工作室的**设计思维与设计哲学**，从头为用户设计。作用：用顶级设计智慧做最契合的定制。
 
 并行执行规范（三个 subagent 共用）：
+
 - 用**用户真实内容**（非 Lorem），三版同内容只换设计逻辑，方便横向对比
 - **三版的布局骨架必须互异**：导航/构图/内容区结构至少一项结构性不同，不许两版共用同一骨架只换色换字体（盲测实锤：共用骨架会被评审一眼识破「换皮」）
 - 🔴 **可读性硬底线（任何风格温度都不豁免，包括「奢侈留白」的安静派）**：正文 ≥14px、标签/注释 ≥12px、正文对比度 ≥4.5:1；留白必须是**构图**（首屏有明确视觉锚点，视线有落点），不是内容缺席。盲测实锤：安静派做过头 = 「大片死白+微缩字号，第一眼像页面渲染坏了」，直接输给普通 baseline
@@ -279,9 +293,11 @@ description: 花叔Design——用HTML做高保真原型、幻灯片、动画、
 
 **Phase 6 · 进入主干执行**
 用户选定（或混合）后 → 回到「核心哲学」+「工作流程」的 Junior Designer pass，把那一版做扎实。这时已有明确 design context，不再凭空。
+
 > 仅当走 AI 生图：提示词用「具体视觉特征 + 内容 + 技术参数」（写「赤陶橙 #C04A1A + 留白」不写「极简」），避开审美禁区 → 见 `huashu-gpt-image`。
 
 **真实素材优先原则**（涉及用户本人/产品时）：
+
 1. 先查用户配置的**私有 memory / config 路径**下的 `personal-asset-index.json`（各 runtime 按自身约定的 memory 目录；找不到就问用户）
 2. 首次使用：复制 `assets/personal-asset-index.example.json` 到上述私有路径，填入真实数据
 3. 找不到就直接问用户要，不要编造——真实数据文件不要放在 skill 目录内避免随分发泄露隐私
@@ -297,7 +313,6 @@ description: 花叔Design——用HTML做高保真原型、幻灯片、动画、
 5. **信息密度分型**：默认克制型（少一层容器 / 少一个 border / 少一个装饰 icon）；产品卖点是 AI / 数据 / 上下文感知时走**高密度型**——每屏 ≥3 处**有内容的**差异化信息，装饰 icon 照样忌讳
 6. **交付前 Playwright 跑 3 项点击测试**（进详情 / 关键标注点 / tab 切换），`pageerror` 为 0 再交付
 7. **品位锚点**：衬线 display（Newsreader/Source Serif/EB Garamond）+ `-apple-system` body；一个有温度的底色 + 单 accent 贯穿；留一处「值得截图」的 120% 细节签名
-
 
 ## 工作流程
 
@@ -325,6 +340,7 @@ description: 花叔Design——用HTML做高保真原型、幻灯片、动画、
    **交付要求**：每版设计交付时写一句「form 来自内容的哪里」，写不出来 = 在套模板，回去重答第五问。
 
    🛑 **检查点3：五问答案 + 系统口头说出来等用户点头，再动手写代码**。方向错了晚改比早改贵 100 倍。
+
 4. **构建文件夹结构**：`项目名/` 下放主HTML、需要的assets拷贝（不要bulk copy >20个文件）。
 5. **Junior pass**：HTML里写assumptions+placeholders+reasoning comments。
    🛑 **检查点4：尽早show给用户（哪怕只是灰色方块+标签），等反馈再写组件**。
@@ -342,7 +358,7 @@ description: 花叔Design——用HTML做高保真原型、幻灯片、动画、
    - 交付前 `ffprobe -select_streams a` 确认有 audio stream，没有则不是成品
    - **跳过音频的条件**：用户明确说「不要音频」「纯画面」「我要自己配音」——否则默认带。
    - 参考完整流程见 `references/video-export.md` + `references/audio-design-rules.md` + `references/sfx-library.md`。
-9.5. **（带解说时走这条）解说驱动动画 · L2 长概念视频**：用户要做「5-20 分钟解释一个概念」、「带配音的教程」、「长篇科普视频」时——**不要先做动画再配音**，那会让画面节奏跟解说对不上。改走 `references/voiceover-pipeline.md` 的解说驱动流程：
+     9.5. **（带解说时走这条）解说驱动动画 · L2 长概念视频**：用户要做「5-20 分钟解释一个概念」、「带配音的教程」、「长篇科普视频」时——**不要先做动画再配音**，那会让画面节奏跟解说对不上。改走 `references/voiceover-pipeline.md` 的解说驱动流程：
    - **写解说稿**（markdown，`## scene-id` 分段，`[[cue:xx]]` 标关键句）→ 解说稿是源代码，节奏靠它撑
    - **跑 narrate-pipeline.mjs**（豆包 TTS · `.env` 配置音色）→ 输出 voiceover.mp3 + timeline.json（cue 时间是真实测出来的，不是按字符估算）
    - **🛑 设计动画前先答铁律 3 条**：(1) hero element 是什么？(2) 它跨 7 段怎么 morph？(3) 任意一帧画面有运动吗？答不上不要写代码
@@ -357,6 +373,7 @@ description: 花叔Design——用HTML做高保真原型、幻灯片、动画、
 ### 问问题的要点
 
 必问（用`references/workflow.md`里的模板）：
+
 - design system/UI kit/codebase有吗？没有的话先去找
 - 想要几种variations？在哪些维度上变？
 - 关心flow、copy、还是visuals？
@@ -366,15 +383,15 @@ description: 花叔Design——用HTML做高保真原型、幻灯片、动画、
 
 流程假设用户配合、环境正常。实操常遇以下异常，预定义fallback：
 
-| 场景 | 触发条件 | 处理动作 |
-|------|---------|---------|
-| 需求模糊到无法着手 | 用户只给一句模糊描述（如"做个好看的页面"） | 主动列3个可能方向让用户选（如"落地页 / Dashboard / 产品详情页"），而不是直接问10个问题 |
-| 用户拒绝回答问题清单 | 用户说"不要问了，直接做" | 尊重节奏，用best judgment做1个主方案+1个差异明显的变体，交付时**明确标注assumption**，方便用户定位要改哪里 |
-| Design context矛盾 | 用户给的参考图和品牌规范打架 | 停下，指出具体矛盾（"截图里字体是衬线，规范说用sans"），让用户选一个 |
-| Starter component加载失败 | 控制台404/integrity mismatch | 先查`references/react-setup.md`常见报错表；还不行降级纯HTML+CSS不用React，保证产出可用 |
-| 时间紧迫要快交付 | 用户说"30分钟内要" | 跳过Junior pass直接Full pass，只做1个方案，交付时**明确标注"未经early validation"**，提醒用户质量可能打折 |
-| SKILL.md体积超限 | 新写HTML>1000行 | 按`references/react-setup.md`的拆分策略拆成多jsx文件，末尾`Object.assign(window,...)`共享 |
-| 克制原则 vs 产品所需密度冲突 | 产品核心卖点是 AI 智能 / 数据可视化 / 上下文感知（如番茄钟、Dashboard、Tracker、AI agent、Copilot、记账、健康监测）| 按「品位锚点」表格走**高密度型**信息密度：每屏 ≥ 3 处产品差异化信息。装饰性 icon 照样忌讳——加的是**有内容的**密度，不是装饰 |
+| 场景                         | 触发条件                                                                                                            | 处理动作                                                                                                                    |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| 需求模糊到无法着手           | 用户只给一句模糊描述（如"做个好看的页面"）                                                                          | 主动列3个可能方向让用户选（如"落地页 / Dashboard / 产品详情页"），而不是直接问10个问题                                      |
+| 用户拒绝回答问题清单         | 用户说"不要问了，直接做"                                                                                            | 尊重节奏，用best judgment做1个主方案+1个差异明显的变体，交付时**明确标注assumption**，方便用户定位要改哪里                  |
+| Design context矛盾           | 用户给的参考图和品牌规范打架                                                                                        | 停下，指出具体矛盾（"截图里字体是衬线，规范说用sans"），让用户选一个                                                        |
+| Starter component加载失败    | 控制台404/integrity mismatch                                                                                        | 先查`references/react-setup.md`常见报错表；还不行降级纯HTML+CSS不用React，保证产出可用                                      |
+| 时间紧迫要快交付             | 用户说"30分钟内要"                                                                                                  | 跳过Junior pass直接Full pass，只做1个方案，交付时**明确标注"未经early validation"**，提醒用户质量可能打折                   |
+| SKILL.md体积超限             | 新写HTML>1000行                                                                                                     | 按`references/react-setup.md`的拆分策略拆成多jsx文件，末尾`Object.assign(window,...)`共享                                   |
+| 克制原则 vs 产品所需密度冲突 | 产品核心卖点是 AI 智能 / 数据可视化 / 上下文感知（如番茄钟、Dashboard、Tracker、AI agent、Copilot、记账、健康监测） | 按「品位锚点」表格走**高密度型**信息密度：每屏 ≥ 3 处产品差异化信息。装饰性 icon 照样忌讳——加的是**有内容的**密度，不是装饰 |
 
 **原则**：异常时**先告诉用户发生了什么**（1句话），再按表处理。不要静默决策。
 
@@ -382,13 +399,13 @@ description: 花叔Design——用HTML做高保真原型、幻灯片、动画、
 
 静态设计的完整反slop规则见「核心哲学 §6」（字体/色彩/容器/图像的避免与采用都在 §6.2-6.3，字体配对逻辑见 `references/typography.md`）。以下只列 §6 没覆盖的补充项：
 
-| 类别 | 避免 | 采用 |
-|------|------|------|
-| 图标 | **装饰性** icon 每处都配（撞 slop）| **承载差异化信息**的密度元素必须保留——不要把产品特色也一并减掉 |
-| 填充 | 编造stats/quotes装饰 | 留白，或问用户要真内容 |
-| 动画 | 散落的微交互 | 一次well-orchestrated的page load |
-| 动画-伪chrome | 画面内画底部进度条/时间码/版权署名条（与 Stage scrubber 撞车） | 画面只放叙事内容，进度/时间交给 Stage chrome（详见 `references/animation-pitfalls.md` §11） |
-| 动画-PowerPoint 切换 | 每个 scene 独立 layout + cue 用 fade-up + scene 切换整页 opacity 切换（= 带配音的 PowerPoint）| **整片是一个连续的运动叙事**：选 1-2 个 hero element 跨 scene 持续存在，每段是 hero 的状态变化（位置/大小/形态），scene 之间 morph 不切（详见 `references/voiceover-pipeline.md` 「铁律」章节）|
+| 类别                 | 避免                                                                                           | 采用                                                                                                                                                                                            |
+| -------------------- | ---------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 图标                 | **装饰性** icon 每处都配（撞 slop）                                                            | **承载差异化信息**的密度元素必须保留——不要把产品特色也一并减掉                                                                                                                                  |
+| 填充                 | 编造stats/quotes装饰                                                                           | 留白，或问用户要真内容                                                                                                                                                                          |
+| 动画                 | 散落的微交互                                                                                   | 一次well-orchestrated的page load                                                                                                                                                                |
+| 动画-伪chrome        | 画面内画底部进度条/时间码/版权署名条（与 Stage scrubber 撞车）                                 | 画面只放叙事内容，进度/时间交给 Stage chrome（详见 `references/animation-pitfalls.md` §11）                                                                                                     |
+| 动画-PowerPoint 切换 | 每个 scene 独立 layout + cue 用 fade-up + scene 切换整页 opacity 切换（= 带配音的 PowerPoint） | **整片是一个连续的运动叙事**：选 1-2 个 hero element 跨 scene 持续存在，每段是 hero 的状态变化（位置/大小/形态），scene 之间 morph 不切（详见 `references/voiceover-pipeline.md` 「铁律」章节） |
 
 ## 技术红线（必读 references/react-setup.md）
 
@@ -402,6 +419,7 @@ description: 花叔Design——用HTML做高保真原型、幻灯片、动画、
 **固定尺寸内容**（幻灯片/视频）必须自己实现JS缩放，用auto-scale + letterboxing。
 
 **幻灯片架构选型（必先决定）**：
+
 - 🔴 **默认且强烈推荐：多文件 + 概览墙**（几乎所有 PPT——培训/路演/科普/课件/汇报）→ 每页独立 HTML + `assets/deck_index.html` 拼接器。**这是 PPT 的默认交付形态**：自带**两种自适应 3D 概览**（网格 iframe / 无限画廊图片，按秒数 60/40 随机）+ 任意页数自适应（少页倾斜居中、多页舒适大卡滚动）+ 统一页码。**直接用，别重写概览**（倾斜/点击命中/裁切三个坑已内建解决，见 slide-decks.md）。
 - **单文件**（仅 ≤5 页极简 pitch、且明确不需要概览墙、或需跨页共享 JS 状态）→ `assets/deck_stage.js`。
 - 🛑 **不要默认选单文件而绕过概览墙**——北大 13 页 deck 实测踩坑：选了单文件 = 丢了概览墙，违背 PPT 默认交付形态。选单文件前先确认「这真的是 ≤5 页、且不需要概览墙」。
@@ -412,21 +430,21 @@ description: 花叔Design——用HTML做高保真原型、幻灯片、动画、
 
 造好的起手组件，直接copy进项目使用：
 
-| 文件 | 何时用 | 提供 |
-|------|--------|------|
-| `deck_index.html` | **幻灯片的默认基础产物** | **直接复制为 `index.html`、编辑 MANIFEST 即用，不要重写概览逻辑**（三个坑已内建解决）。自带两种自适应概览（网格 iframe 60% / 画廊 40%，画廊需 `thumb` 字段 + 先跑 `scripts/gen_deck_thumbs.mjs`）+ 键盘翻页 + scale + 计数器 + 打印合并。要改先读 `references/slide-decks.md` 三条硬约束 |
-| `scripts/gen_deck_thumbs.mjs` | **给无限画廊概览生成缩略图**（网格 iframe 模式不需要）| playwright 截每页 + sharp 降采样 1600px JPEG：`npm i playwright sharp && node gen_deck_thumbs.mjs --slides slides --out thumbs`，再给 MANIFEST 每项加 `thumb`。分辨率别 <1000px 否则 hover 发虚 |
-| `deck_stage.js` | 做幻灯片（单文件架构，≤10页） | web component：auto-scale + 键盘导航 + slide counter + localStorage + speaker notes ⚠️ **script 必须放在 `</deck-stage>` 之后，section 的 `display: flex` 必须写到 `.active` 上**，详见 `references/slide-decks.md` 的两个硬约束 |
-| `scripts/export_deck_pdf.mjs` | **HTML→PDF 导出（多文件架构）** · 每页独立 HTML 文件，playwright 逐个 `page.pdf()` → pdf-lib 合并。文字保留矢量可搜。依赖 `playwright pdf-lib` |
-| `scripts/export_deck_stage_pdf.mjs` | **HTML→PDF 导出（单文件 deck-stage 架构专用）** · 2026-04-20 新增。处理 shadow DOM slot 导致的「只出 1 页」、absolute 子元素溢出等坑。详见 `references/slide-decks.md` 末节。依赖 `playwright` |
-| `scripts/export_deck_pptx.mjs` | **HTML→可编辑 PPTX 导出** · 调 `html2pptx.js` 导出原生可编辑文本框，文字在 PPT 里双击可直接编辑。**HTML 必须符合 4 条硬约束**（见 `references/editable-pptx.md`），视觉自由度优先的场景请改走 PDF 路径。依赖 `playwright pptxgenjs sharp` |
-| `scripts/html2pptx.js` | **HTML→PPTX 元素级翻译器** · 读 computedStyle 把 DOM 逐元素翻译成 PowerPoint 对象（text frame / shape / picture）。`export_deck_pptx.mjs` 内部调用。要求 HTML 严格满足 4 条硬约束 |
-| `design_canvas.jsx` | 并排展示≥2个静态variations | 带label的网格布局 |
-| `animations.jsx` | 任何动画HTML | Stage + Sprite + useTime + Easing + interpolate |
-| `ios_frame.jsx` | iOS App mockup | iPhone bezel + 状态栏 + 圆角 |
-| `android_frame.jsx` | Android App mockup | 设备bezel |
-| `macos_window.jsx` | 桌面App mockup | 窗口chrome + 红绿灯 |
-| `browser_window.jsx` | 网页在浏览器里的样子 | URL bar + tab bar |
+| 文件                                | 何时用                                                                                                                                                                                                                                    | 提供                                                                                                                                                                                                                                                                                     |
+| ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `deck_index.html`                   | **幻灯片的默认基础产物**                                                                                                                                                                                                                  | **直接复制为 `index.html`、编辑 MANIFEST 即用，不要重写概览逻辑**（三个坑已内建解决）。自带两种自适应概览（网格 iframe 60% / 画廊 40%，画廊需 `thumb` 字段 + 先跑 `scripts/gen_deck_thumbs.mjs`）+ 键盘翻页 + scale + 计数器 + 打印合并。要改先读 `references/slide-decks.md` 三条硬约束 |
+| `scripts/gen_deck_thumbs.mjs`       | **给无限画廊概览生成缩略图**（网格 iframe 模式不需要）                                                                                                                                                                                    | playwright 截每页 + sharp 降采样 1600px JPEG：`npm i playwright sharp && node gen_deck_thumbs.mjs --slides slides --out thumbs`，再给 MANIFEST 每项加 `thumb`。分辨率别 <1000px 否则 hover 发虚                                                                                          |
+| `deck_stage.js`                     | 做幻灯片（单文件架构，≤10页）                                                                                                                                                                                                             | web component：auto-scale + 键盘导航 + slide counter + localStorage + speaker notes ⚠️ **script 必须放在 `</deck-stage>` 之后，section 的 `display: flex` 必须写到 `.active` 上**，详见 `references/slide-decks.md` 的两个硬约束                                                         |
+| `scripts/export_deck_pdf.mjs`       | **HTML→PDF 导出（多文件架构）** · 每页独立 HTML 文件，playwright 逐个 `page.pdf()` → pdf-lib 合并。文字保留矢量可搜。依赖 `playwright pdf-lib`                                                                                            |
+| `scripts/export_deck_stage_pdf.mjs` | **HTML→PDF 导出（单文件 deck-stage 架构专用）** · 2026-04-20 新增。处理 shadow DOM slot 导致的「只出 1 页」、absolute 子元素溢出等坑。详见 `references/slide-decks.md` 末节。依赖 `playwright`                                            |
+| `scripts/export_deck_pptx.mjs`      | **HTML→可编辑 PPTX 导出** · 调 `html2pptx.js` 导出原生可编辑文本框，文字在 PPT 里双击可直接编辑。**HTML 必须符合 4 条硬约束**（见 `references/editable-pptx.md`），视觉自由度优先的场景请改走 PDF 路径。依赖 `playwright pptxgenjs sharp` |
+| `scripts/html2pptx.js`              | **HTML→PPTX 元素级翻译器** · 读 computedStyle 把 DOM 逐元素翻译成 PowerPoint 对象（text frame / shape / picture）。`export_deck_pptx.mjs` 内部调用。要求 HTML 严格满足 4 条硬约束                                                         |
+| `design_canvas.jsx`                 | 并排展示≥2个静态variations                                                                                                                                                                                                                | 带label的网格布局                                                                                                                                                                                                                                                                        |
+| `animations.jsx`                    | 任何动画HTML                                                                                                                                                                                                                              | Stage + Sprite + useTime + Easing + interpolate                                                                                                                                                                                                                                          |
+| `ios_frame.jsx`                     | iOS App mockup                                                                                                                                                                                                                            | iPhone bezel + 状态栏 + 圆角                                                                                                                                                                                                                                                             |
+| `android_frame.jsx`                 | Android App mockup                                                                                                                                                                                                                        | 设备bezel                                                                                                                                                                                                                                                                                |
+| `macos_window.jsx`                  | 桌面App mockup                                                                                                                                                                                                                            | 窗口chrome + 红绿灯                                                                                                                                                                                                                                                                      |
+| `browser_window.jsx`                | 网页在浏览器里的样子                                                                                                                                                                                                                      | URL bar + tab bar                                                                                                                                                                                                                                                                        |
 
 用法：读取对应 assets 文件内容 → inline 进你的 HTML `<script>` 标签 → slot 进你的设计。
 
@@ -434,31 +452,31 @@ description: 花叔Design——用HTML做高保真原型、幻灯片、动画、
 
 根据任务类型深入读对应references：
 
-| 任务 | 读 |
-|------|-----|
-| 开工前问问题、定方向 | `references/workflow.md` |
-| **App/iOS 原型完整守则**（架构表/取图代码/AppPhone骨架/ios_frame用法） | `references/app-prototype.md` |
-| 反AI slop、内容规范、scale | `references/content-guidelines.md` |
-| 字体排印/字体配对/中文排印 | `references/typography.md` |
-| React+Babel项目setup | `references/react-setup.md` |
-| 做幻灯片 | `references/slide-decks.md` + `assets/deck_index.html`（默认多文件概览墙）+ `scripts/gen_deck_thumbs.mjs`（画廊缩略图）+ `assets/deck_stage.js`（仅 ≤5 页单文件） |
-| 导出可编辑 PPTX（html2pptx 4 条硬约束） | `references/editable-pptx.md` + `scripts/html2pptx.js` |
-| 做动画/motion（**先读 pitfalls**）| `references/animation-pitfalls.md` + `references/animations.md` + `assets/animations.jsx` |
-| **动画的正向设计语法**（Anthropic 级叙事/运动/节奏/表达风格）| `references/animation-best-practices.md`（5 段叙事+Expo easing+运动语言 8 条+3 种场景配方）|
-| **带解说的长动画 / 长概念视频**（5-20 分钟带配音、解说驱动画面、TTS 实测时长生成 timeline）| `references/voiceover-pipeline.md`（铁律：连续运动叙事、禁 PowerPoint 切换）+ `assets/narration_stage.jsx` + `scripts/{tts-doubao,narrate-pipeline}.mjs` + `scripts/{mix-voiceover,render-narration}.sh` |
-| 做Tweaks实时调参 | `references/tweaks-system.md` |
-| 没有design context怎么办 | `references/design-context.md`（薄 fallback） 或 `references/design-styles.md`（厚 fallback：HTML 原生 40 种风格库，网页 20+PPT 20，按温度分级） |
-| **需求模糊要推荐风格方向** | `references/design-styles.md`（40 种 HTML 原生风格库，含还原度/温度/开源字体）+ `assets/showcases/INDEX.md`（预制截图画廊） |
-| **按输出类型查场景模板**（封面/PPT/信息图） | `references/scene-templates.md` |
-| 输出完后验证 | `references/verification.md` + `scripts/verify.py` |
-| **设计评审/打分**（设计完成后可选） | `references/critique-guide.md`（5 维度评分+常见问题清单） |
-| **动画导出MP4/GIF/加BGM** | `references/video-export.md` + `scripts/render-video.js`（默认25fps）/ `scripts/render-video-seek.js`（真60fps·确定性·无黑帧，走Stage时钟时用）+ `scripts/convert-formats.sh` + `scripts/add-music.sh` |
-| **动画加音效SFX**（苹果发布会级，37个预制） | `references/sfx-library.md` + `assets/sfx/<category>/*.mp3` |
-| **动画音频配置规则**（SFX+BGM双轨制、黄金配比、ffmpeg模板、场景配方） | `references/audio-design-rules.md` |
-| **Apple画廊展示风格**（3D倾斜+悬浮卡片+缓慢pan+焦点切换，v9实战同款） | `references/apple-gallery-showcase.md` |
-| **Gallery Ripple + Multi-Focus 场景哲学**（当素材 20+ 同质+场景需表达「规模×深度」时优先用；含前置条件、技术配方、5 个可复用模式）| `references/hero-animation-case-study.md`（huashu-design hero v9 蒸馏）|
-| ⭐ **Launch Film 工作流**（30 秒级品牌宣传片 / launch trailer / superbowl-tier ad / Apple 级别预期）：先写**万字 director's notes** 再做动画。含 5 大部分结构 + 触发判断 + 多视角并行策略 + 关键帧验证流程 | `references/launch-film-director-notes.md`（huashu-md-html v2.0 launch film 蒸馏）|
-| ⭐ **多视角并行实验**（用户说「再做几个版本」「想看不同方向」/ 多平台分发 / 客户拍不了板）：6 位艺术家视角同时启动 subagent 各做独立版本 + 完成后 5 维度审校 | `references/multi-perspective-parallel-case-study.md`（huashu-md-html v2.0 6 视角实战）|
+| 任务                                                                                                                                                                                                       | 读                                                                                                                                                                                                       |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 开工前问问题、定方向                                                                                                                                                                                       | `references/workflow.md`                                                                                                                                                                                 |
+| **App/iOS 原型完整守则**（架构表/取图代码/AppPhone骨架/ios_frame用法）                                                                                                                                     | `references/app-prototype.md`                                                                                                                                                                            |
+| 反AI slop、内容规范、scale                                                                                                                                                                                 | `references/content-guidelines.md`                                                                                                                                                                       |
+| 字体排印/字体配对/中文排印                                                                                                                                                                                 | `references/typography.md`                                                                                                                                                                               |
+| React+Babel项目setup                                                                                                                                                                                       | `references/react-setup.md`                                                                                                                                                                              |
+| 做幻灯片                                                                                                                                                                                                   | `references/slide-decks.md` + `assets/deck_index.html`（默认多文件概览墙）+ `scripts/gen_deck_thumbs.mjs`（画廊缩略图）+ `assets/deck_stage.js`（仅 ≤5 页单文件）                                        |
+| 导出可编辑 PPTX（html2pptx 4 条硬约束）                                                                                                                                                                    | `references/editable-pptx.md` + `scripts/html2pptx.js`                                                                                                                                                   |
+| 做动画/motion（**先读 pitfalls**）                                                                                                                                                                         | `references/animation-pitfalls.md` + `references/animations.md` + `assets/animations.jsx`                                                                                                                |
+| **动画的正向设计语法**（Anthropic 级叙事/运动/节奏/表达风格）                                                                                                                                              | `references/animation-best-practices.md`（5 段叙事+Expo easing+运动语言 8 条+3 种场景配方）                                                                                                              |
+| **带解说的长动画 / 长概念视频**（5-20 分钟带配音、解说驱动画面、TTS 实测时长生成 timeline）                                                                                                                | `references/voiceover-pipeline.md`（铁律：连续运动叙事、禁 PowerPoint 切换）+ `assets/narration_stage.jsx` + `scripts/{tts-doubao,narrate-pipeline}.mjs` + `scripts/{mix-voiceover,render-narration}.sh` |
+| 做Tweaks实时调参                                                                                                                                                                                           | `references/tweaks-system.md`                                                                                                                                                                            |
+| 没有design context怎么办                                                                                                                                                                                   | `references/design-context.md`（薄 fallback） 或 `references/design-styles.md`（厚 fallback：HTML 原生 40 种风格库，网页 20+PPT 20，按温度分级）                                                         |
+| **需求模糊要推荐风格方向**                                                                                                                                                                                 | `references/design-styles.md`（40 种 HTML 原生风格库，含还原度/温度/开源字体）+ `assets/showcases/INDEX.md`（预制截图画廊）                                                                              |
+| **按输出类型查场景模板**（封面/PPT/信息图）                                                                                                                                                                | `references/scene-templates.md`                                                                                                                                                                          |
+| 输出完后验证                                                                                                                                                                                               | `references/verification.md` + `scripts/verify.py`                                                                                                                                                       |
+| **设计评审/打分**（设计完成后可选）                                                                                                                                                                        | `references/critique-guide.md`（5 维度评分+常见问题清单）                                                                                                                                                |
+| **动画导出MP4/GIF/加BGM**                                                                                                                                                                                  | `references/video-export.md` + `scripts/render-video.js`（默认25fps）/ `scripts/render-video-seek.js`（真60fps·确定性·无黑帧，走Stage时钟时用）+ `scripts/convert-formats.sh` + `scripts/add-music.sh`   |
+| **动画加音效SFX**（苹果发布会级，37个预制）                                                                                                                                                                | `references/sfx-library.md` + `assets/sfx/<category>/*.mp3`                                                                                                                                              |
+| **动画音频配置规则**（SFX+BGM双轨制、黄金配比、ffmpeg模板、场景配方）                                                                                                                                      | `references/audio-design-rules.md`                                                                                                                                                                       |
+| **Apple画廊展示风格**（3D倾斜+悬浮卡片+缓慢pan+焦点切换，v9实战同款）                                                                                                                                      | `references/apple-gallery-showcase.md`                                                                                                                                                                   |
+| **Gallery Ripple + Multi-Focus 场景哲学**（当素材 20+ 同质+场景需表达「规模×深度」时优先用；含前置条件、技术配方、5 个可复用模式）                                                                         | `references/hero-animation-case-study.md`（huashu-design hero v9 蒸馏）                                                                                                                                  |
+| ⭐ **Launch Film 工作流**（30 秒级品牌宣传片 / launch trailer / superbowl-tier ad / Apple 级别预期）：先写**万字 director's notes** 再做动画。含 5 大部分结构 + 触发判断 + 多视角并行策略 + 关键帧验证流程 | `references/launch-film-director-notes.md`（huashu-md-html v2.0 launch film 蒸馏）                                                                                                                       |
+| ⭐ **多视角并行实验**（用户说「再做几个版本」「想看不同方向」/ 多平台分发 / 客户拍不了板）：6 位艺术家视角同时启动 subagent 各做独立版本 + 完成后 5 维度审校                                               | `references/multi-perspective-parallel-case-study.md`（huashu-md-html v2.0 6 视角实战）                                                                                                                  |
 
 ## 跨 Agent 环境适配说明
 
@@ -477,6 +495,7 @@ Skill 路径引用均采用**相对本 skill 根目录**的形式（`references/
 **触发判定**（满足任一即进入）：无 spawn subagent 能力 / 驱动模型非 Claude / 上下文窗口小的 runtime（Codex、Gemini CLI、Copilot 等）。为什么：按满血流程跑，弱 runtime 中途爆上下文或偷工，产出反而更差（issue #2/#6/#41 用户复现不出效果的根因）。
 
 **降级动作（按吃紧程度逐级启用）**：
+
 1. 三版并行 → 串行：按上文 Phase 4「不支持 spawn subagent 的 runtime」规则执行（已有规则，直接引用）
 2. 串行仍吃紧 → 只做 1 个主版 + 2 个轻量变体：变体只换色板/换排印，不换布局逻辑（为什么：布局重写最耗上下文，色板/排印变体便宜但仍给用户真实的选择依据）
 3. references 只读当前任务对应的 1 个文件，不全读（为什么：路由表的意义就是按需加载，全读必爆窗口）
@@ -497,4 +516,3 @@ Skill 路径引用均采用**相对本 skill 根目录**的形式（`references/
 ## Skill 推广水印（仅动画产出）
 
 **只在动画产出**（HTML 动画 → MP4 / GIF）默认带「**Created by Huashu-Design**」水印；**幻灯片 / 信息图 / 原型 / 网页一律不加**——加了干扰使用。第三方品牌的非官方致敬动画前缀「非官方出品 · 」防 IP 争议；用户说不要就移除。JSX 水印模板见 `references/video-export.md` 末节。
-
