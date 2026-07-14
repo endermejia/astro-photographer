@@ -73,12 +73,15 @@
 		"test:hint": "concurrently \"npm:start:prod\" \"npm:hint\" --kill-others  --s first"
 	},
 	"dependencies": {
+		"@astrojs/react": "^5.0.7",
 		"@astrojs/sitemap": "^3.2.1",
 		"@fontsource/cinzel": "^5.1.1",
 		"@fontsource/playfair-display": "^5.1.1",
 		"@fontsource/raleway": "^5.1.1",
 		"@fontsource/titillium-web": "^5.1.1",
 		"astro": "^5.2.1",
-		"keen-slider": "^6.8.6"
+		"keen-slider": "^6.8.6",
+		"react": "^19.2.7",
+		"react-dom": "^19.2.7"
 	}
 }

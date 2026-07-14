@@ -21,3 +21,50 @@
 		opacity: 1;
 	}
 }
+
+/* --- Scroll-down indicator --- */
+
+@keyframes bounce-arrow {
+	0%,
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+	50% {
+		transform: translateY(10px);
+		opacity: 0.6;
+	}
+}
+
+/* --- Hero entrance --- */
+
+@keyframes hero-fade-in {
+	from {
+		transform: translateY(10px);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+/* --- Nav entrance --- */
+
+@keyframes nav-slide-down {
+	from {
+		transform: translateY(-100%);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	.scroll-indicator {
+		animation: none;
+	}
+}

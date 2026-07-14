@@ -38,9 +38,9 @@
 				font-size: var(--font-size-header-xl);
 				font-weight: var(--font-weight-normal);
 				border-block-end: 2px solid var(--color-accent);
+				line-height: 1.1;
 				text-align: center;
 				text-align: -webkit-center;
-				line-height: 1.1;
 			}
 			& > .logo-subtitle {
 				font-family: var(--font-family-header-subtitle);
@@ -69,7 +69,7 @@
 		margin-block-start: var(--spacing-m);
 	}
 
-	@media (min-width: 800px) {
+	@media (width >= 800px) {
 		grid-template:
 			'social logo logo logo navigation'
 			'lang logo logo logo .'

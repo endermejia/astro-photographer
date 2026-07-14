@@ -40,8 +40,8 @@
 	& > .email {
 		grid-area: email;
 		overflow: hidden;
-		word-wrap: break-word;
 		color: var(--color-text);
+		word-wrap: break-word;
 
 		&:visited {
 			color: var(--color-text);

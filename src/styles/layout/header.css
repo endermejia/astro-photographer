@@ -3,85 +3,122 @@
  */
 
 #header {
-	display: grid;
-	grid-template:
-		[image-start] '.' 1fr
-		'logo' auto [image-end]
-		'title' auto
-		'subtitle' auto;
-	place-items: end stretch;
-	block-size: 100vh; /* fallback */
-	block-size: 100svb;
+	position: relative;
+	block-size: 100dvh;
+	overflow: hidden;
+
+	& > .carousel-wrapper {
+		position: absolute;
+		inset: 0;
+		block-size: 100%;
+		inline-size: 100%;
+	}
+
+	& .carousel {
+		block-size: 100%;
+		inline-size: 100%;
+	}
+
+	& .keen-slider {
+		block-size: 100% !important;
+		inline-size: 100% !important;
+	}
+
+	& .keen-slider__slide {
+		block-size: 100% !important;
+		inline-size: 100% !important;
+	}
+
+	& .hero {
+		block-size: 100%;
+		inline-size: 100%;
+
+		& > img {
+			block-size: 100%;
+			inline-size: 100%;
+			object-fit: cover;
+			pointer-events: none;
+		}
+	}
 
 	& > .logo {
 		display: flex;
-		position: relative;
-		z-index: 1;
-		grid-area: logo;
+		position: absolute;
+		z-index: 2;
 		justify-content: center;
-		margin: 0;
-		padding-block: var(--spacing-xs) var(--spacing-s);
+		inline-size: 100%;
+		inset-block-start: 65%;
+		padding-block: var(--spacing-l);
 		padding-inline: var(--spacing-m);
-		background: var(--color-bg-onpicture);
-		color: var(--color-onpicture);
+		animation: appear 0.8s ease 0.2s both;
+		background: oklch(15% 0.04 40 / 0.6);
+		backdrop-filter: blur(20px) saturate(1.4);
+		color: var(--color-grey-50);
+		user-select: none;
+		pointer-events: none;
 
 		& > .logo-container {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
-			margin-block: var(--spacing-m) var(--spacing-s);
+			gap: var(--spacing-xs);
 
 			& > .logo-title {
 				font-family: var(--font-family-header-title);
 				font-size: var(--font-size-header-xxl);
 				font-weight: var(--font-weight-normal);
-				border-block-end: 2px solid var(--color-accent);
-				text-align: center;
-				text-align: -webkit-center;
 				line-height: 1.1;
+				text-align: center;
+				border-block-end: 2px solid var(--color-accent);
+				padding-block-end: var(--spacing-xs);
 			}
 			& > .logo-subtitle {
 				font-family: var(--font-family-header-subtitle);
 				font-size: var(--font-size-header-m);
+				letter-spacing: 0.3em;
+				text-transform: uppercase;
+				color: var(--color-grey-200);
 			}
 		}
 	}
-	& > .title {
-		grid-area: title;
-		margin-block-start: var(--spacing-m);
-		inline-size: 100%;
-		padding-inline: var(--spacing-m);
-		color: var(--color-accent);
-		font-family: var(--font-family-header);
-		font-size: var(--font-size-header-xl);
-		font-weight: var(--font-weight-normal);
-		text-align: center;
-		text-wrap: balance;
-	}
-	& > .subtitle {
-		grid-area: subtitle;
-		margin-block-end: var(--spacing-m);
-		color: var(--color-text-secondary);
-		font-size: var(--font-size-header-s);
-		font-weight: var(--font-weight-light);
-		text-align: center;
-		text-wrap: balance;
-	}
-	& > .carousel {
-		position: relative;
-		z-index: 0;
-		grid-area: image / 1;
-		align-self: stretch;
-	}
-	& .hero {
-		& > img {
-			block-size: 100%;
-			inline-size: 100%;
-			object-fit: cover;
-			pointer-events: none; /* Prevent image drag interfering with carousel drag */
+
+	/* Scroll-down indicator */
+	& > .scroll-indicator {
+		display: flex;
+		z-index: 3;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		block-size: 48px;
+		inline-size: 48px;
+		inset-block-end: var(--spacing-m);
+		inset-inline-start: 50%;
+		translate: -50% 0;
+		padding: var(--spacing-xs);
+		transition: opacity 0.3s ease, color 0.3s ease;
+		animation:
+			appear 0.8s ease 1s both,
+			bounce-arrow 2s ease-in-out 1.8s infinite;
+		border-radius: 50%;
+		background: oklch(15% 0.04 40 / 0.6);
+		backdrop-filter: blur(12px);
+		color: var(--color-grey-50);
+
+		&:hover {
+			opacity: 0.8;
+			background: var(--color-bg-onpicture);
+			color: var(--color-accent);
+		}
+		& > svg {
+			block-size: 24px;
+			inline-size: 24px;
 		}
 	}
+}
+
+.dark-theme #header > .logo {
+	background: oklch(10% 0.04 40 / 0.7);
 }
 
 .object-top {

@@ -3,7 +3,6 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Navigation from '../components/Navigation.astro';
 import Photos from '../components/Photos.astro';
-import About from '../components/About.astro';
 import Footer from '../components/Footer.astro';
 import Contact from '../components/Contact.astro';
 
@@ -19,12 +18,11 @@ export function getStaticPaths() {
 <Layout>
 	<Header />
 	<Navigation />
+	<main id="main">
+		<Photos />
+		<Contact />
+	</main>
 </Layout>
-<main id="main">
-	<Photos />
-	<About />
-	<Contact />
-</main>
 <footer id="footer">
 	<Footer />
 </footer>

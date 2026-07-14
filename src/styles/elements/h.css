@@ -1,11 +1,11 @@
 /**
- * styles/elements/dialog.css
+ * styles/elements/h.css
  */
 
 :is(h1, h2, h3, h4, h5, h6) {
+	color: var(--color-accent);
 	font-family: var(--font-family-header);
 	font-weight: var(--font-weight-normal);
-	color: var(--color-accent);
 }
 
 h1 {

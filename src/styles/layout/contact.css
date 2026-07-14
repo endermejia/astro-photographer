@@ -1,5 +1,5 @@
 /**
- * styles/layout/footer.css
+ * styles/layout/contact.css
  */
 
 #contact {
@@ -31,11 +31,12 @@
 		grid-area: vcard;
 		align-self: center;
 		margin-inline: var(--spacing-l);
+		transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 	}
 	& .fn {
+		color: var(--color-accent);
 		font-family: var(--font-family-header);
 		font-weight: var(--font-weight-normal);
-		color: var(--color-accent);
 
 		& .fn-sub {
 			color: var(--color-text);

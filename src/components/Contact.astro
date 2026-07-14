@@ -4,8 +4,8 @@ import { getLangFromUrl } from '../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
 
 const waMessage = lang === 'es'
-	? "Hola Ainhoa, me gustaría ponerme en contacto contigo para hacerte una consulta o hablar sobre una sesión."
-	: "Hi Ainhoa, I'd like to get in touch with you for a query or to discuss a photoshoot.";
+	? "Hola Nhoa, me gustaría ponerme en contacto contigo para hacerte una consulta o hablar sobre una sesión."
+	: "Hi Nhoa, I'd like to get in touch with you for a query or to discuss a photoshoot.";
 const waLink = "https://wa.me/34687875777?text=" + encodeURIComponent(waMessage);
 ---
 
@@ -32,10 +32,10 @@ const waLink = "https://wa.me/34687875777?text=" + encodeURIComponent(waMessage)
 				width="1945"
 				height="1945"
 				loading="lazy"
-				alt="Ainhoa's profile picture"
+				alt="Nhoa's profile picture"
 			/></picture
 		>
-		<div class="fn">Ainhoa Sánchez | <span class="fn-sub">Fotografía</span></div>
+		<div class="fn">Nhoa Sánchez | <span class="fn-sub">Fotografía</span></div>
 		<a
 			class="tel phone-1"
 			target="_blank"
@@ -45,8 +45,8 @@ const waLink = "https://wa.me/34687875777?text=" + encodeURIComponent(waMessage)
 		<a
 			class="phone-1-link"
 			target="_blank"
-			title="Contact Ainhoa on WhatsApp (Spain)"
-			aria-label="Contact Ainhoa on WhatsApp (Spain)"
+			title="Contact Nhoa on WhatsApp (Spain)"
+			aria-label="Contact Nhoa on WhatsApp (Spain)"
 			rel="external noopener"
 			href={waLink}
 		>

@@ -2,25 +2,30 @@
  * styles/layout/about.css
  */
 
-#about {
+#photos #about {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	min-block-size: 100vb;
+	inline-size: 100%;
 	padding-block: var(--spacing-xl) var(--spacing-l);
 	padding-inline: var(--spacing-m);
+	overflow: hidden;
 	gap: var(--spacing-l);
 
 	& > .image {
 		display: grid;
 		grid-template-columns: min-content;
-		place-self: center center;
 		transform: rotate(-5deg);
+		transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 		border: var(--color-picture-border) 0.75rem solid;
 		background-color: var(--color-picture-border);
+		place-self: center center;
 		filter: drop-shadow(-0.25rem 0.5rem 0.75rem var(--color-shadow));
 
+		&:hover {
+			transform: rotate(-2deg) scale(1.02);
+		}
 		& img {
 			max-block-size: 35svb;
 			inline-size: auto;
@@ -38,7 +43,6 @@
 			text-wrap: balance;
 		}
 	}
-
 	& > .about-content {
 		display: flex;
 		flex-direction: column;
@@ -65,19 +69,18 @@
 			}
 		}
 		& .button {
-			margin: 0;
 			align-self: center;
+			margin: 0;
 		}
 	}
 
-	@media (min-width: 800px) {
+	@media (width >= 800px) {
 		display: grid;
 		grid-template-columns: 1.1fr 1.2fr;
 		align-items: center;
-		gap: var(--spacing-xl);
 		max-inline-size: 1200px;
 		margin-inline: auto;
-		min-block-size: 80vb;
+		gap: var(--spacing-xl);
 
 		& > .image {
 			margin-inline: var(--spacing-m);
@@ -89,19 +92,18 @@
 				max-inline-size: 100%;
 			}
 		}
-
 		& > .about-content {
 			align-items: start;
-			text-align: left;
-			justify-self: center;
 			max-inline-size: 55ch;
+			text-align: start;
+			justify-self: center;
 
 			& p {
 				text-align: justify;
-				text-align-last: left;
+				text-align-last: start;
 			}
 			& .subtitle {
-				text-align: left;
+				text-align: start;
 			}
 			& .button {
 				align-self: start;

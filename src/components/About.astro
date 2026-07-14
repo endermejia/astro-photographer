@@ -5,8 +5,8 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const waMessage = lang === 'es'
-	? "Hola Ainhoa, he visto tu web y me gustaría hablar contigo sobre una sesión de fotos."
-	: "Hi Ainhoa, I saw your website and would love to chat about a photoshoot.";
+	? "Hola Nhoa, he visto tu web y me gustaría hablar contigo sobre una sesión de fotos."
+	: "Hi Nhoa, I saw your website and would love to chat about a photoshoot.";
 const waLink = "https://wa.me/34687875777?text=" + encodeURIComponent(waMessage);
 ---
 
@@ -21,10 +21,10 @@ const waLink = "https://wa.me/34687875777?text=" + encodeURIComponent(waMessage)
 				width="999"
 				height="1774"
 				loading="lazy"
-				alt="Ainhoa Sánchez, photographer"
+				alt="Nhoa Sánchez, photographer"
 			/>
 		</picture>
-		<blockquote>{t('about.quote')}<cite>Ainhoa Sánchez</cite></blockquote>
+		<blockquote>{t('about.quote')}<cite>Nhoa Sánchez</cite></blockquote>
 	</div>
 	<div class="about-content">
 		<h2>{t('about.title')}</h2>

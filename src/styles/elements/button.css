@@ -14,7 +14,11 @@ button {
 	justify-content: center;
 	padding-block: var(--spacing-s);
 	padding-inline: var(--spacing-l);
-	transition: all 0.3s ease;
+	transition:
+		background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+		box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+		transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+		color 0.3s ease;
 	border-radius: var(--border-radius);
 	background-color: var(--color-button-bg);
 	box-shadow: var(--color-shadow) 0.1rem 0.25rem 0.25rem;
@@ -26,11 +30,13 @@ button {
 		color: var(--color-button-text);
 	}
 	&:hover {
+		transform: translateY(-2px);
 		background-color: var(--color-button-bg--hover);
-		box-shadow: var(--color-shadow) 0.2rem 0.35rem 0.35rem;
+		box-shadow: var(--color-shadow) 0.2rem 0.5rem 0.5rem;
 		color: var(--color-button-text--hover);
 	}
 	&:active {
+		transform: translateY(0);
 		background-color: var(--color-button-bg--active);
 		box-shadow: var(--color-overlay) inset 0.15rem 0.15rem 0.5rem;
 		color: var(--color-button-text--active);

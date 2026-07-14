@@ -1,5 +1,6 @@
 ---
 import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
+import NavigationIsland from './islands/Navigation.tsx';
 
 interface Props {
 	path?: string;
@@ -8,107 +9,12 @@ interface Props {
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
+
+const navItems = [
+	{ href: translatePath('/#home'), label: t('nav.home') },
+	{ href: translatePath('/#photos'), label: t('nav.photos') },
+	{ href: translatePath('/#contact'), label: t('nav.contact') }
+];
 ---
 
-<nav aria-label="Main Menu">
-	<a class="hamburger" aria-hidden="true" tabindex="0">
-		<svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-			<title>{t('nav.menu')}</title>
-			<path
-				d="M3 17h18a1 1 0 0 1 .117 1.993L21 19H3a1 1 0 0 1-.117-1.993L3 17h18H3Zm0-6 18-.002a1 1 0 0 1 .117 1.993l-.117.007L3 13a1 1 0 0 1-.117-1.993L3 11l18-.002L3 11Zm0-6h18a1 1 0 0 1 .117 1.993L21 7H3a1 1 0 0 1-.117-1.993L3 5h18H3Z"
-				fill="currentcolor" />
-		</svg>
-	</a>
-	<ul>
-		<li><a href={translatePath('/#home')} tabindex="0">{t('nav.home')}</a></li>
-		<li><a href={translatePath('/#photos')} tabindex="0">{t('nav.photos')}</a></li>
-		<li><a href={translatePath('/#about')} tabindex="0">{t('nav.about')}</a></li>
-		<li><a href={translatePath('/#contact')} tabindex="0">{t('nav.contact')}</a></li>
-		<li>
-			<button id="theme-toggle" class="theme-toggle" aria-label="Switch to dark theme" title="Toggle theme" tabindex="0">
-				<svg class="sun-icon" width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-					<path
-						d="M12 4V2m0 20v-2m-8-8H2m20 0h-2m-1.414-7.414l-1.414 1.414M5.414 5.414L4 4m16 16-1.414-1.414M5.414 18.586 4 20M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z"
-						stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-				</svg>
-				<svg class="moon-icon" width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display: none;">
-					<path
-						d="M9.36 3.293a1 1 0 0 1 .187 1.157A7.45 7.45 0 0 0 19.55 14.453a1 1 0 0 1 1.343 1.343 9.45 9.45 0 1 1-12.69-12.69 1 1 0 0 1 1.158.187Z"
-						fill="currentcolor" />
-				</svg>
-			</button>
-		</li>
-	</ul>
-</nav>
-<!-- While most browser simply close the menu by clicking anywhere but on a link, iOS requires a dedicated close button -->
-<a class="dismiss" aria-hidden="true" tabindex="0">
-	<svg width="24" height="24" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-		<path
-			d="m4.21 4.387.083-.094a1 1 0 0 1 1.32-.083l.094.083L12 10.585l6.293-6.292a1 1 0 1 1 1.414 1.414L13.415 12l6.292 6.293a1 1 0 0 1 .083 1.32l-.083.094a1 1 0 0 1-1.32.083l-.094-.083L12 13.415l-6.293 6.292a1 1 0 0 1-1.414-1.414L10.585 12 4.293 5.707a1 1 0 0 1-.083-1.32l.083-.094-.083.094Z"
-			fill="currentcolor" />
-	</svg>
-</a>
-
-<script>
-	document.addEventListener('DOMContentLoaded', () => {
-		const sections = document.querySelectorAll('header#header, section#photos, section#about, section#contact');
-		const navLinks = document.querySelectorAll('nav ul li a:not(.theme-toggle)');
-
-		if (sections.length === 0 || navLinks.length === 0) return;
-
-		const options = {
-			root: null,
-			rootMargin: '-30% 0px -40% 0px', // Triggers when section occupies middle region of viewport
-			threshold: 0
-		};
-
-		let currentActiveId = '';
-
-		const observer = new IntersectionObserver((entries) => {
-			entries.forEach((entry) => {
-				if (entry.isIntersecting) {
-					const id = entry.target.id;
-					if (id) {
-						setActiveSection(id);
-					}
-				}
-			});
-		}, options);
-
-		sections.forEach((section) => {
-			observer.observe(section);
-		});
-
-		function setActiveSection(id: string) {
-			if (currentActiveId === id) return;
-			currentActiveId = id;
-
-			navLinks.forEach((link) => {
-				const href = link.getAttribute('href');
-				const targetId = id === 'header' ? 'home' : id;
-				if (href && href.endsWith(`#${targetId}`)) {
-					link.classList.add('active');
-				} else {
-					link.classList.remove('active');
-				}
-			});
-
-			// Update history state to change URL hash without scrolling the page
-			const targetHash = id === 'header' ? '#home' : `#${id}`;
-			if (window.location.hash !== targetHash) {
-				const newUrl = `${window.location.pathname}${targetHash}`;
-				window.history.replaceState(null, '', newUrl);
-			}
-		}
-
-		// Initial check on load
-		const currentHash = window.location.hash;
-		if (currentHash) {
-			const sectionId = currentHash === '#home' ? 'header' : currentHash.substring(1);
-			const targetSection = document.getElementById(sectionId);
-			if (targetSection) {
-				setActiveSection(sectionId === 'header' ? 'header' : sectionId);
-			}
-		}
-	});
-</script>
+<NavigationIsland client:load navItems={navItems} menuLabel={t('nav.menu')} />

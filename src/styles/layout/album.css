@@ -11,13 +11,13 @@
 	padding-inline: 4px;
 	gap: 4px;
 
-	@media (min-width: 600px) {
+	@media (width >= 600px) {
 		grid-template-columns: repeat(3, 1fr);
 		padding-inline: var(--spacing-s);
 		gap: var(--spacing-s);
 	}
 
-	@media (min-width: 1000px) {
+	@media (width >= 1000px) {
 		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 		padding-inline: var(--spacing-m);
 		gap: var(--spacing-m);
@@ -122,11 +122,11 @@
 #photo-dialog > #close-dialog {
 	z-index: 20;
 	border-radius: 50%;
+	outline: none;
 	opacity: 0.7;
 	inset-inline-end: var(--spacing-l);
 	inset-block-start: var(--spacing-m);
 	aspect-ratio: 1;
-	outline: none;
 
 	&:focus {
 		outline: none;
@@ -155,7 +155,7 @@
 		display: none;
 	}
 
-	@media (max-width: 799px) {
+	@media (width < 800px) {
 		display: none;
 	}
 }

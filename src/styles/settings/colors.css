@@ -45,6 +45,7 @@
 	--color-bg-onpicture: oklch(15% 0.04 40 / 0.2);
 	--color-overlay: oklch(95% 0.02 45 / 0.7);
 	--color-overlay-fallback: oklch(95% 0.02 45 / 0.9);
+	--color-mobile-menu: oklch(95% 0.02 45 / 0.95);
 	--color-shadow: oklch(15% 0.04 40 / 0.3);
 	--color-picture-border: var(--color-white);
 	--color-text-on-picture-border: var(--color-black);
@@ -68,6 +69,7 @@
 		--color-bg-onpicture: oklch(15% 0.04 40 / 0.4);
 		--color-overlay: oklch(15% 0.04 40 / 0.7);
 		--color-overlay-fallback: oklch(15% 0.04 40 / 0.9);
+		--color-mobile-menu: oklch(15% 0.04 40 / 0.95);
 		--color-shadow: oklch(0% 0 0 / 0.5);
 		--color-picture-border: var(--color-accent-800);
 		--color-text-on-picture-border: var(--color-accent-100);
@@ -90,6 +92,7 @@
 		--color-bg-onpicture: oklch(15% 0.04 40 / 0.2);
 		--color-overlay: oklch(95% 0.02 45 / 0.7);
 		--color-overlay-fallback: oklch(95% 0.02 45 / 0.9);
+		--color-mobile-menu: oklch(95% 0.02 45 / 0.95);
 		--color-shadow: oklch(15% 0.04 40 / 0.3);
 		--color-picture-border: var(--color-white);
 		--color-text-on-picture-border: var(--color-black);
@@ -110,6 +113,7 @@
 		--color-bg-onpicture: oklch(15% 0.04 40 / 0.4);
 		--color-overlay: oklch(15% 0.04 40 / 0.7);
 		--color-overlay-fallback: oklch(15% 0.04 40 / 0.9);
+		--color-mobile-menu: oklch(15% 0.04 40 / 0.95);
 		--color-shadow: oklch(0% 0 0 / 0.5);
 		--color-picture-border: var(--color-accent-800);
 		--color-text-on-picture-border: var(--color-accent-100);

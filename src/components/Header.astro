@@ -1,95 +1,74 @@
 ---
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import HeroCarousel from './islands/HeroCarousel.tsx';
 import 'keen-slider/keen-slider.min.css';
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const heroImages = [
+	{
+		src: 'a',
+		avif400: '/assets/img/hero/a-400.avif',
+		avif1920: '/assets/img/hero/a-1920.avif',
+		webp400: '/assets/img/hero/a-400.webp',
+		webp1920: '/assets/img/hero/a-1920.webp',
+		jpg400: '/assets/img/hero/a-400.jpg',
+		jpg1920: '/assets/img/hero/a-1920.jpg',
+		width: 400,
+		height: 293,
+		objectClass: 'object-center'
+	},
+	{
+		src: 'b',
+		avif400: '/assets/img/hero/b-400.avif',
+		avif1920: '/assets/img/hero/b-1920.avif',
+		webp400: '/assets/img/hero/b-400.webp',
+		webp1920: '/assets/img/hero/b-1920.webp',
+		jpg400: '/assets/img/hero/b-400.jpg',
+		jpg1920: '/assets/img/hero/b-1920.jpg',
+		width: 400,
+		height: 435,
+		objectClass: 'object-top'
+	},
+	{
+		src: 'c',
+		avif400: '/assets/img/hero/c-400.avif',
+		avif1920: '/assets/img/hero/c-1920.avif',
+		webp400: '/assets/img/hero/c-400.webp',
+		webp1920: '/assets/img/hero/c-1920.webp',
+		jpg400: '/assets/img/hero/c-400.jpg',
+		jpg1920: '/assets/img/hero/c-1920.jpg',
+		width: 400,
+		height: 266,
+		objectClass: 'object-top'
+	},
+	{
+		src: 'd',
+		avif400: '/assets/img/hero/d-400.avif',
+		avif1920: '/assets/img/hero/d-1920.avif',
+		webp400: '/assets/img/hero/d-400.webp',
+		webp1920: '/assets/img/hero/d-1920.webp',
+		jpg400: '/assets/img/hero/d-400.jpg',
+		jpg1920: '/assets/img/hero/d-1920.jpg',
+		width: 400,
+		height: 601,
+		objectClass: 'object-center'
+	}
+];
 ---
 
 <header id="header">
 	<div class="logo">
 		<div class="logo-container">
-			<div class="logo-title">AINHOA SÁNCHEZ</div>
+			<div class="logo-title">NHOA SÁNCHEZ</div>
 			<div class="logo-subtitle">FOTOGRAFÍA</div>
 		</div>
 	</div>
-	<h1 class="title">{t('header.title')}</h1>
-	<div class="subtitle">{t('header.subtitle')}</div>
 
-	<div class="carousel keen-slider">
-		<picture class="hero keen-slider__slide">
-			<source srcset="/assets/img/hero/a-400.avif 400w, /assets/img/hero/a-1920.avif 1920w" sizes="100vw" type="image/avif" />
-			<source srcset="/assets/img/hero/a-400.webp 400w, /assets/img/hero/a-1920.webp 1920w" sizes="100vw" type="image/webp" />
-			<source srcset="/assets/img/hero/a-400.jpg 400w, /assets/img/hero/a-1920.jpg 1920w" sizes="100vw" type="image/jpg" />
-			<img src="/assets/img/hero/a-400.jpg" class="object-center" width="400" height="293" fetchpriority="high" alt="" />
-		</picture>
-		<picture class="hero keen-slider__slide">
-			<source srcset="/assets/img/hero/b-400.avif 400w, /assets/img/hero/b-1920.avif 1920w" sizes="100vw" type="image/avif" />
-			<source srcset="/assets/img/hero/b-400.webp 400w, /assets/img/hero/b-1920.webp 1920w" sizes="100vw" type="image/webp" />
-			<source srcset="/assets/img/hero/b-400.jpg 400w, /assets/img/hero/b-1920.jpg 1920w" sizes="100vw" type="image/jpg" />
-			<img src="/assets/img/hero/b-400.jpg" class="object-top" width="400" height="435" fetchpriority="low" alt="" />
-		</picture>
-		<picture class="hero keen-slider__slide">
-			<source srcset="/assets/img/hero/c-400.avif 400w, /assets/img/hero/c-1920.avif 1920w" sizes="100vw" type="image/avif" />
-			<source srcset="/assets/img/hero/c-400.webp 400w, /assets/img/hero/c-1920.webp 1920w" sizes="100vw" type="image/webp" />
-			<source srcset="/assets/img/hero/c-400.jpg 400w, /assets/img/hero/c-1920.jpg 1920w" sizes="100vw" type="image/jpg" />
-			<img src="/assets/img/hero/c-400.jpg" class="object-top" width="400" height="266" fetchpriority="low" alt="" />
-		</picture>
-		<picture class="hero keen-slider__slide">
-			<source srcset="/assets/img/hero/d-400.avif 400w, /assets/img/hero/d-1920.avif 1920w" sizes="100vw" type="image/avif" />
-			<source srcset="/assets/img/hero/d-400.webp 400w, /assets/img/hero/d-1920.webp 1920w" sizes="100vw" type="image/webp" />
-			<source srcset="/assets/img/hero/d-400.jpg 400w, /assets/img/hero/d-1920.jpg 1920w" sizes="100vw" type="image/jpg" />
-			<img src="/assets/img/hero/d-400.jpg" class="object-center" width="400" height="601" fetchpriority="low" alt="" />
-		</picture>
+	<div class="carousel-wrapper">
+		<HeroCarousel client:load images={heroImages} />
 	</div>
+
+	<a class="scroll-indicator" href="#photos" aria-label="Scroll down">
+		<svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+		</svg>
+	</a>
 </header>
-
-<script>
-	import KeenSlider from 'keen-slider';
-
-	document.addEventListener('DOMContentLoaded', () => {
-		const sliderElement = document.querySelector('.carousel') as HTMLElement;
-		if (!sliderElement) return;
-
-		let timeout: ReturnType<typeof setTimeout>;
-		let mouseOver = false;
-
-		function clearNextTimeout() {
-			clearTimeout(timeout);
-		}
-
-		function nextTimeout(s: any) {
-			clearNextTimeout();
-			if (mouseOver) return;
-			timeout = setTimeout(() => {
-				s.next();
-			}, 5000);
-		}
-
-		let slider = new KeenSlider(sliderElement, {
-			loop: true,
-			renderMode: 'performance',
-			drag: true,
-			created(s) {
-				sliderElement.addEventListener('mouseover', () => {
-					mouseOver = true;
-					clearNextTimeout();
-				});
-				sliderElement.addEventListener('mouseout', () => {
-					mouseOver = false;
-					nextTimeout(s);
-				});
-				nextTimeout(s);
-			},
-			dragStarted() {
-				clearNextTimeout();
-			},
-			animationEnded(s) {
-				nextTimeout(s);
-			},
-			updated(s) {
-				nextTimeout(s);
-			},
-		});
-	});
-</script>
