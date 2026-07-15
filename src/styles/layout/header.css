@@ -22,6 +22,7 @@
 		inline-size: 100% !important;
 	}
 	& .keen-slider__slide {
+		flex-shrink: 0;
 		block-size: 100% !important;
 		inline-size: 100% !important;
 	}
