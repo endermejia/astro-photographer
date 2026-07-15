@@ -14,32 +14,32 @@
 }
 
 .album-grid {
-	display: flex;
-	--gap: var(--spacing-xs);
+	display: block;
 	padding-inline: var(--spacing-xs);
-	gap: var(--gap);
+	columns: 2;
+	column-gap: var(--gap);
+	--gap: var(--spacing-xs);
 
 	@media (width >= 600px) {
-		--gap: var(--spacing-s);
 		padding-inline: var(--spacing-s);
+		columns: 3;
+		--gap: var(--spacing-s);
 	}
 
 	@media (width >= 1000px) {
-		--gap: var(--spacing-m);
 		padding-inline: var(--spacing-m);
+		columns: 4;
+		--gap: var(--spacing-m);
 	}
-}
 
-.album-column {
-	display: flex;
-	flex: 1;
-	flex-direction: column;
-	min-inline-size: 0;
-	container-type: inline-size;
-	gap: var(--gap);
+	@media (width >= 1200px) {
+		columns: 6;
+	}
 
 	& > :is(.portrait, .landscape) {
 		display: block;
+		break-inside: avoid;
+		margin-block-end: var(--gap);
 		overflow: hidden;
 		background-color: var(--color-bg);
 
@@ -65,7 +65,7 @@
 		aspect-ratio: 3 / 2;
 	}
 	& > .portrait {
-		block-size: calc(133.333cqw + var(--gap));
+		aspect-ratio: 3 / 4;
 	}
 }
 

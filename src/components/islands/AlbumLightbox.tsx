@@ -27,8 +27,6 @@ export default function AlbumLightbox({ photos, translations, albumName }: Props
 	const dialogRef = useRef<HTMLDialogElement>(null);
 	const sliderRef = useRef<HTMLDivElement>(null);
 	const [slider, setSlider] = useState<any>(null);
-	const [numColumns, setNumColumns] = useState(4);
-
 	useEffect(() => {
 		if (!sliderRef.current || !dialogRef.current) return;
 
@@ -41,42 +39,6 @@ export default function AlbumLightbox({ photos, translations, albumName }: Props
 
 		return () => s.destroy();
 	}, []);
-
-	useEffect(() => {
-		const updateColumns = () => {
-			if (window.innerWidth >= 1200) {
-				setNumColumns(6);
-			} else if (window.innerWidth >= 1000) {
-				setNumColumns(4);
-			} else if (window.innerWidth >= 600) {
-				setNumColumns(3);
-			} else {
-				setNumColumns(2);
-			}
-		};
-		updateColumns();
-		window.addEventListener('resize', updateColumns);
-		return () => window.removeEventListener('resize', updateColumns);
-	}, []);
-
-	const columnsData: Photo[][] = Array.from({ length: numColumns }, () => []);
-	const columnHeights = Array.from({ length: numColumns }, () => 0);
-
-	photos.forEach((pic) => {
-		const ratio = pic.width && pic.height ? pic.height / pic.width : pic.orientation === 'portrait' ? 1.5 : 0.67;
-
-		let minColIndex = 0;
-		let minHeight = columnHeights[0];
-		for (let i = 1; i < numColumns; i++) {
-			if (columnHeights[i] < minHeight) {
-				minHeight = columnHeights[i];
-				minColIndex = i;
-			}
-		}
-
-		columnsData[minColIndex].push(pic);
-		columnHeights[minColIndex] += ratio;
-	});
 
 	const openDialog = (index: number) => {
 		dialogRef.current?.showModal();
@@ -170,47 +132,31 @@ export default function AlbumLightbox({ photos, translations, albumName }: Props
 
 			<h1>{translations[albumName as keyof typeof translations] || albumName}</h1>
 			<div class="album-grid">
-				{columnsData.map((colPhotos, colIdx) => (
-					<div class="album-column" key={colIdx}>
-						{colPhotos.map((pic) => {
-							const originalIndex = photos.indexOf(pic);
-							return (
-								<a
-									class={pic.orientation}
-									href={`${pic.path}${pic.name}-1920.jpg`}
-									data-index={originalIndex}
-									aria-label={pic.name}
-									key={pic.name}
-									onClick={(e) => {
-										e.preventDefault();
-										openDialog(originalIndex);
-									}}
-								>
-									<picture>
-										<source
-											srcset={`${pic.path}${pic.name}-100.avif 100w, ${pic.path}${pic.name}-400.avif`}
-											type="image/avif"
-										/>
-										<source
-											srcset={`${pic.path}${pic.name}-100.webp 100w, ${pic.path}${pic.name}-400.webp`}
-											type="image/webp"
-										/>
-										<source
-											srcset={`${pic.path}${pic.name}-100.jpg 100w, ${pic.path}${pic.name}-400.jpg`}
-											type="image/jpg"
-										/>
-										<img
-											src={`${pic.path}${pic.name}-100.jpg`}
-											width={pic.width}
-											height={pic.height}
-											loading="lazy"
-											alt=""
-										/>
-									</picture>
-								</a>
-							);
-						})}
-					</div>
+				{photos.map((pic, originalIndex) => (
+					<a
+						class={pic.orientation}
+						href={`${pic.path}${pic.name}-1920.jpg`}
+						data-index={originalIndex}
+						aria-label={pic.name}
+						key={pic.name}
+						onClick={(e) => {
+							e.preventDefault();
+							openDialog(originalIndex);
+						}}
+					>
+						<picture>
+							<source
+								srcset={`${pic.path}${pic.name}-100.avif 100w, ${pic.path}${pic.name}-400.avif`}
+								type="image/avif"
+							/>
+							<source
+								srcset={`${pic.path}${pic.name}-100.webp 100w, ${pic.path}${pic.name}-400.webp`}
+								type="image/webp"
+							/>
+							<source srcset={`${pic.path}${pic.name}-100.jpg 100w, ${pic.path}${pic.name}-400.jpg`} type="image/jpg" />
+							<img src={`${pic.path}${pic.name}-100.jpg`} width={pic.width} height={pic.height} loading="lazy" alt="" />
+						</picture>
+					</a>
 				))}
 			</div>
 		</>
