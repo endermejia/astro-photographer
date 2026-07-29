@@ -26,11 +26,13 @@ export const routes = {
 export const ui = {
 	es: {
 		'meta.keywords': `ainhoa sanchez, ainhoa sanchez yepes, ainhoa sanchez fotografía, fotógrafa, fotógrafa profesional, fotógrafo en Castalla, Castalla, fotógrafo en Tibi, Tibi, fotógrafo en Ibi, Ibi, fotógrafo en Onil, Onil, fotógrafo en Alcoy, Alcoy, fotógrafo de bodas, fotógrafo de bodas en Castalla, fotógrafo profesional de bodas, fotografía de bodas, paquetes fotográficos de boda, fotografía de bodas de lujo, fotografía de bodas de alta gama, fotógrafo de personas, fotógrafo de personas en Castalla, fotografía de personas, fotógrafo de familia, fotógrafo de familia en Castalla, fotografía de familia, fotógrafo de niños, fotografía de niños, fotografía de bebés, fotografía de recién nacidos, fotógrafo de eventos, fotografía de eventos, fotógrafo de empresas, fotografía de estudio, fotografía artística, fotografía de estilo de vida, retratos, retratos de modelos, agencia de modelos, publicaciones,`,
+		'meta.description': 'Nhoa Sánchez | Fotografía | Escalada - Eventos - Retratos - Viajes',
 		'nav.menu': `Menú`,
 		'nav.home': `Inicio`,
 		'nav.about': `Sobre mí`,
 		'nav.photos': `Fotos`,
 		'nav.contact': `Contacto`,
+		'header.title': 'Nhoa Sánchez | Fotografía',
 		'header.subtitle': 'Escalada - Eventos - Retratos - Viajes',
 		'about.title': `✨ Detrás del objetivo`,
 		'about.p1': `Entiendo la fotografía como una aventura. Fusiono la escalada y el arte de capturar luz para documentar momentos reales y sin filtros: desde la adrenalina en la roca hasta la complicidad de un retrato.`,
@@ -49,11 +51,13 @@ export const ui = {
 	},
 	en: {
 		'meta.keywords': `ainhoa sanchez, ainhoa sanchez photography, photography, photographer, professional photographer, photographer in Castalla, Castalla, photographer in Tibi, Tibi, photographer in Ibi, Ibi, photographer in Onil, Onil, photographer in Alcoy, Alcoy, wedding photographer, wedding photographer in Castalla, professional wedding photographer, wedding photography, wedding photography packages, luxury wedding photography, high end wedding photography, people photographer, people photography, family photographer, family photography, kids photographer, kids photography, baby photography, newborn photography, events photographer, business photographer, studio photography, artistic photography, lifestyle photography, portraits, publications, `,
+		'meta.description': 'Nhoa Sánchez | Photography | Climbing - Events - Portraits - Travel',
 		'nav.menu': `Menu`,
 		'nav.home': `Home`,
 		'nav.about': `About me`,
 		'nav.photos': `Photos`,
 		'nav.contact': `Contact`,
+		'header.title': 'Nhoa Sánchez | Photography',
 		'header.subtitle': 'Climbing - Events - Portraits - Travel',
 		'about.title': `✨ Behind the lens`,
 		'about.p1': `For me, photography is an adventure. I fuse climbing and the art of capturing light to document raw, unfiltered stories—from high-adrenaline climbs to intimate portraits.`,
