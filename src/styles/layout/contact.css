@@ -3,21 +3,37 @@
  */
 
 #contact {
-	display: grid;
-	grid-template: 'header' auto 'vcard' 1fr;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 	min-block-size: 100vb;
-	gap: var(--spacing-l);
-	justify-items: center;
+	max-inline-size: 1100px;
+	margin-inline: auto;
 	padding-block: var(--spacing-xl);
+	padding-inline: var(--spacing-m);
+	gap: var(--spacing-xl);
 
 	& > header {
 		display: flex;
-		grid-area: header;
 		flex-direction: column;
-		gap: var(--spacing-l);
+		align-items: center;
+		inline-size: 100%;
 
+		& picture {
+			display: block;
+			inline-size: 100%;
+			max-inline-size: 650px;
+			overflow: hidden;
+			border-radius: 1rem;
+			box-shadow: 0 8px 24px var(--color-shadow);
+		}
 		& img {
-			max-block-size: max(30vb, calc(0.25 * 100vi));
+			display: block;
+			block-size: auto;
+			max-block-size: 380px;
+			inline-size: 100%;
+			border-radius: inherit;
 			object-fit: cover;
 		}
 		& > .subtitle {
@@ -28,9 +44,8 @@
 		}
 	}
 	& > .vcard {
-		grid-area: vcard;
 		align-self: center;
-		margin-inline: var(--spacing-l);
+		margin-inline: auto;
 		transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 	}
 	& .fn {
@@ -40,6 +55,22 @@
 
 		& .fn-sub {
 			color: var(--color-text);
+		}
+	}
+
+	@media (width >= 850px) {
+		display: grid;
+		grid-template-columns: 1.1fr 1fr;
+		align-items: center;
+		gap: var(--spacing-xl);
+
+		& > header {
+			& picture {
+				max-inline-size: 100%;
+			}
+			& img {
+				max-block-size: 420px;
+			}
 		}
 	}
 }

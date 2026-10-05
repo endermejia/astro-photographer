@@ -33,7 +33,7 @@ const { album } = Astro.params;
 const route = getRouteFromStaticPath(Astro.url, album);
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const albumName: 'climbing' | 'people' | 'events' | 'business' | 'travel' = albums[route];
+const albumName = albums[route] as 'climbing' | 'people' | 'events' | 'business' | 'travel';
 ---
 
 <Layout title={t(`photos.${albumName}`)}>

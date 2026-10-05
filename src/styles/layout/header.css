@@ -21,6 +21,7 @@
 		block-size: 100% !important;
 		inline-size: 100% !important;
 	}
+	/* stylelint-disable-next-line selector-class-pattern */
 	& .keen-slider__slide {
 		flex-shrink: 0;
 		block-size: 100% !important;
