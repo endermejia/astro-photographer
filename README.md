@@ -4,7 +4,7 @@ A multilingual photography portfolio website built with Astro, showcasing the wo
 
 ## 🔗 Website
 
-[https://nhoanoir.com](https://nhoanoir.com)
+[https://nhoasanchez.com](https://nhoasanchez.com)
 
 ## ✨ Features
 
@@ -100,4 +100,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 👤 Author
 
-- Nhoa Noir - [Website](https://nhoanoir.com)
+- Nhoa Noir - [Website](https://nhoasanchez.com)

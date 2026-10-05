@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://nhoanoir.com',
+	site: 'https://nhoasanchez.com',
 	integrations: [
 		react(),
 		sitemap({
@@ -16,7 +16,7 @@ export default defineConfig({
 				}
 			},
 			filter: (url) => {
-				return !url.startsWith('https://nhoanoir.com/es/');
+				return !url.startsWith('https://nhoasanchez.com/es/');
 			}
 		})
 	]
