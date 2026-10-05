@@ -14,17 +14,17 @@ const mainTitle = 'Nhoa Sánchez | Fotografía';
 const pageTitle = title ? `${title} | ${mainTitle}` : mainTitle;
 
 // SEO basics
-const siteUrl = 'https://nhoanoir.com';
+const siteUrl = 'https://nhoasanchez.com';
 const canonicalUrl = lang === 'es' ? `${siteUrl}/` : `${siteUrl}/en/`;
 
 // Structured Data (JSON-LD)
 const schema = {
 	'@context': 'https://schema.org',
 	'@type': ['LocalBusiness', 'ProfessionalService'],
-	'@id': 'https://nhoanoir.com#business',
+	'@id': 'https://nhoasanchez.com#business',
 	name: 'Nhoa Sánchez | Fotografía',
-	url: 'https://nhoanoir.com',
-	image: 'https://nhoanoir.com/assets/social.jpg',
+	url: 'https://nhoasanchez.com',
+	image: 'https://nhoasanchez.com/assets/social.jpg',
 	email: 'mailto:ainhoasanchezyepes@gmail.com',
 	sameAs: [
 		'https://www.instagram.com/nhoanoir',
@@ -94,9 +94,9 @@ const schema = {
 
 		<!-- Canonical & hreflang -->
 		<link rel="canonical" href={canonicalUrl} />
-		<link rel="alternate" href="https://nhoanoir.com/" hreflang="es" />
-		<link rel="alternate" href="https://nhoanoir.com/en/" hreflang="en" />
-		<link rel="alternate" href="https://nhoanoir.com/" hreflang="x-default" />
+		<link rel="alternate" href="https://nhoasanchez.com/" hreflang="es" />
+		<link rel="alternate" href="https://nhoasanchez.com/en/" hreflang="en" />
+		<link rel="alternate" href="https://nhoasanchez.com/" hreflang="x-default" />
 
 		<!-- Performance -->
 		<link rel="dns-prefetch" href="//static.cloudflareinsights.com" />
@@ -115,7 +115,7 @@ const schema = {
 			content={t('meta.description')}
 		/>
 		<!-- TODO: Replace image -->
-		<meta property="og:image" content="https://nhoanoir.com/assets/social.jpg" />
+		<meta property="og:image" content="https://nhoasanchez.com/assets/social.jpg" />
 		<meta property="og:image:width" content="1280" />
 		<meta property="og:image:height" content="640" />
 
@@ -123,7 +123,7 @@ const schema = {
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={pageTitle} />
 		<meta name="twitter:description" content={t('meta.description')} />
-		<meta name="twitter:image" content="https://nhoanoir.com/assets/social.jpg" />
+		<meta name="twitter:image" content="https://nhoasanchez.com/assets/social.jpg" />
 
 		<!-- Structured Data -->
 		<script type="application/ld+json" set:html={JSON.stringify(schema)} />

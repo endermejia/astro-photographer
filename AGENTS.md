@@ -2,7 +2,7 @@
 
 ## Project
 
-Astro 5 static photography portfolio (nhoanoir.com). Multilingual: Spanish (default, hidden in URL) + English.
+Astro 5 static photography portfolio (nhoasanchez.com). Multilingual: Spanish (default, hidden in URL) + English.
 
 ## Commands
 

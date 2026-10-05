@@ -1,15 +1,15 @@
 {
-	"name": "nhoanoir.com",
+	"name": "nhoasanchez.com",
 	"type": "module",
 	"version": "1.0.0",
 	"private": true,
-	"description": "Nhoa Noir | Fotografía",
+	"description": "Nhoa Sánchez | Fotografía",
 	"keywords": [
 		"website",
 		"fotografía",
 		"photography"
 	],
-	"homepage": "https://nhoanoir.com",
+	"homepage": "https://nhoasanchez.com",
 	"engines": {
 		"node": ">=16.0.0",
 		"npm": ">=8.0.0"
