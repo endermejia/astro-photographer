@@ -3,22 +3,28 @@
  */
 
 #contact {
-	display: grid;
-	grid-template: 'header' auto 'vcard' 1fr;
+	display: flex;
+	position: relative;
+	align-items: center;
+	justify-content: center;
 	min-block-size: 100vb;
-	gap: var(--spacing-l);
-	justify-items: center;
 	padding-block: var(--spacing-xl);
+	overflow: hidden;
 
 	& > header {
-		display: flex;
-		grid-area: header;
-		flex-direction: column;
-		gap: var(--spacing-l);
+		position: absolute;
+		inset: 0;
+		z-index: 0;
+		pointer-events: none;
 
+		& .contact-bg,
 		& img {
-			max-block-size: max(30vb, calc(0.25 * 100vi));
+			block-size: 100%;
+			inline-size: 100%;
 			object-fit: cover;
+		}
+		& img {
+			opacity: 0.18;
 		}
 		& > .subtitle {
 			padding-inline: var(--spacing-m);
@@ -28,8 +34,8 @@
 		}
 	}
 	& > .vcard {
-		grid-area: vcard;
-		align-self: center;
+		position: relative;
+		z-index: 1;
 		margin-inline: var(--spacing-l);
 		transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 	}
