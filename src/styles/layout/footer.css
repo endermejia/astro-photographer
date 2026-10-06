@@ -12,7 +12,7 @@
 		'version'
 		'lang';
 	place-items: center center;
-	margin-block-start: var(--spacing-xl);
+	margin-block-start: 0;
 	padding-block: var(--spacing-l);
 	padding-inline: var(--spacing-m);
 	background-color: var(--color-bg-secondary);
