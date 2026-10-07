@@ -134,7 +134,7 @@ export default function AlbumLightbox({ photos, translations, albumName }: Props
 			<div class="album-grid">
 				{photos.map((pic, originalIndex) => (
 					<a
-						class={pic.orientation}
+						class={`${pic.orientation} bento-${originalIndex % 6}`}
 						href={`${pic.path}${pic.name}-1920.jpg`}
 						data-index={originalIndex}
 						aria-label={pic.name}
@@ -146,15 +146,15 @@ export default function AlbumLightbox({ photos, translations, albumName }: Props
 					>
 						<picture>
 							<source
-								srcset={`${pic.path}${pic.name}-100.avif 100w, ${pic.path}${pic.name}-400.avif`}
+								srcset={`${pic.path}${pic.name}-100.avif 100w, ${pic.path}${pic.name}-400.avif 400w, ${pic.path}${pic.name}-1920.avif 1920w`}
 								type="image/avif"
 							/>
 							<source
-								srcset={`${pic.path}${pic.name}-100.webp 100w, ${pic.path}${pic.name}-400.webp`}
+								srcset={`${pic.path}${pic.name}-100.webp 100w, ${pic.path}${pic.name}-400.webp 400w, ${pic.path}${pic.name}-1920.webp 1920w`}
 								type="image/webp"
 							/>
-							<source srcset={`${pic.path}${pic.name}-100.jpg 100w, ${pic.path}${pic.name}-400.jpg`} type="image/jpg" />
-							<img src={`${pic.path}${pic.name}-100.jpg`} width={pic.width} height={pic.height} loading="lazy" alt="" />
+							<source srcset={`${pic.path}${pic.name}-100.jpg 100w, ${pic.path}${pic.name}-400.jpg 400w, ${pic.path}${pic.name}-1920.jpg 1920w`} type="image/jpg" />
+							<img src={`${pic.path}${pic.name}-400.jpg`} width={pic.width} height={pic.height} loading="lazy" alt="" />
 						</picture>
 					</a>
 				))}

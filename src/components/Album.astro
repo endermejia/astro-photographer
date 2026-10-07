@@ -9,7 +9,7 @@ interface Props {
 }
 
 const { album } = Astro.props;
-const albumsData = photos('assets/img/albums');
+const albumsData = photos();
 const pics = albumsData[album]?.images || [];
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);

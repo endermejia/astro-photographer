@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Album from './Album.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const { album } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+let homePath = '/';
+if (lang !== 'es') homePath = `/${lang}/`;
+---
+
+<Layout title={t(`photos.${album}`)} bodyClass="gallery-page">
+	<a class="gallery-back" href={homePath}>← Volver</a>
+</Layout>
+<main id="main" class="album"><Album album={album} /></main>
+<footer id="footer"></footer>
