@@ -303,6 +303,8 @@ h2 em {
 	color: var(--paper);
 	padding: 132px 0 145px 10vw;
 	min-height: 120vh;
+	content-visibility: auto;
+	contain-intrinsic-size: 1800px;
 }
 .work-head {
 	display: flex;
@@ -408,6 +410,8 @@ h2 em {
 	font-size: 19px;
 }
 .services {
+	content-visibility: auto;
+	contain-intrinsic-size: 700px;
 	padding: 145px 10vw;
 }
 .services-layout {
@@ -450,6 +454,8 @@ h2 em {
 	font-weight: 400;
 }
 .quote-section {
+	content-visibility: auto;
+	contain-intrinsic-size: 650px;
 	min-height: 650px;
 	position: relative;
 	display: flex;
@@ -990,6 +996,8 @@ footer a {
 	text-shadow: 0 2px 8px rgba(0, 0, 0, 0.65);
 }
 .contact {
+	content-visibility: auto;
+	contain-intrinsic-size: 620px;
 	background: var(--ink);
 	color: var(--paper);
 }
