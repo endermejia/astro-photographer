@@ -1531,3 +1531,26 @@ footer a {
 		border-color: var(--paper);
 	}
 }
+@media (max-width: 700px) {
+	.work {
+		min-height: 0;
+		overflow: visible;
+	}
+	.work-stage {
+		position: relative;
+		height: auto;
+		min-height: 0;
+		overflow: visible;
+	}
+	.horizontal-track {
+		position: relative;
+		top: auto;
+		width: 100%;
+		max-width: 100%;
+		overflow-x: auto;
+		overflow-y: visible;
+		transform: none !important;
+		touch-action: pan-x;
+		overscroll-behavior-x: contain;
+	}
+}

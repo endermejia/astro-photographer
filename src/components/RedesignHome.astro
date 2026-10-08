@@ -200,7 +200,7 @@ const whatsapp = 'https://wa.me/34687875777';
 	const work = document.querySelector('.work');
 	let frame = 0;
 	const moveTrack = () => {
-		if (!track || !work) return;
+		if (!track || !work || window.innerWidth <= 700) return;
 		const top = work.offsetTop;
 		const range = Math.max(1, work.offsetHeight - window.innerHeight);
 		const progress = Math.min(1, Math.max(0, (window.scrollY - top) / range));
@@ -218,85 +218,4 @@ const whatsapp = 'https://wa.me/34687875777';
 	window.addEventListener('resize', scheduleTrack);
 	window.addEventListener('load', moveTrack);
 	if (document.fonts) document.fonts.ready.then(moveTrack);
-
-	if (work && track) {
-		// Handle horizontal mouse wheel / trackpad scroll
-		window.addEventListener(
-			'wheel',
-			(e) => {
-				if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-				if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 2) {
-					const maxScroll = work.offsetHeight - window.innerHeight;
-					const maxTranslate = Math.max(0, track.scrollWidth - window.innerWidth + window.innerWidth * 0.1);
-					if (maxScroll > 0 && maxTranslate > 0) {
-						const ratio = maxTranslate / maxScroll;
-						const top = work.getBoundingClientRect().top + window.scrollY;
-						if (window.scrollY >= top - 50 && window.scrollY <= top + maxScroll + 50) {
-							window.scrollBy({ top: e.deltaX / ratio });
-						}
-					}
-				}
-			},
-			{ passive: true }
-		);
-
-		// Handle horizontal touch swipe drag on mobile/touch devices
-		let startX = 0;
-		let startY = 0;
-		let startScrollY = 0;
-		let isTouching = false;
-		let isHorizontalSwipe = null;
-
-		work.addEventListener(
-			'touchstart',
-			(e) => {
-				if (e.touches.length !== 1) return;
-				startX = e.touches[0].clientX;
-				startY = e.touches[0].clientY;
-				startScrollY = window.scrollY;
-				isTouching = true;
-				isHorizontalSwipe = null;
-			},
-			{ passive: true }
-		);
-
-		work.addEventListener(
-			'touchmove',
-			(e) => {
-				if (!isTouching || e.touches.length !== 1 || window.matchMedia('(prefers-reduced-motion: reduce)').matches)
-					return;
-				const currentX = e.touches[0].clientX;
-				const currentY = e.touches[0].clientY;
-				const dx = startX - currentX;
-				const dy = startY - currentY;
-
-				if (isHorizontalSwipe === null) {
-					if (Math.abs(dx) > 5 || Math.abs(dy) > 5) {
-						isHorizontalSwipe = Math.abs(dx) > Math.abs(dy);
-					}
-				}
-
-				if (isHorizontalSwipe) {
-					if (e.cancelable) e.preventDefault();
-					const maxScroll = work.offsetHeight - window.innerHeight;
-					const maxTranslate = Math.max(0, track.scrollWidth - window.innerWidth + window.innerWidth * 0.1);
-					if (maxScroll > 0 && maxTranslate > 0) {
-						const ratio = maxTranslate / maxScroll;
-						const top = work.getBoundingClientRect().top + startScrollY;
-						const targetScrollY = Math.min(top + maxScroll, Math.max(top, startScrollY + dx / ratio));
-						window.scrollTo({ top: targetScrollY });
-					}
-				}
-			},
-			{ passive: false }
-		);
-
-		const endTouch = () => {
-			isTouching = false;
-			isHorizontalSwipe = null;
-		};
-
-		work.addEventListener('touchend', endTouch, { passive: true });
-		work.addEventListener('touchcancel', endTouch, { passive: true });
-	}
 </script>
