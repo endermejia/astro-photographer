@@ -72,8 +72,16 @@ const schema = {
 		<link
 			rel="preload"
 			as="image"
-			imagesrcset="/assets/img/hero/a-400.avif 400w, /assets/img/hero/a-1920.avif 1920w"
-			imagesizes="100vw"
+			href="/assets/img/hero/a-400.avif"
+			media="(max-width: 700px)"
+			type="image/avif"
+			fetchpriority="high"
+		/>
+		<link
+			rel="preload"
+			as="image"
+			href="/assets/img/hero/a-1920.avif"
+			media="(min-width: 701px)"
 			type="image/avif"
 			fetchpriority="high"
 		/>

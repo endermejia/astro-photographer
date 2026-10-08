@@ -353,6 +353,11 @@ h2 em {
 	height: 100%;
 	object-fit: cover;
 }
+.project-image picture {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
 .project-large {
 	width: 440px;
 }
