@@ -2,17 +2,6 @@
 
 Portfolio fotográfico multilingüe desarrollado con Astro para Nhoa Sánchez. La experiencia combina una portada editorial, scroll horizontal controlado por scroll vertical y galerías navegables con Keen Slider.
 
-## Demo
-
-<a href="https://raw.githubusercontent.com/endermejia/astro-photographer/main/docs/media/nhoa-portfolio.mp4">
-  <img src="docs/screenshots/home-desktop.png" alt="Demo del portfolio Nhoa Sánchez" width="100%" />
-</a>
-
-<video controls muted playsinline preload="metadata" poster="https://raw.githubusercontent.com/endermejia/astro-photographer/main/docs/screenshots/home-desktop.png" width="100%">
-  <source src="https://raw.githubusercontent.com/endermejia/astro-photographer/main/docs/media/nhoa-portfolio.mp4" type="video/mp4" />
-  <a href="https://raw.githubusercontent.com/endermejia/astro-photographer/main/docs/media/nhoa-portfolio.mp4">Abrir demo MP4</a>
-</video>
-
 ## Capturas
 
 ### Desktop
@@ -91,8 +80,6 @@ src/
 ├── styles/redesign.css
 └── utils/photos.mjs
 docs/
-├── hyperframes/
-├── media/
 └── screenshots/
 ```
 
