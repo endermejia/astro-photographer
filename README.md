@@ -1,103 +1,97 @@
-# Nhoa Noir | Fotografía
+# Nhoa Sánchez | Fotografía
 
-A multilingual photography portfolio website built with Astro, showcasing the work of photographer Nhoa Noir.
+Portfolio fotográfico multilingüe desarrollado con Astro para Nhoa Sánchez. La experiencia combina una portada editorial, scroll horizontal controlado por scroll vertical y galerías navegables con Keen Slider.
 
-## 🔗 Website
+## Demo
 
-[https://nhoasanchez.com](https://nhoasanchez.com)
+[Ver vídeo de la experiencia](docs/media/nhoa-portfolio.mp4)
 
-## ✨ Features
+El vídeo se genera con [HyperFrames](https://hyperframes.heygen.com/) desde `docs/hyperframes/`.
 
-- **Responsive Design**: Optimized for all device sizes
-- **Multilingual Support**: Available in Spanish (default) and English
-- **Photo Albums**: Organized galleries of photography work
-- **Fast Performance**: Built with Astro for optimal loading speed
-- **SEO Optimized**: Includes sitemap generation and metadata
+## Capturas
 
-## 🛠️ Technologies
+### Desktop
 
-- [Astro](https://astro.build/) - The web framework for content-driven websites
-- [TypeScript](https://www.typescriptlang.org/) - Type-safe JavaScript
-- [PostCSS](https://postcss.org/) - CSS processing tools
-- [Sharp](https://sharp.pixelplumbing.com/) - Image processing
-- [Fontsource](https://fontsource.org/) - Self-hosted fonts
+![Home desktop](docs/screenshots/home-desktop.png)
 
-## 🚀 Getting Started
+![Galería desktop](docs/screenshots/gallery-desktop.png)
 
-### Prerequisites
+### Mobile
 
-- Node.js (v16.0.0 or higher)
-- npm (v8.0.0 or higher)
+![Home mobile](docs/screenshots/home-mobile.png)
 
-### Installation
+![Galería mobile](docs/screenshots/gallery-mobile.png)
 
-1. Clone the repository
+## Funcionalidades
 
-   ```bash
-   git clone https://github.com/yourusername/astro-photographer.git
-   cd astro-photographer
-   ```
+- Home editorial responsive con fotografía local de alta resolución.
+- Scroll vertical que desplaza horizontalmente las tarjetas de portfolio.
+- Cinco galerías: Escalada, Personas, Eventos, Negocios y Viajes.
+- Visor fullscreen con Keen Slider, drag táctil, flechas y teclado.
+- Bento grid responsive para las galerías.
+- Español como idioma principal y versión inglesa.
+- SEO, sitemap y datos estructurados.
+- Contacto directo por WhatsApp, email e Instagram.
+- Sin manifest PWA ni opción de instalar la web como aplicación.
 
-2. Install dependencies
+## Stack
 
-   ```bash
-   npm install
-   ```
+- [Astro](https://astro.build/)
+- [React](https://react.dev/)
+- [Keen Slider](https://keen-slider.io/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Prettier](https://prettier.io/) y `prettier-plugin-astro`
+- [Sharp](https://sharp.pixelplumbing.com/)
 
-3. Start the development server
+## Desarrollo
 
-   ```bash
-   npm start
-   ```
+Requisitos: Node `24.x` y pnpm `10.12.4`.
 
-4. Open your browser and navigate to `http://localhost:4321`
-
-## 📦 Project Structure
-
-```
-/
-├── assets/                # Static assets
-│   ├── img/               # Images
-│   │   ├── albums/        # Album photos
-│   │   └── hero/          # Hero images
-│   └── svg/               # SVG files
-├── public/                # Public assets (copied as-is)
-├── src/
-│   ├── components/        # UI components
-│   ├── i18n/              # Internationalization
-│   ├── layouts/           # Page layouts
-│   ├── pages/             # Page routes
-│   ├── scripts/           # Client-side scripts
-│   ├── styles/            # CSS styles
-│   └── utils/             # Utility functions
-├── astro.config.mjs       # Astro configuration
-├── package.json           # Project dependencies
-└── tsconfig.json          # TypeScript configuration
+```bash
+pnpm install
+pnpm start
 ```
 
-## 🔧 Available Scripts
+La web estará disponible en `http://localhost:4321`.
 
-- `npm start` - Start the development server
-- `npm run build` - Build the production site
-- `npm run start:prod` - Preview the production build
-- `npm run build:img` - Process images with Sharp
-- `npm run lint` - Run all linters
-- `npm run lint:fix` - Fix linting issues
-- `npm run test` - Run tests
+## Comandos
 
-## 🌐 Internationalization
+```bash
+pnpm run build
+pnpm run start:prod
+pnpm run lint
+pnpm run lint:fix
+pnpm run build:img
+pnpm run test
+```
 
-The website supports multiple languages:
+## Rutas
 
-- Spanish (default): `/es/`
-- English: `/en/`
+- Home en español: `/`
+- Home en inglés: `/en/`
+- Álbumes en español: `/albumes/escalada/`, `/albumes/personas/`, `/albumes/eventos/`, `/albumes/negocios/`, `/albumes/viajes/`
+- Álbumes en inglés: `/en/albums/climbing/`, `/en/albums/people/`, `/en/albums/events/`, `/en/albums/business/`, `/en/albums/travel/`
 
-Language files are located in `src/i18n/ui.ts`.
+## Estructura
 
-## 📝 License
+```text
+src/
+├── components/
+│   ├── RedesignHome.astro
+│   ├── Album.astro
+│   ├── GalleryPage.astro
+│   └── islands/AlbumLightbox.tsx
+├── layouts/Layout.astro
+├── pages/
+├── styles/redesign.css
+└── utils/photos.mjs
+docs/
+├── hyperframes/
+├── media/
+└── screenshots/
+```
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+## Autoría
 
-## 👤 Author
-
-- Nhoa Noir - [Website](https://nhoasanchez.com)
+- Fotografía: [Nhoa Sánchez](https://nhoasanchez.com)
+- Desarrollo: [Gabri Mejía](https://www.linkedin.com/in/gabrimejia/)
