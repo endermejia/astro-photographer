@@ -43,7 +43,22 @@ const whatsapp = 'https://wa.me/34687875777';
 			</a>
 		</div>
 		<div class="hero-visual">
-			<div class="hero-photo image-cover"></div>
+			<div class="hero-photo image-cover">
+				<picture>
+					<source srcset="/assets/img/hero/a-400.avif 400w, /assets/img/hero/a-1920.avif 1920w" type="image/avif" />
+					<source srcset="/assets/img/hero/a-400.webp 400w, /assets/img/hero/a-1920.webp 1920w" type="image/webp" />
+					<img
+						src="/assets/img/hero/a-1920.jpg"
+						srcset="/assets/img/hero/a-400.jpg 400w, /assets/img/hero/a-1920.jpg 1920w"
+						sizes="100vw"
+						width="1920"
+						height="1406"
+						fetchpriority="high"
+						decoding="async"
+						alt="Escalada en roca"
+					/>
+				</picture>
+			</div>
 			<div class="photo-caption">
 				<span>01 / 04</span>
 				<span>La belleza de lo real</span>
