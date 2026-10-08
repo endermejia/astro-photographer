@@ -200,7 +200,7 @@ const whatsapp = 'https://wa.me/34687875777';
 	const work = document.querySelector('.work');
 	let frame = 0;
 	const moveTrack = () => {
-		if (!track || !work || window.innerWidth <= 700) return;
+		if (!track || !work) return;
 		const top = work.offsetTop;
 		const range = Math.max(1, work.offsetHeight - window.innerHeight);
 		const progress = Math.min(1, Math.max(0, (window.scrollY - top) / range));
