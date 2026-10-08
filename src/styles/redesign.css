@@ -1547,11 +1547,10 @@ footer a {
 	.horizontal-track {
 		position: relative;
 		top: auto;
-		width: 100%;
-		max-width: 100%;
-		overflow-x: auto;
-		overflow-y: visible;
-		touch-action: pan-x;
+		width: max-content;
+		max-width: none;
+		overflow: visible;
+		touch-action: auto;
 		overscroll-behavior-x: contain;
 	}
 }
