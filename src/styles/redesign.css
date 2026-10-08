@@ -331,6 +331,12 @@ h2 em {
 .project-image {
 	position: relative;
 }
+.project-image img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
 .project-large {
 	width: 440px;
 }
@@ -450,6 +456,13 @@ h2 em {
 		linear-gradient(#a89e8d55, #a89e8d55),
 		url('https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1600&q=80');
 	background-position: center 40%;
+}
+.quote-image img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center 40%;
 }
 .quote-section blockquote {
 	position: relative;
@@ -1434,6 +1447,14 @@ footer a {
 }
 .quote-image {
 	background-image: linear-gradient(#a89e8d55, #a89e8d55), url('/assets/img/about-1920.jpg');
+}
+.project-one,
+.project-two,
+.project-three,
+.project-four,
+.project-five,
+.quote-image {
+	background-image: none;
 }
 @media (max-width: 700px) {
 	.work {
