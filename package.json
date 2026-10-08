@@ -3,6 +3,7 @@
 	"type": "module",
 	"version": "1.0.0",
 	"private": true,
+	"packageManager": "pnpm@10.12.4",
 	"description": "Nhoa Sánchez | Fotografía",
 	"keywords": [
 		"website",
@@ -11,7 +12,7 @@
 	],
 	"homepage": "https://nhoasanchez.com",
 	"engines": {
-		"node": ">=16.0.0",
+		"node": "20.x",
 		"npm": ">=8.0.0"
 	},
 	"devDependencies": {
