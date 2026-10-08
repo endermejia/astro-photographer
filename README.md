@@ -4,11 +4,9 @@ Portfolio fotográfico multilingüe desarrollado con Astro para Nhoa Sánchez. L
 
 ## Demo
 
-<video src="./docs/media/nhoa-portfolio.mp4" controls muted playsinline width="100%">
-  Tu navegador no puede reproducir este vídeo. [Descargar el vídeo](docs/media/nhoa-portfolio.mp4).
+<video src="https://raw.githubusercontent.com/endermejia/astro-photographer/main/docs/media/nhoa-portfolio.mp4" controls muted playsinline width="100%">
+  Tu navegador no puede reproducir este vídeo.
 </video>
-
-El vídeo se genera con [HyperFrames](https://hyperframes.heygen.com/) desde `docs/hyperframes/`.
 
 ## Capturas
 
