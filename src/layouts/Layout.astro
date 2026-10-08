@@ -27,10 +27,7 @@ const schema = {
 	url: 'https://nhoasanchez.com',
 	image: 'https://nhoasanchez.com/assets/social.jpg',
 	email: 'mailto:ainhoasanchezyepes@gmail.com',
-	sameAs: [
-		'https://www.instagram.com/nhoanoir',
-		'https://www.linkedin.com/in/ainhoasanchezyepes'
-	],
+	sameAs: ['https://www.instagram.com/nhoanoir', 'https://www.linkedin.com/in/ainhoasanchezyepes'],
 	address: {
 		'@type': 'PostalAddress',
 		addressLocality: 'Castalla',
@@ -62,7 +59,7 @@ const schema = {
 
 		<!-- Prevent flash of unstyled content -->
 		<script is:inline>
-			(function() {
+			(function () {
 				// Check for saved theme preference or use the system preference
 				const savedTheme = localStorage.getItem('theme');
 				const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
@@ -76,18 +73,11 @@ const schema = {
 				}
 			})();
 		</script>
-
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
 		<meta name="author" content="Nhoa Sánchez" />
-		<meta
-			name="keywords"
-			content={t('meta.keywords')}
-		/>
-		<meta
-			name="description"
-			content={t('meta.description')}
-		/>
+		<meta name="keywords" content={t('meta.keywords')} />
+		<meta name="description" content={t('meta.description')} />
 
 		<meta name="copyright" content={`© ${currentYear} Nhoa Sánchez | Fotografía`} />
 
@@ -111,10 +101,7 @@ const schema = {
 		<meta property="og:title" content={pageTitle} />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content={canonicalUrl} />
-		<meta
-			property="og:description"
-			content={t('meta.description')}
-		/>
+		<meta property="og:description" content={t('meta.description')} />
 		<!-- TODO: Replace image -->
 		<meta property="og:image" content="https://nhoasanchez.com/assets/social.jpg" />
 		<meta property="og:image:width" content="1280" />
@@ -128,7 +115,6 @@ const schema = {
 
 		<!-- Structured Data -->
 		<script type="application/ld+json" set:html={JSON.stringify(schema)} />
-
 	</head>
 	<body id="home" class={bodyClass}>
 		<slot />
