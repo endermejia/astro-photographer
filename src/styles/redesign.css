@@ -152,6 +152,10 @@ h2 em {
 	color: var(--orange);
 	font-weight: 500;
 }
+.manifesto h2 em,
+.services h2 em {
+	color: #98401f;
+}
 .hero-intro {
 	max-width: 270px;
 	font-size: 13px;
@@ -551,7 +555,9 @@ footer {
 	letter-spacing: 0.05em;
 }
 footer a {
-	color: var(--orange);
+	color: #f19a75;
+	text-decoration: underline;
+	text-underline-offset: 0.2em;
 }
 .footer-heart {
 	display: inline-block;
