@@ -11,9 +11,7 @@ interface Photo {
 
 interface Props {
 	photos: Photo[];
-	lang: string;
 	translations: {
-		title: string;
 		climbing: string;
 		people: string;
 		events: string;

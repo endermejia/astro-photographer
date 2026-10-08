@@ -15,7 +15,6 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const translations = {
-	title: t('photos.title'),
 	climbing: t('photos.climbing'),
 	people: t('photos.people'),
 	events: t('photos.events'),
@@ -24,4 +23,4 @@ const translations = {
 };
 ---
 
-<AlbumLightbox client:load photos={pics} lang={lang} translations={translations} albumName={album} />
+<AlbumLightbox client:load photos={pics} translations={translations} albumName={album} />

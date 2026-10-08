@@ -1,5 +1,0 @@
-p {
-	max-inline-size: var(--max-line-length);
-	font-weight: var(--font-weight-light);
-	text-align: justify;
-}

@@ -8,7 +8,9 @@ const albumNumbers = {
 	}),
 	events: Array.from({ length: 93 }, (_, index) => {
 		return index + 1;
-	}).filter((number) => number !== 83),
+	}).filter((number) => {
+		return number !== 83;
+	}),
 	business: [
 		1,
 		2,
