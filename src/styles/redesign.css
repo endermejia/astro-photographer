@@ -524,6 +524,13 @@ footer {
 footer a {
 	color: var(--orange);
 }
+.footer-heart {
+	display: inline-block;
+	color: var(--orange);
+	font-size: 1.5em;
+	line-height: 0.7;
+	vertical-align: -0.12em;
+}
 .gallery-page {
 	background: var(--ink);
 	color: var(--paper);

@@ -188,7 +188,11 @@ const whatsapp = 'https://wa.me/34687875777';
 <footer>
 	<span>© 2026 Nhoa Sánchez</span>
 	<span>
-		Hecho con <span aria-label="amor">♥</span> por{' '}
+		Hecho con{' '}
+		<span class="footer-heart" aria-label="amor">
+			♥
+		</span>{' '}
+		por{' '}
 		<a href="https://www.linkedin.com/in/gabrimejia/" target="_blank" rel="noreferrer">
 			Gabri Mejía
 		</a>
@@ -218,4 +222,10 @@ const whatsapp = 'https://wa.me/34687875777';
 	window.addEventListener('resize', scheduleTrack);
 	window.addEventListener('load', moveTrack);
 	if (document.fonts) document.fonts.ready.then(moveTrack);
+	if (window.location.hash) {
+		window.addEventListener('load', () => {
+			const target = document.querySelector(window.location.hash);
+			if (target) requestAnimationFrame(() => target.scrollIntoView({ block: 'start' }));
+		});
+	}
 </script>
